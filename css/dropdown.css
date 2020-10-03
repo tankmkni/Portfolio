@@ -1,0 +1,61 @@
+.navigation {
+  /* flexboxで要素を真ん中に指定 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align:center;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  height: 60px;
+  /* ポジションを相対的な位置に指定 */
+  position:relative;
+}
+.navigation ul {
+  display: block;
+  width: 100%;
+  background: #fff;
+  /* リストの無駄なスタイルを削除 */
+  list-style:none;
+  padding:0 20px;
+  margin: 0;
+  height: 60px;
+}
+.navigation ul li {
+  display: inline-block;
+  border-top: 1px solid #888888;
+  border-bottom: 1px solid #888888;
+}
+.navigation ul li a {
+  color:#333333;
+  display:block;
+  padding:0px 40px;
+  /* リンク指定した要素のスタイルを削除 */
+  text-decoration:none;
+  float: left;
+  height: 50px;
+  line-height: 50px;
+}
+.navigation ul li:hover {
+  /* ナビゲーションをマウスオーバーした際のアニメーションと速度を指定 */
+  transition: .7s;
+  background: lightslategray;
+}
+.navigation ul li:hover > a{
+  /* ナビゲーションの文字をマウスオーバーした際のアニメーションと速度を指定 */
+  transition: .5s;
+  color:#fff;
+}
+.navigation ul li:hover > ul {
+  display:block;
+}
+.navigation ul ul {
+  background: #fff;
+  padding:0;
+  text-align: center;
+  display:none;
+  width: 100%;
+  position: absolute;
+  top: 50px;
+  left: 0px;
+}

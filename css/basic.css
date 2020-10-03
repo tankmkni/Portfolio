@@ -1,0 +1,54 @@
+/*全体の設定
+---------------------------------------------------------------------------*/
+body {
+	margin: 0px;
+	padding: 0px;
+	-webkit-text-size-adjust: none;
+	color: #666;	/*全体の文字色*/
+	font-family: "ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
+	font-size: 16px;	/*文字サイズ*/
+	line-height: 2;		/*行間*/
+	background: #fff;	/*背景色*/
+}
+h1,h2,h3,h4,h5,p,ul,ol,li,dl,dt,dd,form,figure,form,select,input,textarea {margin: 0px;padding: 0px;font-size: 100%;font-weight: normal;}
+ul{list-style-type:none}/*リストマーカー無し*/
+img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
+
+/*リンク（全般）設定
+---------------------------------------------------------------------------*/
+a {
+	color: #666;	/*リンクテキストの色*/
+	transition: 0.3s;	/*マウスオン時の移り変わるまでの時間設定。0.3秒。*/
+}
+a:hover {
+	color: #224acf;	/*マウスオン時の文字色*/
+}
+
+/*コンテナー（ホームページを囲む一番外側のブロック）
+---------------------------------------------------------------------------*/
+#container {
+	max-width: 1400px;	/*ブロックの最大幅*/
+	margin: 0 auto;
+	padding: 0 1%;
+}
+
+/*ヘッダー（ロゴが入った最上段のブロック）
+---------------------------------------------------------------------------*/
+header{margin:5px;}
+/*ロゴ画像設定*/
+#mainimg {
+	display: table-cell;/* IE8から使用可能 */
+	width: 98vw;	/*画像幅*/
+	height: 70vh;
+	margin: 1vh auto 1vh;	/*ロゴの上と下に40pxスペースを空ける設定*/
+	text-align: center;
+	vertical-align: middle; /*display: table-cell;でテキストが縦方向中央に*/
+	font-size: 8vmin;
+	font-weight: bold;
+	color: floralwhite;
+	text-shadow:  
+		2px  2px 10px blue ,
+               -2px  2px 10px blue ,
+                2px -2px 10px blue ,
+               -2px -2px 10px blue;        /* 文字の影 */
+}
