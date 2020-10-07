@@ -39,7 +39,7 @@ header{margin:5px;}
 #mainimg {
 	display: table-cell;/* IE8から使用可能 */
 	width: 98vw;	/*画像幅*/
-	height: 70vh;
+	height: 450px;
 	margin: 1vh auto 1vh;	/*ロゴの上と下に40pxスペースを空ける設定*/
 	text-align: center;
 	vertical-align: middle; /*display: table-cell;でテキストが縦方向中央に*/

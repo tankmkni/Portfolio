@@ -1,0 +1,97 @@
+@charset "UTF-8";
+body{
+	background-color:transparent;
+	position:relative
+	height: 90vh;
+	width: 90vh;
+}
+#originalClock{
+	width:100px;
+	border: solid 7px #333;
+	border-radius: 150px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
+#clock{
+	border: solid 7px #333;
+	border-radius: 150px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+
+/***どこつぶマークの時計********************************************************************/
+#clock_box{
+	width:100px;
+	height:100px;
+	background-color:transparent;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}
+#clock_box:active{
+	transform: scale(1.1) translate(-45%,-45%);
+	top: 50%;
+	left: 50%;
+}
+#docoTsubuClock{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100px;
+	border: none;
+	background-size:100px;
+	padding:0;
+}
+#secondMark{
+	width:100px;
+	height:100px;
+
+}
+/*******************************************************************************************/
+
+/***コスモクロック風************************************************************************/
+#cosumoClock_box{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	width: 200px;
+	height: 200px;
+}
+#cosumoClock{
+	box-shadow:2px 2px 5px 1px rgba( 0, 0, 0, .1)
+			 ,-2px -2px 5px 1px rgba( 0, 0, 0, .1) inset;
+	border: none;
+	border-radius:50%;
+	padding: 0;
+}
+#digitalClock{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	background-color: white;
+	border: ridge thick black;
+	border-radius: 50px;
+	padding: 1px 10px 0px 10px;
+	margin: 0;
+	background-color: midnightblue;
+	color: gold;
+	font-weight: bold;
+}
+#digitalClock:active{
+	transform: scale(1.1) translate(-45%,-45%);
+	top: 50%;
+	left: 50%;
+}
+/*******************************************************************************************/

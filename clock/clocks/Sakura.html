@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<link rel="stylesheet" href="../css/clock.css" />
+	<script type="text/javascript" src="../js/round_clock.js"></script>
+	<title>DocotsubuClock</title>
+</head>
+<body onload="setInterval('drawDocoTsubuClock()',10)">
+	<div id="clock_box" onclick="switchMotion();randomClockHandColor()">
+		<img id="secondMark" src="../img/sakura.png">
+		<canvas id="docoTsubuClock" width="200px" height="200px"></canvas>
+	</div>
+</body>
+</html>

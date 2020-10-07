@@ -1,0 +1,40 @@
+body{
+	background-image: url(../img/background.png);
+	display:relative;
+	font-size:24px;
+}
+#container{
+	display:absolute;
+	margin-left: auto;
+	margin-right: auto;
+	width:700px;
+	text-align: center;
+}
+h2{
+	text-align: left;
+	margin-left: 10px;
+	color:blue;
+	font-size:40px;
+}
+#clockArea{
+	width:700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+iframe{
+	display:inline;
+	height:auto;
+	background:transparent;
+	border:none;
+	width:220px;
+	height:220px;
+	margin:0px 30px;
+}
+.backimg{
+	width:120px;
+	height:120px;
+	margin:0px 0px;
+}
+fieldset{
+	text-align: left;
+}
