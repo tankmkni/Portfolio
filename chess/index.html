@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="css/basic.css" />
+<title>index</title>
+</head>
+<body>
+<div id="container">
+<div id="header">
+<p>Chess</p>
+<img src="img/board_selection.png">
+<div id="lower"><img src="img/first_move.png">
+<img src="img/castling.png">
+</div></div>
+<fieldset>
+	<legend>作品プロフィール</legend>
+	<dl>
+		<dt>使用言語：Java</dt></br>
+		<dt>開発環境：eclipse</dt></br>
+		<dt>概要：</dt>
+		<dd>訓練校で各自RPGを作って発表するという課題が出されましたが、ゲームならなんでも良いとのことでチェスを作ることにしました。<br/>
+		オブジェクト指向、継承、多態性、カプセル化の理解に役立ちました。<br/>
+		クラス分けや部品化の構成が増築工事の繰り返しで複雑になってしまい、最初の設計の重要性を実感しました。
+		</dd></br>
+		<dt>機能：</dt>
+		<dd><li>盤と駒をeclipseのコンソールでカラーで表現</li>
+			<li>ゲーム開始前に盤と駒の色を複数のランダムパターンの中から選択</li>
+			<li>それぞれの駒の移動を再現</li>
+			<li>特殊な移動の再現（キャスリング、ポーンの動き、アンパッサン）</li>
+			<li>移動前と移動後の盤を並べて表記</li>
+			<li>手番に合わせ盤を反転</li>
+		</dd><br/>
+		<dt>その他：</dt>
+		<dd>ANSIのカラーコードでの彩色にしてしまったのでWindowsで実行しても反映されず、駒も環境依存文字（♔♕♗♘♖♙）を使ってしまったためUTF8とSJISの違いでeclipse以外で動作させられずにいます。<br/>
+		初めての制作物とはいえ、手抜かりだらけでお恥ずかしい...
+		</dd><br/>
+		<dt><a href="src.zip">ソースのダウンロード</a></dt>
+	</dl>
+</fieldset>
+<fieldset>
+	<legend>おまけ</legend>
+	<p>ついでに作ったjavaで出力するドット絵です</p>
+	<img src="img/pixel_art.png">
+</fieldset>
+</div>
+</body>
+</html>

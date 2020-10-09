@@ -7,35 +7,27 @@ body{
 	display:absolute;
 	margin-left: auto;
 	margin-right: auto;
-	width:700px;
+	width:800px;
 	text-align: center;
 }
-p{
+#header p{
 	text-align: left;
 	margin-left: 10px;
+	margin-bottom: 0px;
 	color:blue;
 	font-size:40px;
 	font-weight: bold;
 }
-#clockArea{
-	width:700px;
-	margin-left: auto;
-	margin-right: auto;
-}
-iframe{
+img{
 	display:inline;
 	height:auto;
 	background:transparent;
-	border:none;
-	width:220px;
-	height:220px;
-	margin:0px 30px;
-}
-.backimg{
-	width:120px;
-	height:120px;
+	border:solid 1px;
+	width:700px;
+	height:400px;
 	margin:0px 0px;
 }
+#lower img{width:360px;}
 fieldset{
 	text-align: left;
 }
