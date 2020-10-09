@@ -1,0 +1,29 @@
+body{
+	background-image: url(../img/background.png);
+	display:relative;
+	font-size:24px;
+}
+#container{
+	display:absolute;
+	margin-left: auto;
+	margin-right: auto;
+	width:900px;
+	text-align: center;
+}
+#header p{
+	text-align: left;
+	margin-left: 10px;
+	margin-bottom: 0px;
+	color:blue;
+	font-size:40px;
+	font-weight: bold;
+}
+img{
+	background:transparent;
+	border:solid 1px;
+	margin:0px 0px;
+}
+#upper img{display:inline;}
+fieldset{
+	text-align: left;
+}

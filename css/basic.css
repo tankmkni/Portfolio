@@ -1,7 +1,6 @@
 /*全体の設定
 ---------------------------------------------------------------------------*/
 body {
-	height:1000px;
 	margin: 0px;
 	padding: 0px;
 }
@@ -26,14 +25,9 @@ a:hover {
 	margin: 0 auto;
 	padding: 0 1%;
 }
-
-/*ヘッダー（ロゴが入った最上段のブロック）
----------------------------------------------------------------------------*/
-header{margin:5px;}
-/*ロゴ画像設定*/
 #mainimg {
-	display: table-cell;/* IE8から使用可能 */
-	width: 98vw;	/*画像幅*/
+	display: table-cell;	/* IE8から使用可能 */
+	width: 98vw;			/*画像幅*/
 	height: 450px;
 	margin: 1vh auto 1vh;	/*ロゴの上と下に40pxスペースを空ける設定*/
 	text-align: center;

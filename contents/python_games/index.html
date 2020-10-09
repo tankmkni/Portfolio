@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="css/basic.css" />
+<title>index</title>
+</head>
+<body>
+<div id="container">
+<div id="header">
+<p>Games</p>
+<div id="upper"><img src="img/maze.png" width="560" height="392">
+<img src="img/moon_lander.png" width="320" height="480">
+</div>
+<img src="img/shooting.png" width="640" height="480">
+</div>
+<fieldset>
+	<legend>作品プロフィール</legend>
+	<dl>
+		<dt>使用言語：Python</dt></br>
+		<dt>概要：</dt>
+		<dd>日経ソフトウェア 2020年5月号の付録で紹介されていた記事を基に作成しました。<br/>
+			加速度の設定や衝突判定、ミサイルの発射角度の計算など面白いと感じました。<br/>
+			resize()で画像が簡単に加工できたのも初心者の私には感動ものでした。<br/>
+			訓練校のクラスメイトのアイディアで、Moon LanderにSPEEDとHEIGHTメーターを追加しました。いずれタコメーターにしてみたいです。
+		</dd></br>
+		<dt>迷路：</dt>
+		<dd>箱を避けて上下左右に動きます。
+		</dd></br>
+		<dt>月面着陸：</dt>
+		<dd>スペースキーを押すとスタートです。<br/>
+			月の重力に引かれてロケットが下降してくるので、「↑」キーで速度を調整します。<br/>
+			着陸の瞬間に速度が1.0以下になるよう速度を合わせます。
+		</dd></br>
+		<dt>シューティング：</dt>
+		<dd>スペースキーを押すとスタートです。<br/>
+			「←」「→」キーで敵のミサイルを避けながら自分のミサイルを当てます。<br/>
+			ミサイルは何かキーを押せば発射されます。<br/>
+			敵のHPを0にしたらクリアです。
+		</dd></br>
+		<dt><a href="src.zip">ソースのダウンロード</a></dt>
+	</dl>
+</fieldset>
+</div>
+</body>
+</html>

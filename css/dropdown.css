@@ -6,7 +6,7 @@
   text-align:center;
   width: 100%;
   padding: 0;
-  margin: 0;
+  margin-top: 10px;
   height: 60px;
   /* ポジションを相対的な位置に指定 */
   position:relative;
