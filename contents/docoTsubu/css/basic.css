@@ -1,0 +1,38 @@
+body{
+	background-image: url(../img/background.png);
+	display:relative;
+	font-size:24px;
+	color: white;
+}
+#container{
+	display:absolute;
+	margin-left: auto;
+	margin-right: auto;
+	width:800px;
+	text-align: center;
+}
+#header p{
+	text-align: left;
+	margin-left: 10px;
+	margin-bottom: 0px;
+	color:blue;
+	font-size:40px;
+	font-weight: bold;
+}
+img{
+	display:inline;
+	height:auto;
+	background:transparent;
+	border:solid 1px;
+	width:700px;
+	height:400px;
+	margin:0px 0px;
+}
+#lower img{
+	width:360px;
+	height:300px;
+}
+fieldset{
+	text-align: left;
+	border-color: white;
+}
