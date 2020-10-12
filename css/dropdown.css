@@ -34,24 +34,24 @@
   /* リンク指定した要素のスタイルを削除 */
   text-decoration:none;
   float: left;
-  height: 50px;
+  /*height: 50px;*/
   line-height: 50px;
 }
 .navigation ul li:hover {
   /* ナビゲーションをマウスオーバーした際のアニメーションと速度を指定 */
-  transition: .7s;
+  transition: 2s;
   background: lightslategray;
 }
 .navigation ul li:hover > a{
   /* ナビゲーションの文字をマウスオーバーした際のアニメーションと速度を指定 */
   transition: .5s;
-  color:#fff;
+  color:white;
 }
 .navigation ul li:hover > ul {
   display:block;
 }
 .navigation ul ul {
-  background: #fff;
+  background: white;
   padding:0;
   text-align: center;
   display:none;
