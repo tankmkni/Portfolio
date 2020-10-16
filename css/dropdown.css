@@ -17,24 +17,23 @@
   background: #fff;
   /* リストの無駄なスタイルを削除 */
   list-style:none;
-  padding:0 20px;
+  padding:0 1px;
   margin: 0;
   height: 60px;
 }
 .navigation ul li {
   display: inline-block;
-  margin:0px 5px;
+  margin:0px 1px;
   border-top: 1px solid #888888;
   border-bottom: 1px solid #888888;
 }
 .navigation ul li a {
   color:#333333;
   display:block;
-  padding:0px 40px;
+  padding:0px 25px;
   /* リンク指定した要素のスタイルを削除 */
   text-decoration:none;
   float: left;
-  /*height: 50px;*/
   line-height: 50px;
 }
 .navigation ul li:hover {
@@ -52,7 +51,6 @@
 }
 .navigation ul ul {
   background: white;
-  padding:0;
   text-align: center;
   display:none;
   width: 100%;
@@ -60,7 +58,17 @@
   top: 50px;
   left: 0px;
 }
-.navigation ul ul img,iframe{
-	width: 20px;
-	height: 20px;
+.navigation ul ul .ico{
+	display: flex;				/*タグ内の要素を上下左右中央寄せ*/
+    justify-content: center;	/*左右中央揃え*/
+    align-items: center;		/*上下中央揃え*/
+	width: 25px;
+	height: 25px;
+    font-size: 23px;
+}
+.navigation ul ul li{background: white;}
+.navigation ul ul a{
+    display: flex;				/*aタグ内の要素を上下左右中央寄せ*/
+    justify-content: center;	/*左右中央揃え*/
+    align-items: center;		/*上下中央揃え*/
 }
