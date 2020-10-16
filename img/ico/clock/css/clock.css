@@ -1,0 +1,28 @@
+@charset "UTF-8";
+body{
+	background-color:transparent;
+	position:relative
+	height: 100vh;
+	width: 100vw;
+}
+/*#clock{
+	height: 85vh;
+	width: 85vh;
+	border: solid 7vh #333;
+	border-radius: 100%;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+}*/
+#clock{
+	width:100px;
+	height:100px;
+	border: solid 7px #333;
+	border-radius: 150px;
+	margin-top: 10px;
+	margin-left: auto;
+	margin-right: auto;
+}
