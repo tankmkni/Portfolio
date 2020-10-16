@@ -3,20 +3,19 @@ body{
 	display:relative;
 	font-size:24px;
 }
+h1{
+	text-align: left;
+	margin-left: 10px;
+	margin-bottom: 0px;
+	color:blue;
+	font-size:40px;
+}
 #container{
 	display:absolute;
 	margin-left: auto;
 	margin-right: auto;
 	width:800px;
 	text-align: center;
-}
-#header p{
-	text-align: left;
-	margin-left: 10px;
-	margin-bottom: 0px;
-	color:blue;
-	font-size:40px;
-	font-weight: bold;
 }
 img{
 	display:inline;
@@ -27,7 +26,15 @@ img{
 	height:400px;
 	margin:0px 0px;
 }
+#lower .sheet{
+	display:inline-block;
+}
 #lower img{width:360px;}
+.sheet p{
+	font-size:18px;
+	margin-top: 0px;
+	padding-top: 0px;
+}
 fieldset{
 	text-align: left;
 }
