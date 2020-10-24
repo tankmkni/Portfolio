@@ -17,9 +17,6 @@ body {
 	position: relative;
 	width: 98vw;
 	height: 39vw;
-	font-size: 8vmin;
-	font-weight: bold;
-	color: floralwhite;
 }
 #main_img{
 	max-width: 100%;
@@ -29,7 +26,9 @@ body {
 }
 #portfolio{
 	z-index:1;
-	font-size: 5vw;
+	font-size: 6vw;
+	font-weight: bold;
+	color: floralwhite;
 	position: absolute;
 	top: 50%;
 	left: 50%;
