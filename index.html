@@ -1,71 +1,75 @@
 <!DOCTYPE html>
 <html>
 <head>
- <meta charset="utf-8"/>
- <link rel="stylesheet" href="css/basic.css" />
- <link rel="stylesheet" href="css/dropdown.css" />
- <title>Portfolio</title>
+<meta charset="utf-8"/>
+<link rel="stylesheet" href="css/basic.css" />
+<link rel="stylesheet" href="css/dropdown.css" />
+<script type="text/javascript" src="js/switch_Img.js"></script>
+<title>Portfolio</title>
 </head>
-<body>
+<body onload="timeZone()">
 <div id="container">
-<div class="navigation">
-<ul>
-  <li><a href="index.html">Home</a></li>
-  <li><a href="#">About</a>
-    <ul>
-      <li><a href="#">令和プログラマーな（令和にプログラミングを始めた）私の作品集です。</a>
-      	<ul>
-      		<li><a href="#">私自身のオリジナル作品と、専門書や雑誌の記事を基に学習の為に制作した作品です。</a></li>
-      	</ul></li>
-    </ul></li>
-  <li><a href="#">Product</a>
-    <ul>
-      <li><a href="#">Original</a>
-        <ul>
-          <li><a href="https://tankmkni.github.io/EightQueen/">
-          	<span class="ico">♛</span>
-          		&nbsp; EightQueen &nbsp;
-          	<span class="ico">♛</span>
-          </a></li>
-          <li><a href="contents/chess/index.html">
-          	<span class="ico">♚</span>
-          		&nbsp; Chess &nbsp;
-          	<span class="ico">♞</span>
-          </a></li>
-        </ul>
-      </li>
-      <li><a href="#">Emulate</a>
-        <ul>
-          <li><a href="contents/clock/index.html">
-          	<iframe class="ico" src="img/ico/clock/Original.html" scrolling="no" frameborder="no">
-				このページでは、インラインフレームを使用しています。<br/>
-				対応しているブラウザで表示願います。
-			</iframe>
-          		&nbsp; Clocks &nbsp;
-          	<iframe class="ico" src="img/ico/clock/Original.html" scrolling="no" frameborder="no"></iframe>
-          </a></li>
-          <li><a href="contents/docoTsubu/index.html">
-             <img class="ico" src="contents/clock/img/docoTsubu_pink.PNG">
-             	&nbsp; Mutter App &nbsp;
-             <img class="ico" src="contents/clock/img/docoTsubu_pink.PNG">
-          </a></li>
-          <li><a href="contents/python_games/index.html">
-          	<span class="ico">🎮</span>
-          		&nbsp; Games &nbsp;
-          	<span class="ico">🎮</span>
-          </a></li>
-          <li><a href="contents/Custmaer_Manage/index.html">
-          	<img class="ico" src="img/ico/custmaer_manage.png">
-          		&nbsp; Custmaer Manage &nbsp;
-          	<img class="ico" src="img/ico/custmaer_manage.png">
-          </a></li>
-        </ul>
-      </li>
-    </ul>
-  </li>
- </ul>
-</div>
-<div id="mainimg" style="background-image:url('img/mainimg.jpg');">Portfolio</div> 
+	<div class="navigation">
+		<ul>
+			<li><a href="index.html">Home</a></li>
+			<li><a href="#">About</a>
+				<ul>
+					<li><a href="#">令和プログラマーな（令和にプログラミングを始めた）私の作品集です。</a>
+						<ul>
+							<li><a href="#">私自身のオリジナル作品と、専門書や雑誌の記事を基に学習の為に制作した作品です。</a></li>
+						</ul></li>
+				</ul></li>
+			<li><a href="#">Product</a>
+				<ul>
+					<li><a href="#">Original</a>
+						<ul>
+							<li><a href="https://tankmkni.github.io/EightQueen/">
+								<span class="ico">♛</span>
+									&nbsp; EightQueen &nbsp;
+								<span class="ico">♛</span>
+							</a></li>
+							<li><a href="contents/chess/index.html">
+								<span class="ico">♚</span>
+									&nbsp; Chess &nbsp;
+								<span class="ico">♞</span>
+							</a></li>
+						</ul></li>
+					<li><a href="#">Emulate</a>
+						<ul>
+							<li><a href="contents/clock/index.html">
+								<iframe class="ico" src="img/ico/clock/clock.html" scrolling="no" frameborder="no">
+									このページでは、インラインフレームを使用しています。<br/>
+									対応しているブラウザで表示願います。
+								</iframe>
+									&nbsp; Clocks &nbsp;
+								<iframe class="ico" src="img/ico/clock/clock.html" scrolling="no" frameborder="no"></iframe>
+							</a></li>
+							<li><a href="contents/docoTsubu/index.html">
+								<img class="ico" src="contents/clock/img/docoTsubu_pink.PNG">
+									&nbsp; Mutter App &nbsp;
+								<img class="ico" src="contents/clock/img/docoTsubu_pink.PNG">
+							</a></li>
+							<li><a href="contents/python_games/index.html">
+								<span class="ico">🎮</span>
+									&nbsp; Games &nbsp;
+								<span class="ico">🎮</span>
+							</a></li>
+							<li><a href="contents/Custmaer_Manage/index.html">
+								<img class="ico" src="img/ico/custmaer_manage.png">
+									&nbsp; Custmaer Manage &nbsp;
+								<img class="ico" src="img/ico/custmaer_manage.png">
+							</a></li>
+						</ul>
+					</li>
+				</ul>
+			</li>
+		</ul>
+	</div>
+	<div id="img_box" onclick="switchImg()">
+		<img id="main_img"><!--srcはscriptで指定-->
+		<div id="portfolio">Portfolio</div>
+	</div>
+	<span id="comment">※画像をクリックすると画像が切り替わります（時間帯で最初に表示される画像が変わります）</span>
 </div>
 </body>
 </html>

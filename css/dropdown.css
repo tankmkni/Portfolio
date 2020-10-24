@@ -1,74 +1,78 @@
 .navigation {
-  /* flexboxで要素を真ん中に指定 */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align:center;
-  width: 100%;
-  padding: 0;
-  margin-top: 10px;
-  height: 60px;
-  /* ポジションを相対的な位置に指定 */
-  position:relative;
+	/* flexboxで要素を真ん中に指定 */
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align:center;
+	width: 98vw;
+	padding: 0px;
+	margin-top: 1vw;
+	margin-bottom: 0.5vw;
+	/* ポジションを相対的な位置に指定 */
+	position:relative;
+	z-index:2;
 }
 .navigation ul {
-  display: block;
-  width: 100%;
-  background: #fff;
-  /* リストの無駄なスタイルを削除 */
-  list-style:none;
-  padding:0 1px;
-  margin: 0;
-  height: 60px;
+	display: block;
+	background: white;
+	height: 6vw;
+	/* リストの無駄なスタイルを削除 */
+	list-style:none;
+	margin: 0px;
+	padding: 0px;
 }
 .navigation ul li {
-  display: inline-block;
-  margin:0px 1px;
-  border-top: 1px solid #888888;
-  border-bottom: 1px solid #888888;
+	display: inline-block;
+	border-top: 0.1vw solid silver;
+	border-bottom: 0.1vw solid silver;
+}
+a {
+	font-size: 2vw;
+	color: black;
+	/*マウスオン時の移り変わるまでの時間設定*/
+	transition: 0.5s;
+}
+/*マウスオン時の文字と背景の色*/
+a:hover {
+	color:white;
+	background: silver;
 }
 .navigation ul li a {
-  color:#333333;
-  display:block;
-  padding:0px 25px;
-  /* リンク指定した要素のスタイルを削除 */
-  text-decoration:none;
-  float: left;
-  line-height: 50px;
-}
-.navigation ul li:hover {
-  /* ナビゲーションをマウスオーバーした際のアニメーションと速度を指定 */
-  transition: 2s;
-  background: lightslategray;
-}
-.navigation ul li:hover > a{
-  /* ナビゲーションの文字をマウスオーバーした際のアニメーションと速度を指定 */
-  transition: .5s;
-  color:white;
+	display:block;
+	padding:0px 10vw;
+	/* リンク指定した要素のスタイルを削除 */
+	text-decoration:none;
+	float: left;
+	line-height: 6vw;
 }
 .navigation ul li:hover > ul {
-  display:block;
+	display:block;
 }
 .navigation ul ul {
-  background: white;
-  text-align: center;
-  display:none;
-  width: 100%;
-  position: absolute;
-  top: 50px;
-  left: 0px;
+	display:none;
+	background: white;
+	width: 100%;
+	position: absolute;
+	top: 6vw;
+	left: 0px;
+	padding-bottom: 0.5vw;
 }
 .navigation ul ul .ico{
 	display: flex;				/*タグ内の要素を上下左右中央寄せ*/
-    justify-content: center;	/*左右中央揃え*/
-    align-items: center;		/*上下中央揃え*/
-	width: 25px;
-	height: 25px;
-    font-size: 23px;
+	justify-content: center;	/*左右中央揃え*/
+	align-items: center;		/*上下中央揃え*/
+	width: 3vw;
+	height: 3vw;
+	font-size: 3vw;
 }
-.navigation ul ul li{background: white;}
+.navigation ul ul li{
+	background: white;
+}
 .navigation ul ul a{
-    display: flex;				/*aタグ内の要素を上下左右中央寄せ*/
-    justify-content: center;	/*左右中央揃え*/
-    align-items: center;		/*上下中央揃え*/
+	display: flex;				/*aタグ内の要素を上下左右中央寄せ*/
+	justify-content: center;	/*左右中央揃え*/
+	align-items: center;		/*上下中央揃え*/
+}
+.navigation ul ul ul a{
+	padding:0px 2vw;
 }
