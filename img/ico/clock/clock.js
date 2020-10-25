@@ -17,11 +17,11 @@ var hourHandWidth = 35;
 var hourHandLength = 60;
 
 var minHandWidth = 25;
-var minHandLength = 90;
+var minHandLength = 85;
 
 var secHandWidth = 20;
-var secHandLength = 85;
-var secHandTailLength = 35;
+var secHandLength = 90;
+var secHandTailLength = 45;
 
 var centralAxisSize = 20;
 
@@ -30,10 +30,6 @@ var min;
 var sec;
 var mil;
 
-var tmpSec = 0;
-var secTenth = 0;
-var degTenth = 0;
-var degHundredth = 0;
 
 //オリジナルの時計------------------------------------------------------------------------------------------------------
 function drawOrigin(){

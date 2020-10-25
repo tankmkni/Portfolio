@@ -1,52 +1,66 @@
-//	main_imgのファイル名の配列(fn = file name)
-var fn = new Array("daytime","evening");
+//	main_imgのファイル名の配列
+var fileNames = new Array("daytime","evening");
 
-//	text-shadowの色の配列(ca = colors array)
-var ca = new Array("blue","orange");
+//	text-shadowの色の配列
+var shadowColors = new Array("blue","orange");
 
 //	配列の添え字を指定するグローバル変数
-var ind;
+var specifyIndex;
 
 
+
+function setValue(){
 /*	text-shadowと画像をセットする関数
 ----------------------------------------------------------------------------------------------------------*/
-function setValue(){
-
-	var sc = ca[ind];						//	shadow color
-	var is = "img/" + fn[ind] + ".jpg";		//	img src
-
-	var tag = document.getElementById("img_box");
-	tag.style.textShadow = " 2px  2px 10px " + sc
-						+ ",-2px  2px 10px " + sc
-						+ ", 2px -2px 10px " + sc
-						+ ",-2px -2px 10px " + sc;
-	tag = document.getElementById("main_img");
-	tag.setAttribute("src", is);
+	setImage();
+	setTextShadow();
 }
 
+
+function setImage(){
+/*	画像をセットする関数
+----------------------------------------------------------------------------------------------------------*/
+	var imgSrc = "img/" + fileNames[specifyIndex] + ".jpg";
+	var tag = document.getElementById("main_img");
+	tag.setAttribute("src", imgSrc);
+}
+
+
+function setTextShadow(){
+/*	text-shadowをセットする関数
+----------------------------------------------------------------------------------------------------------*/
+	var shadowColor = shadowColors[specifyIndex];
+	var tag = document.getElementById("img_box");
+	tag.style.textShadow =
+		"  2px  2px 10px " + shadowColor +
+		",-2px  2px 10px " + shadowColor +
+		", 2px -2px 10px " + shadowColor +
+		",-2px -2px 10px " + shadowColor ;
+}
+
+
+function timeZone(){
 /*	時間帯によって画像を切り替える関数
 ----------------------------------------------------------------------------------------------------------*/
-function timeZone(){
-
 	//	時間の情報を取得
-	var now = new Date();
-	var hour = now.getHours();
+	var hour = new Date().getHours();
 
 	//	条件によってindexの値を変更
 	if( hour < 6 || 16 < hour){
-		ind = 1;
+		specifyIndex = 1;
 	}else{
-		ind = 0;
+		specifyIndex = 0;
 	}
 	setValue();
 }
 
+
+function switchImg(){
 /*	画像をクリックすると画像を切り替える関数
 ----------------------------------------------------------------------------------------------------------*/
-function switchImg(){
-	ind++;
-	if( ind == fn.length ){
-		ind = 0;
+	specifyIndex++;
+	if( specifyIndex >= fileNames.length ){
+		specifyIndex = 0;
 	}
-	setValue();
+	setValue(); 
 }
