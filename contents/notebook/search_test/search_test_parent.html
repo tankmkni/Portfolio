@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<script type="text/javascript" src="search_test.js"></script>
+	<title>search_test</title>
+	<style>
+		iframe,object{ width: 100%; height: 220px; }
+		legend{ font-size: 20px; }
+		object{ border: solid; border-color: lightgray;}
+	</style>
+</head>
+<body>
+	<h1>メモ：パラメータの利用</h1>
+	<p>iframeのsrcに引数としてパラメータを設定し、子要素でそれを取得して利用する方法のまとめ<p/>
+	<h3>パラメータ</h3>
+		パラメータは、「?」+「変数名(パラメータ)=値」のかたちで構成されている<br/>
+		URLの最後に記述：&emsp;<code>../../memo.html?id=1</code><br/>
+		複数は「&」で連結：&emsp;<code>../../memo.html?id=1&name=memo</code><br/>
+		<br/>
+		パラメータの取得：locationオブジェクトのsearchプロパティを使用<br/>
+		&emsp;<code>var urlParam = location.search;</code><br/>
+		&emsp;<code>substring(1)</code> や <code>split("=" or "&")</code> で変数名と値を分離して利用できる </p>
+	<h3>アンカー（ハッシュ）の場合</h3>
+	<p>URLの最後に記述：&emsp;<code>../../memo.html#memo</code><br/>
+		アンカーの取得：locationオブジェクトのhashプロパティを使用<br/>
+		&emsp;<code>var urlHash = location.hash;</code><br/>
+		<br/>
+		アンカーにタグのidを指定しておけば、そのタグの位置を表示させられる。（ページ内遷移）<br/>
+		(複数は指定しないもの、らしい)<br/>
+		パラメータとアンカーを同時に指定もできる。<br/>
+		(指定する順番によっては正常に作動しないこともある、らしい)
+	<p/><br/>
+		
+	<h2>iframeで別のhtmlファイルを表示</h2>
+	<fieldset><legend>iframe１</legend>
+		<p>src="search_test_children.html"</p>
+		<iframe src="search_test_children.html"></iframe>
+	</fieldset><br/>
+	<fieldset><legend>iframe２</legend>
+		<p>src="search_test_children.html?q=search_test#hash_test"</p>
+		<iframe src="search_test_children.html?q=search_test#hash_test"></iframe>
+	</fieldset><br/>
+	<fieldset><legend>iframe３</legend>
+		<p>src="search_test_children.html?q=test&qq=test_test#hash_test"</p>
+		<iframe src="search_test_children.html?q=test&qq=test_test#hash_test"></iframe>
+	</fieldset><br/>
+	<p>jsファイルのコード</p>
+	<object data="search_test.js" type="text/plain"></object><br/>
+	<p>参考になったサイト</p>
+	<a href="https://www.tam-tam.co.jp/tipsnote/javascript/post9911.html">JavaScriptでURLのパラメータやアンカーを判断して処理を変更する方法</a><br/>
+	<a href="http://www.htmq.com/js/location_search.shtml?aaa">JavaScriptリファレンス > location.search</a><br/>
+	<br/>
+</body>
+</html>
