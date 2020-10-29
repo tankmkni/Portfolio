@@ -1,5 +1,6 @@
 /*** index **/
 object{ width: 100%; border: solid 1px lightgray;}
+#exe{ height: 1230px}
 
 /*** parent ***/
 iframe{ width: 100%; height: 320px }
