@@ -75,8 +75,15 @@ a:hover {
 	padding:0px 5vw;
 }
 #original a{
-	padding:0px 5vw;
 }
 #emulate a{
 	padding:0px 2vw;
+}
+#notebook{
+	height: 100%;
+}
+#notebook a{
+	padding: 1vw 5vw;
+	font-size: 1vw;
+	line-height: 1;
 }

@@ -1,8 +1,13 @@
 function search_test(){
 	
+	// URLの取得
+	var url = location.href.split("/");
+	var divTag = document.getElementById("URL");
+	divTag.innerHTML += url[ url.length - 1 ];
+
 	// URLのパラメータの取得
 	var urlParam = location.search;
-	var divTag = document.getElementById("1");
+	divTag = document.getElementById("1");
 	divTag.innerHTML = "location.search ➡「 " + urlParam + " 」";
 	
 	// URLのアンカーの取得

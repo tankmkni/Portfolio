@@ -5,7 +5,7 @@
 	<script type="text/javascript" src="search_test.js"></script>
 	<title>search_test</title>
 	<style>
-		iframe,object{ width: 100%; height: 220px; }
+		iframe,object{ width: 100%; height: 320px; }
 		legend{ font-size: 20px; }
 		object{ border: solid; border-color: lightgray;}
 	</style>
@@ -31,18 +31,15 @@
 		パラメータとアンカーを同時に指定もできる。<br/>
 		(指定する順番によっては正常に作動しないこともある、らしい)
 	<p/><br/>
-		
-	<h2>iframeで別のhtmlファイルを表示</h2>
+	<h2>iframeで同じhtmlファイルを違うsrcで表示</h2>
+	<p>iframe内のhtmlファイルでJavaScriptを実行</p>
 	<fieldset><legend>iframe１</legend>
-		<p>src="search_test_children.html"</p>
 		<iframe src="search_test_children.html"></iframe>
 	</fieldset><br/>
 	<fieldset><legend>iframe２</legend>
-		<p>src="search_test_children.html?q=search_test#hash_test"</p>
 		<iframe src="search_test_children.html?q=search_test#hash_test"></iframe>
 	</fieldset><br/>
 	<fieldset><legend>iframe３</legend>
-		<p>src="search_test_children.html?q=test&qq=test_test#hash_test"</p>
 		<iframe src="search_test_children.html?q=test&qq=test_test#hash_test"></iframe>
 	</fieldset><br/>
 	<p>jsファイルのコード</p>
