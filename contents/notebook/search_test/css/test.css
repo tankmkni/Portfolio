@@ -1,0 +1,14 @@
+
+/*** 共通 ***/
+object{ border: solid; border-color: lightgray;}
+
+/*** index **/
+
+
+/*** parent ***/
+iframe,object{ width: 100%;  }
+legend{ font-size: 20px; }
+
+
+/*** children ***/
+p{ line-size: 1;}

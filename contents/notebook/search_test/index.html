@@ -2,13 +2,9 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<script type="text/javascript" src="search_test.js"></script>
+	<link rel="stylesheet" href="css/test.css" />
+	<script type="text/javascript" src="js/setHeight.js"></script>
 	<title>search_test</title>
-	<style>
-		iframe,object{ width: 100%; height: 320px; }
-		legend{ font-size: 20px; }
-		object{ border: solid; border-color: lightgray;}
-	</style>
 </head>
 <body>
 	<h1>メモ：パラメータの利用</h1>
@@ -27,23 +23,19 @@
 		&emsp;<code>var urlHash = location.hash;</code><br/>
 		<br/>
 		アンカーにタグのidを指定しておけば、そのタグの位置を表示させられる。（ページ内遷移）<br/>
-		(複数は指定しないもの、らしい)<br/>
+		(複数は指定しないもの、らしい)<br/>0
 		パラメータとアンカーを同時に指定もできる。<br/>
 		(指定する順番によっては正常に作動しないこともある、らしい)
 	<p/><br/>
-	<h2>iframeで同じhtmlファイルを違うsrcで表示</h2>
-	<p>iframe内のhtmlファイルでJavaScriptを実行</p>
-	<fieldset><legend>iframe１</legend>
-		<iframe src="search_test_children.html"></iframe>
-	</fieldset><br/>
-	<fieldset><legend>iframe２</legend>
-		<iframe src="search_test_children.html?q=search_test#hash_test"></iframe>
-	</fieldset><br/>
-	<fieldset><legend>iframe３</legend>
-		<iframe src="search_test_children.html?q=test&qq=test_test#hash_test"></iframe>
-	</fieldset><br/>
+	<h2>&lt;iframe&gt;で同じhtmlファイルを違うsrcで表示</h2>
+	<p>search_test_parent.htmlのコード</p>
+	<object data="text/search_test_parent.txt" type="text/plain" onload="setHeight( this )"></object><br/>
+	<p>search_test_children.htmlのコード</p>
+	<object data="text/search_test_children.txt" type="text/plain" onload="setHeight( this )"></object><br/>
 	<p>jsファイルのコード</p>
-	<object data="search_test.js" type="text/plain"></object><br/>
+	<object data="js/search_test.js" type="text/plain" onload="setHeight( this )"></object><br/>
+	<p>search_test_parent.htmlを表示</p>
+	<object id="js" data="test/search_test_parent.html" type="text/plain" onload="setHeight( this )"></object><br/>
 	<p>参考になったサイト</p>
 	<a href="https://www.tam-tam.co.jp/tipsnote/javascript/post9911.html">JavaScriptでURLのパラメータやアンカーを判断して処理を変更する方法</a><br/>
 	<a href="http://www.htmq.com/js/location_search.shtml?aaa">JavaScriptリファレンス > location.search</a><br/>
