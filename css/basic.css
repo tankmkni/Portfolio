@@ -7,10 +7,13 @@ body {
 /*コンテナー（ホームページを囲む一番外側のブロック）
 ---------------------------------------------------------------------------*/
 #container {
-	max-width: 1400px;	/*ブロックの最大幅*/
 	margin: 0 auto;
 	padding: 0 1%;
 }
+#scrool_box{ 
+	position: relative;
+	top: 8vmin;
+ }
 /*メインイメージ
 ---------------------------------------------------------------------------*/
 #img_box {
@@ -37,5 +40,94 @@ body {
 	-ms-transform: translate(-50%, -50%);
 }
 #comment{
-	font-size: 1vw;
+	position: absolute;
+	top: 100%;
+	font-size: 1vmin;
+}
+/*コンテンツ
+---------------------------------------------------------------------------*/
+#products{
+	margin-top: 8vmin;
+}
+.product{
+	padding-top: 8vmin;
+	margin-bottom: 25vmin;
+}
+.index{
+	font-size: 4vmin;
+	font-weight: bold;
+	margin-top: -8vmin;	/* position: fixed;で固定したヘッダー分の */
+	padding-top: 8vmin;	/* ずれを調整するコード */
+}
+#about_ul{
+	margin-top: 3vmin;
+	margin-left: 6vmin;
+}
+#about_ul li{
+	display: block;
+	border: none;
+}
+#products p{ 
+	margin-left: 30px;
+	font-size: 2.5vmin;
+	line-height: 1;
+}
+#original_view{
+	display: flex;				/*タグ内の要素を上下左右中央寄せ*/
+	justify-content: center;	/*左右中央揃え*/
+	align-items: center;		/*上下中央揃え*/
+}
+.iframs_view{
+	display: flex;				/*タグ内の要素を上下左右中央寄せ*/
+	justify-content: center;	/*左右中央揃え*/
+	align-items: center;		/*上下中央揃え*/
+}
+fieldset{
+	position: relative;
+	font-size: 3vmin;
+}
+fieldset a{ 
+	position: absolute;	/*親要素のpositionがstatic以外なら、親要素基準で位置を指定できる*/
+	bottom: 0;
+	font-size: 2vmin;
+}
+iframe{ 
+	display: inline;
+	border: none;
+	margin: 0;
+}
+#eight_queen{
+	width: 60vw;
+	height: 40vw;
+}
+#eight_queen p{
+	position: absolute;
+	top: 3vw;
+	left: 0;
+	font-size: 2vmin;
+}
+#eigjt_horizontal{
+	margin-right: 1vw;
+	width: 37vw;
+	height: 23vw;
+}
+#eigjt_vertical{
+	width: 23vw;
+	height: 37vw;
+}
+#chess{
+	position: relative;
+	width: 34vw;
+	height: 40vw;
+}
+#chess div{
+	margin: 0 auto;
+	padding: 0 0;
+	text-align: center;
+}
+#chess img{
+	width: 30vw;
+}
+#empty{
+	height: 70vh;
 }

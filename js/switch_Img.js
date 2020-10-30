@@ -30,7 +30,7 @@ function setTextShadow(){
 /*	text-shadowをセットする関数
 ----------------------------------------------------------------------------------------------------------*/
 	var shadowColor = shadowColors[specifyIndex];
-	var tag = document.getElementById("img_box");
+	var tag = document.getElementById("portfolio");
 	tag.style.textShadow =
 		"  2px  2px 10px " + shadowColor +
 		",-2px  2px 10px " + shadowColor +
