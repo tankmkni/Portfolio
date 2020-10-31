@@ -1,0 +1,12 @@
+/*** index **/
+object,iframe{ width: 100%; border: solid 1px lightgray;}
+#exe{ height: 200px;}
+
+/*** parent ***/
+fieldset{ margin-bottom: 5px;}
+legend{ font-size: 20px;}
+#elem{ height: 70px;}
+
+/*** children ***/
+h4,div{ margin: 0px 0px;}
+#target{ color: lime; }

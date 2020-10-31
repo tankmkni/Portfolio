@@ -1,5 +1,9 @@
 /*全体の設定
 ---------------------------------------------------------------------------*/
+html{
+	-webkit-scroll-behavior:smooth;
+	scroll-behavior:smooth;
+}
 body {
 	margin: 0px;
 	padding: 0px;
@@ -24,8 +28,11 @@ body {
 #main_img{
 	max-width: 100%;
 	position: absolute;
-	top: 0px;
-	left: 0px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	-webkit-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
 }
 #portfolio{
 	z-index:1;
@@ -59,18 +66,16 @@ body {
 	margin-top: -8vmin;	/* position: fixed;で固定したヘッダー分の */
 	padding-top: 8vmin;	/* ずれを調整するコード */
 }
-#about_ul{
-	margin-top: 3vmin;
-	margin-left: 6vmin;
-}
-#about_ul li{
-	display: block;
-	border: none;
-}
 #products p{ 
 	margin-left: 30px;
 	font-size: 2.5vmin;
 	line-height: 1;
+}
+#about_text{
+	margin-top: 10px;
+	margin-left: 40px;
+	font-size: 3vmin;
+	line-height: 2;
 }
 #original_view{
 	display: flex;				/*タグ内の要素を上下左右中央寄せ*/
@@ -88,7 +93,7 @@ fieldset{
 }
 fieldset a{ 
 	position: absolute;	/*親要素のpositionがstatic以外なら、親要素基準で位置を指定できる*/
-	bottom: 0;
+	top: 3vmin;
 	font-size: 2vmin;
 }
 iframe{ 
@@ -100,18 +105,21 @@ iframe{
 	width: 60vw;
 	height: 40vw;
 }
+#eight_queen span{
+	font-size: 1vw;
+}
 #eight_queen p{
 	position: absolute;
-	top: 3vw;
+	bottom: 0;
 	left: 0;
 	font-size: 2vmin;
 }
-#eigjt_horizontal{
+#eight_horizontal{
 	margin-right: 1vw;
 	width: 37vw;
 	height: 23vw;
 }
-#eigjt_vertical{
+#eight_vertical{
 	width: 23vw;
 	height: 37vw;
 }

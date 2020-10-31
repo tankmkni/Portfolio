@@ -1,6 +1,7 @@
 body{
 	background-image: url(../img/background.png);
 	display: relative;
+	width: 100vw;
 	font-size: 24px;
 }
 h1{
@@ -14,21 +15,27 @@ h1{
 	display: absolute;
 	margin-left: auto;
 	margin-right: auto;
-	width: 800px;
+	width: 100vw;
+	max-width: 800px;
 	text-align: center;
 }
 img{
 	height: auto;
 	background: transparent;
 	border: solid 1px;
-	width: 700px;
-	height: 400px;
+	width: 90vw;
+	max-width: 700px;
+	height: 60%;
 	margin: 0px 5px;
 }
 #lower .sheet{
 	display: inline-block;
 }
-#lower img{ width: 360px; }
+#lower img{ 
+	width: 45vw;
+	max-width: 360px;
+	height: 50%;
+}
 .sheet p{
 	font-size: 18px;
 	margin-top: 0px;

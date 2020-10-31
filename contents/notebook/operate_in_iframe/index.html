@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+	<link rel="stylesheet" href="css/test.css" />
+	<script type="text/javascript" src="js/setHeight.js"></script>
+	<title>iframe内の要素操作</title>
+</head>
+<body>
+	<h1>メモ：&lt;iframe&gt;内要素を操作</h1>
+	<h3>&lt;iframe&gt;内のDOM要素の値を取得したり操作する方法のまとめ</h3>
+	<p>contentWindowプロパティを使用<br/>
+	<code>iframeElement.contentWindow.document.getElementByID("traget")</code><br/>
+	で&lt;iframe&gt;内の要素を取得できる</p><br/>
+
+	<h4>test_parent.html のコード</h4>
+	<object data="text/test_parent.txt" type="text/plain" onload="setHeight( this )"></object><br/><br/>
+	<h4>test_children.html のコード</h4>
+	<object data="text/test_children.txt" type="text/plain" onload="setHeight( this )"></object><br/><br/>
+	<h4>test.js のコード</h4>
+	<object data="js/test.js" type="text/plain" onload="setHeight( this )"></object><br/><br/>
+	<h3>親要素の表示</h3>
+	<iframe id="exe" src="test/test_parent.html"></iframe><br/><br/><br/>
+
+	<p>※ローカル環境では「Blocked a frame with origin "null" from accessing a cross-origin frame.」というエラーで作動しない<br/>
+		 &emsp;ブラウザのセキュリティの制限のよう</p>
+	<p>参考になったサイト</p>
+	<a href="https://notepad-blog.com/content/174/">社内SEのITメモブログ</a><br/>
+	<br/>
+	<button onclick="history.back()">戻る</button>
+	<br/><br/><br/>
+</body>
+</html>
