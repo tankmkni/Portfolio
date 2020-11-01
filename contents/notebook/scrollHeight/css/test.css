@@ -9,4 +9,6 @@ fieldset{
 }
 legend{ font-size: 20px;}
 h4{ margin: 20px 10px;}
-div{ margin: 0px 30px;}
+div{
+	margin: 20px 30px;
+}
