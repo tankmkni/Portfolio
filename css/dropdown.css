@@ -1,6 +1,6 @@
 #nav{
-	position: fixed;
-	background:white;
+	position: fixed;/*
+	background: white;*/
 	z-index:2;
 }
 .navigation {
@@ -9,15 +9,18 @@
 	justify-content: center;	/*左右中央揃え*/
 	align-items: center;		/*上下中央揃え*/
 	text-align:center;			/*下位ulの中央寄せ*/
-	width: 98vw;
+	width: 100vw;
 	padding: 0px;
 	margin: 1vmin 0px;			/*上下だけmargin挿入*/
 	/* ポジションを相対的な位置に指定 */
 	position:relative;
 }
+.navigation a{
+	font-size: 4vmin;
+}
 ul {
-	height: 6vmin;
-	background: white;
+	height: 6vmin;/*
+	background: white;*/
 	/* リストの無駄なスタイルを削除 */
 	list-style:none;
 	margin: 0px;
@@ -34,7 +37,6 @@ a{
 	justify-content: center;	/*左右中央揃え*/
 	align-items: center;		/*上下中央揃え*/
 	height: 6vmin;
-	font-size: 4vmin;
 	padding:0px 4vmin;
 	color: black;
 	/*マウスオン時の移り変わるまでの時間設定*/
@@ -51,8 +53,8 @@ a:hover {
 	display:block;
 }
 .navigation ul ul {
-	display:none;
-	background: white;
+	display:none;/*
+	background: white;*/
 	width: 100%;
 	position: absolute;
 	top: 6vmin;
@@ -60,20 +62,26 @@ a:hover {
 	padding: 0.5vmin 0px;
 }
 .navigation ul ul li{
-	background: white;
+	/*background: white;*/
 }
 .navigation ul ul a{
 	padding:0px 5vmin;
 }
-#emulate ul,#emulate li,#emulate a{
-	height: 16vmin;
 
+
+
+/*****************************************************************************/
+.product ul,.product li,.product a{
+	height: 16vmin;
+	
 }
-#emulate a{
+.product a{
 	font-size: 4vmin;
-	padding:0px 2vw;
 	line-height: 1;
 	text-align:center;
+}
+#emulate a{
+	padding:0px 2vw;
 }
 #emulate .ico{
 	display: flex;				/*タグ内の要素を上下左右中央寄せ*/
@@ -82,12 +90,6 @@ a:hover {
 	width: 10vmin;
 	height: 10vmin;
 }
-#notebooks ul,#notebooks li,#notebooks a{
-	height: 16vmin;
-}
-#notebooks a{
-	font-size: 4vmin;
-	padding: 0px 5vmin;
-	line-height: 1;	/* 行間のスペースを無くすため */
-	text-align:center;
+#notebook a{
+	padding:0px 4vw;
 }
