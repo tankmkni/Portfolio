@@ -1,6 +1,6 @@
 #nav{
-	position: fixed;/*
-	background: white;*/
+	position: fixed;
+	background: white;
 	z-index:2;
 }
 .navigation {
@@ -19,8 +19,8 @@
 	font-size: 4vmin;
 }
 ul {
-	height: 6vmin;/*
-	background: white;*/
+	height: 6vmin;
+	background: white;
 	/* リストの無駄なスタイルを削除 */
 	list-style:none;
 	margin: 0px;
@@ -53,8 +53,8 @@ a:hover {
 	display:block;
 }
 .navigation ul ul {
-	display:none;/*
-	background: white;*/
+	display:none;
+	background: white;
 	width: 100%;
 	position: absolute;
 	top: 6vmin;
@@ -62,7 +62,7 @@ a:hover {
 	padding: 0.5vmin 0px;
 }
 .navigation ul ul li{
-	/*background: white;*/
+	background: white;
 }
 .navigation ul ul a{
 	padding:0px 5vmin;
