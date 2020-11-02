@@ -1,4 +1,4 @@
-// 【今回の主題】内包要素の高さを取得し、親要素の高さに指定する
+// 【今回の主題】引数「tag」の内包要素の高さを取得し、「tag」の高さに指定する
 function setHeight( tag ){
 	tag.style.height = tag.contentWindow.document.body.scrollHeight + "px";
 }
@@ -22,6 +22,6 @@ function displayHeight( tag , target ){
 	if( value == undefined ){
 		value = document.body.scrollHeight;
 	}
-	
+
 	document.getElementById( target ).innerHTML += value + "px";
 }
