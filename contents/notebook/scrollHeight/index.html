@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8"/>
-	<link rel="stylesheet" href="css/test.css" />
+	<link rel="stylesheet" href="../css/basic.css" />
 	<script type="text/javascript" src="js/scrollHeight.js"></script>
 	<title>scrollHeight</title>
 </head>
-<body style="padding: 0px 20px;">
+<body>
 	<h1>メモ：&lt;iframe&gt;の高さ自動調整</h1>
 	<h3>&lt;iframe&gt;内のDOM要素のheight値を取得して&lt;iframe&gt;自身の高さを決める</h3>
-	<p>&lt;iframe&gt;で別のhtmlファイルを表示する時に、自動的に高さを合わせる方法のまとめ</p>
-	<p>scrollHeightプロパティを使用<br/>
-	<code>iframe.style.height = iframe.contentWindow.document.body.scrollHeight + "px";</code></p><br/>
+	<div>&lt;iframe&gt;で別のhtmlファイルを表示する時に、自動的に高さを合わせる方法のまとめ</div>
+	<div>scrollHeightプロパティを使用<br/>
+	<code>iframe.style.height = iframe.contentWindow.document.body.scrollHeight + "px";</code></div><br/>
 
 	<h4>test_parent.html のコード</h4>
 	<object data="text/test_parent.txt" type="text/plain" onload="setHeight( this )"></object><br/><br/>
@@ -19,9 +19,10 @@
 	<h4>test.js のコード</h4>
 	<object data="js/scrollHeight.js" type="text/plain" onload="setHeight( this )"></object><br/><br/>
 	<h3>親要素の表示：</h3>
-	<iframe src="html/test_parent.html" onload="setHeight( this )" style="padding:10px"></iframe><br/><br/>
+	<iframe src="html/test_parent.html" onload="setHeight( this )"></iframe><br/><br/>
 	<div>内包要素の大きさが修正などで変わっても自動的に追従させられる</div>
-	<div>※内包要素のmarginやpaddingの設定によっては、思い通りの表示にならないことがある！</div><br/>
+	<div>※内包要素のmarginやpaddingの設定によっては、思い通りの表示にならないことがある！<br/>
+		(&lt;iframe&gt;の入れ子時等)</div><br/>
 	<button onclick="history.back()">戻る</button>
 	<br/><br/><br/>
 </body>

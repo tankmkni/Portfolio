@@ -1,27 +1,32 @@
-<!DOCTYPE html>
+<!DOCTYPE html>	<!-- ２つのiframeに同じhtmlファイルを高さ指定の有無で表示する -->
 <html>
 <head><meta charset="utf-8"/>
-	<link rel="stylesheet" href="../css/test.css">
+	<link rel="stylesheet" href="../../css/parent.css">
 	<script type="text/javascript" src="../js/scrollHeight.js"></script>
 	<title>test_parent</title>
 </head>
-<body style="margin:0;">
-	<fieldset><legend> &lt;iframe&gt;高さ指定「無し」</legend>
+<body>
+	<fieldset><h3>&lt;iframe&gt;高さ指定「無し」</h3>
 		<div id="target1">親要素の&lt;iframe&gt;タグの高さ = </div>
-		<div>（指定がない場合の初期値が 150px だとわかる）</div>
-		
-		<!-- 高さを指定しないiframeタグ -->
-		<iframe src="test_children.html"
+
+
+		<!-- *** 高さを指定しないiframeタグ *** -->
+		<iframe class="iframe" src="test_children.html"
 			onload="displayHeight( this , 'target1' );"></iframe>
 
+
+		<div>（指定がない場合の初期値が 150px だとわかる）</div>
 	</fieldset><br/>
-	<fieldset><legend> &lt;iframe&gt;内包要素の高さに合わせる</legend>
+	<fieldset><h3> &lt;iframe&gt;内包要素の高さに合わせる</h3>
 		<div><code>onload="setHeight(this)"</code>を追加して実行</div>
 		<div id="target2">親要素の&lt;iframe&gt;タグの高さ = </div>
-		
-		<!-- 高さを合わせるiframeタグ -->
-		<iframe src="test_children.html"
-			onload="setHeight( this ); displayHeight( this , 'target2' );"></iframe>
+
+
+		<!-- *** 高さを合わせるiframeタグ *** -->
+		<iframe class="iframe" src="test_children.html"
+			onload="displayHeight( this , 'target2' );
+					setHeight( this );" <!-- 関数を一つ追加 -->	></iframe>
+
 
 	</fieldset>
 </body>

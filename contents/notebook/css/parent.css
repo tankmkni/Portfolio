@@ -1,0 +1,23 @@
+body{
+	margin: 0;
+	padding: 20px;
+	background: lemonchiffon;
+}
+iframe{ 
+	width: 100%;
+	max-width: 800px;
+	border: solid 1px gray;
+}
+fieldset{
+	background: lightyellow;
+	border: 1px dashed gray;
+}
+h3{ margin: 0;}
+div{
+	margin: 20px 30px;
+}
+button{
+	margin: 5px;
+	color: red:
+	background: red;
+}

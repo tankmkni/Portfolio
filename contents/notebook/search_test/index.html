@@ -2,41 +2,44 @@
 <html>
 <head>
 	<meta charset="utf-8"/>
-	<link rel="stylesheet" href="css/test.css" />
-	<script type="text/javascript" src="js/setHeight.js"></script>
+	<link rel="stylesheet" href="../css/basic.css">
+	<script type="text/javascript" src="../js/common.js"></script>
 	<title>search_test</title>
 </head>
 <body>
 	<h1>メモ：パラメータの利用</h1>
-	<p>iframeのsrcに引数としてパラメータを設定し、子要素でそれを取得して利用する方法のまとめ<p/>
+	<div>URLに引数としてパラメータを設定し、それを取得して利用する方法のまとめ</div>
 	<h3>パラメータ</h3>
-		パラメータは、「?」+「変数名(パラメータ)=値」のかたちで構成されている<br/>
-		URLの最後に記述：&emsp;<code>../../memo.html?id=1</code><br/>
-		複数は「&」で連結：&emsp;<code>../../memo.html?id=1&name=memo</code><br/>
+	<div>「?」+「変数名(パラメータ)=値」でURLの最後に記述、複数は「&」で連結：<br/>
+		&emsp;<code>../../memo.html?id=1</code><br/>
+		&emsp;<code>../../memo.html?id=1&name=memo</code><br/>
 		<br/>
 		パラメータの取得：locationオブジェクトのsearchプロパティを使用<br/>
 		&emsp;<code>var urlParam = location.search;</code><br/>
-		&emsp;<code>substring(1)</code> や <code>split("=" or "&")</code> で変数名と値を分離して利用できる </p>
+		&emsp;<code>substring(1)</code> や <code>split("=" or "&")</code> で変数名と値を分離して利用できる </div>
 	<h3>アンカー（ハッシュ）の場合</h3>
-	<p>URLの最後に記述：&emsp;<code>../../memo.html#memo</code><br/>
+	<div>「#」+「アンカー」でURLの最後に記述：<br/>
+		&emsp;<code>../../memo.html#memo</code><br/><br/>
 		アンカーの取得：locationオブジェクトのhashプロパティを使用<br/>
 		&emsp;<code>var urlHash = location.hash;</code><br/>
 		<br/>
-		アンカーにタグのidを指定しておけば、そのタグの位置を表示させられる。（ページ内遷移）<br/>
-		(複数は指定しないもの、らしい)<br/>0
+		アンカーにタグのidを指定しておけば、そのタグの位置を表示させられる。<br/>
+		（ページ内遷移）<br/><br/>
 		パラメータとアンカーを同時に指定もできる。<br/>
-		(指定する順番によっては正常に作動しないこともある、らしい)
-	<p/><br/>
+		&emsp;<code>memo.html?parameter#hash</code>&emsp;〇<br/>
+		&emsp;<code>memo.html#hash?parameter</code>&emsp;×&emsp;←全てアンカーとして認識されてしまう
+	</div><br/>
 	
-	<h2>&lt;iframe&gt;で同じhtmlファイルを違うsrcで表示</h2>
+	<h2>パラメータを変えて同じhtmlファイルを表示</h2>
 	<p>search_test_parent.htmlのコード</p>
 	<object data="text/search_test_parent.txt" type="text/plain" onload="setHeight( this )"></object><br/>
 	<p>search_test_children.htmlのコード</p>
 	<object data="text/search_test_children.txt" type="text/plain" onload="setHeight( this )"></object><br/>
 	<p>jsファイルのコード</p>
 	<object data="js/search_test.js" type="text/plain" onload="setHeight( this )"></object><br/>
+	
 	<h3>search_test_parent.htmlを表示</h3>
-	<object id="exe" data="test/search_test_parent.html" type="text/plain"></object><br/>
+	<iframe src="html/search_test_parent.html" onload="setHeight( this )"></iframe><br/><br/>
 	
 	<p>参考になったサイト</p>
 	<a href="https://www.tam-tam.co.jp/tipsnote/javascript/post9911.html">JavaScriptでURLのパラメータやアンカーを判断して処理を変更する方法</a><br/>

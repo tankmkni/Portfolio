@@ -1,4 +1,4 @@
-function search_test(){
+function search_test(){ /* URLの値を取得し、加工して表示 */
 	
 	// URLの取得
 	var url = location.href.split("/");
