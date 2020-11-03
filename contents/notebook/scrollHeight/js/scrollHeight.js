@@ -23,5 +23,5 @@ function displayHeight( tag , target ){
 		value = document.body.scrollHeight;
 	}
 
-	document.getElementById( target ).innerHTML += value + "px";
+	document.getElementById( target ).innerHTML += "<code>" + value + "px</code>";
 }

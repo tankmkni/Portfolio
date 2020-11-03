@@ -8,9 +8,9 @@
 <body>
 	<h1>メモ：&lt;iframe&gt;内要素を操作</h1>
 	<h3>&lt;iframe&gt;内のDOM要素の値を取得したり操作する方法のまとめ</h3>
-	<div>contentWindowプロパティを使用</div>
-	<div><code>iframeElement.contentWindow.document.getElementByID("traget")</code><br/>
-	で&lt;iframe&gt;内の要素を取得できる</div><br/>
+	<div>contentWindowプロパティを使用：<br/>
+	<code>iframeElement.contentWindow.document.getElementByID("traget")</code><br/>
+	で&lt;iframe&gt;内の要素を取得できる</div>
 
 	<h4>test_parent.html のコード</h4>
 	<object data="text/test_parent.txt" type="text/plain" onload="setHeight( this )"></object><br/><br/>

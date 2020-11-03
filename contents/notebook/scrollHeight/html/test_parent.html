@@ -15,7 +15,7 @@
 			onload="displayHeight( this , 'target1' );"></iframe>
 
 
-		<div>（指定がない場合の初期値が 150px だとわかる）</div>
+		<div>（指定がない場合の初期値が <code>150px</code> だとわかる）</div>
 	</fieldset><br/>
 	<fieldset><h3> &lt;iframe&gt;内包要素の高さに合わせる</h3>
 		<div><code>onload="setHeight(this)"</code>を追加して実行</div>
@@ -24,8 +24,11 @@
 
 		<!-- *** 高さを合わせるiframeタグ *** -->
 		<iframe class="iframe" src="test_children.html"
-			onload="displayHeight( this , 'target2' );
-					setHeight( this );" <!-- 関数を一つ追加 -->	></iframe>
+			onload="
+				setHeight( this );	 <!-- 関数を一つ追加 -->
+				displayHeight( this , 'target2' );
+				"></iframe>
+				<!-- 指定順が逆だと実行前の高さを表示してしまう -->
 
 
 	</fieldset>
