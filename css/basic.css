@@ -4,26 +4,24 @@ html{
 	-webkit-scroll-behavior:smooth;
 	scroll-behavior:smooth;
 }
+body,img,div,iframe,feildset,ul,a{ margin:0;padding:0; }
 body {
-	margin: 0px;
-	padding: 0px;
+	width: 100vw;
+	position: relative;
 }
 /*コンテナー（ホームページを囲む一番外側のブロック）
 ---------------------------------------------------------------------------*/
 #container {
-	margin: 0 auto;
-	padding: 0 1%;
 }
-#scrool_box{ 
-	position: relative;
-	top: 8vmin;
- }
+#scrool_box{
+	padding-top: 8vmin;
+}
 /*メインイメージ
 ---------------------------------------------------------------------------*/
 #img_box {
 	position: relative;
-	width: 98vw;
-	height: 39vw;
+	width: 100vw;
+	height: 40vw;
 }
 #main_img{
 	max-width: 100%;
@@ -35,7 +33,7 @@ body {
 	-ms-transform: translate(-50%, -50%);
 }
 #portfolio{
-	z-index:1;
+	z-index:1;			/* 重なりの順序 */
 	font-size: 6vw;
 	font-weight: bold;
 	color: floralwhite;
@@ -49,95 +47,71 @@ body {
 #comment{
 	position: absolute;
 	top: 100%;
-	font-size: 1vmin;
+	left: 5vmin;
+	font-size: 5px;
 }
 /*コンテンツ
 ---------------------------------------------------------------------------*/
-#products{
-	margin-top: 8vmin;
+dl{
+	margin: 5vmin;
 }
-.product{
-	padding-top: 8vmin;
-	margin-bottom: 25vmin;
-}
-.index{
-	font-size: 4vmin;
+dt{
+	padding-top: 100px;	/* ナビゲーションバーと重ならないように */
+	
+	font-size: 18px;
 	font-weight: bold;
-	margin-top: -8vmin;	/* position: fixed;で固定したヘッダー分の */
-	padding-top: 8vmin;	/* ずれを調整するコード */
 }
-#products p{ 
-	margin-left: 30px;
-	font-size: 2.5vmin;
-	line-height: 1;
+dd{
+	margin: 16px;
+	font-size: 16px;
+	line-height: 1.5;
 }
-#about_text{
-	margin-top: 10px;
-	margin-left: 30px;
-	font-size: 3vmin;
-	line-height: 2;
-}
+
 #original_view{
+	display: flex;				/*タグ内の要素を横並びに*/
+	/*justify-content: center;	左右中央揃え*/
+	align-items: center;		/*上下中央揃え*/
+	max-width: 100vw;
+}
+#original_view fieldset{
+	text-align: center;
+	position: relative;
+	height: 400px;
+	margin: 5px;
+	padding: 5px;
+}
+legend{ font-size: 18px;}
+#exhibit_eight_queen{
+	width: 320px;
+}#exhibit_eight_queen legend span{
+	font-size: 12px;
+}
+#exhibit_eight_queen div{
 	display: flex;				/*タグ内の要素を上下左右中央寄せ*/
 	justify-content: center;	/*左右中央揃え*/
 	align-items: center;		/*上下中央揃え*/
 }
-.iframs_view{
-	display: flex;				/*タグ内の要素を上下左右中央寄せ*/
-	justify-content: center;	/*左右中央揃え*/
-	align-items: center;		/*上下中央揃え*/
+#exhibit_eight_queen div button{
+	width: 80px;
+	height: 30px;
+	margin: 10px;
+	
+	font-size: 18p;
+	background: springgreen;
 }
-fieldset{
-	position: relative;
-	font-size: 3vmin;
+#eight_queen_frame{ width:320px; height:320px;}
+#eight_queen{ width:200px; height:320px;}
+
+#exhibit_chess{
+	width: 300px;
 }
-#original_view fieldset a{ 
-	position: absolute;	/*親要素のpositionがstatic以外なら、親要素基準で位置を指定できる*/
-	top: 5vmin;
-	left: 3vmin;
-	height: 5vmin;
-	font-size: 2vmin;
-}
-iframe{ 
-	display: inline;
-	border: none;
-	margin: 0;
-}
-#eight_queen{
-	width: 60vw;
-	height: 40vw;
-}
-#eight_queen span{
-	font-size: 1vw;
-}
-#eight_queen p{
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	font-size: 2vmin;
-}
-#eight_horizontal{
-	margin-right: 1vw;
-	width: 37vw;
-	height: 23vw;
-}
-#eight_vertical{
-	width: 23vw;
-	height: 37vw;
-}
-#chess{
-	position: relative;
-	width: 34vw;
-	height: 40vw;
-}
-#chess div{
+#exhibit_chess div{
 	margin: 0 auto;
-	padding: 0 0;
 	text-align: center;
 }
-#chess img{
-	width: 30vw;
+#exhibit_chess img{
+	width: 280px;
 }
 #empty{
-	height: 70vh;
+	height: 50vh;
 }

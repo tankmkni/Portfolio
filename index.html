@@ -7,59 +7,58 @@
 <link rel="stylesheet" href="css/basic.css" />
 <link rel="stylesheet" href="css/dropdown.css" />
 <script type="text/javascript" src="js/switch_Img.js"></script>
+<script type="text/javascript" src="js/swap_iframe_size.js"></script>
 <title>Portfolio</title>
 </head>
 <body onload="timeZone()">
 <div id="container">
-	<div id="nav">
-		<div class="navigation">
+
+	<!-- ナビゲーションバー -->
+	<ul id="nav" class="select_menu">
+		<li><a href="#container">Home</a></li>
+		<li><a href="#original">Product</a>
 			<ul>
-				<li><a href="#container">Home</a></li>
-				<li><a href="#products">Product</a>
-					<ul>
-						<li><a href="#products">Original</a></li>
-						<li><a href="#emulate">Emulate</a></li>
-						<li><a href="#notebook">Notebook</a></li>
-					</ul>
-				</li>
-				<li><a href="#about">About</a></li>
+				<li><a href="#original">Original</a></li>
+				<li><a href="#emulate">Emulate</a></li>
+				<li><a href="#notebook">Notebook</a></li>
 			</ul>
-		</div>
-	</div>
+		</li>
+		<li><a href="#about">About</a></li>
+	</ul>
+
+	<!-- 本体 -->
 	<div id="scrool_box">
+
+		<!-- メインイメージ -->
 		<div id="img_box" onclick="switchImg()">
 			<img id="main_img"><!--srcはscriptで指定-->
 			<div id="portfolio">Portfolio</div>
 			<div id="comment">※画像をクリックすると画像が切り替わります（時間帯で最初に表示される画像が変わります）</div>
 		</div>
-		<div id="products">
-			<div class="product">
-				<div id="original" class="index">Original Product</div>
-				<p>習作として自力で制作したものです。このPortfolioページも現在進行形で制作中です。</p>
+
+		<!-- プロダクト -->
+		<dl>
+			<dt id="original">Original Product</dt>
+				<dd>習作として自力で制作したものです。<br/>この Portfolio ページも現在進行形で制作中です。</dd>
 				<div id="original_view">
-					<fieldset id="eight_queen"><legend>&nbsp; Eight Queen &nbsp;<span>そのままプレイできます</span></legend>
-						<a href="https://tankmkni.github.io/EightQueen/">紹介ページへ</a>
-						<div class="iframs_view">
-							<iframe id="eight_horizontal" src="https://tankmkni.github.io/EightQueen/EightQueen.html">
+					<fieldset id="exhibit_eight_queen"><legend>&nbsp; Eight Queen &nbsp;<span>そのままプレイできます</span></legend>
+							<div><button type=button onclick="swapSize()">縦 ⇔ 横</button>
+							<a href="https://tankmkni.github.io/EightQueen/">紹介ページへ</a></div>
+							<div id="eight_queen_frame"><iframe id="eight_queen" src="https://tankmkni.github.io/EightQueen/EightQueen.html">
 								このページでは、インラインフレームを使用しています。<br/>
 								対応しているブラウザで表示願います。
-							</iframe>
-							<iframe id="eight_vertical" src="https://tankmkni.github.io/EightQueen/EightQueen.html"></iframe>
-						</div>
-						<p>横画面/縦画面で<br/>レイアウトが変わります</p>
+							</iframe></div>
 					</fieldset>
-					<fieldset id="chess"><legend>&nbsp; Chess &nbsp;</legend>
+					<fieldset id="exhibit_chess"><legend>&nbsp; Chess &nbsp;</legend>
 						<div>
 							<a href="contents/chess/index.html">紹介ページへ</a><br/>
 							<img src="contents/chess/img/castling.png"></img>
 						</div>
 					</fieldset>
 				</div>
-			</div>
-			<div class="product">
-				<div id="emulate" class="index">Emulate Product</div>
-				<p>入門書や雑誌の記事を基に作成したものです。独自機能の追加や改良も施してスキルの吸収に努めました。</p>
-				<ul id="emulate">
+			<dt id="emulate">Emulate Product</dt>
+				<dd>入門書や雑誌の記事を基に作成したものです。独自機能の追加や改良も施してスキルの吸収に努めました。</dd>
+				<ul id="emulate" class="select_menu">
 					<li><a href="contents/clock/index.html">
 						<iframe class="ico" src="img/ico/clock/clock.html" scrolling="no" frameborder="no"></iframe>
 							&nbsp; Clocks &nbsp;
@@ -81,11 +80,9 @@
 						<img class="ico" src="img/ico/custmaer_manage.png">
 					</a></li>
 				</ul>
-			</div>
-			<div class="product">
-				<div id="notebook" class="index">Notebook</div>
-				<p>制作物を作成する過程で調べたことを備忘録としてまとめたものです。</p>
-				<ul id="notebooks">
+			<dt id="notebook">Notebook</dt>
+				<dd>制作物を作成する過程で調べたことを備忘録としてまとめたものです。</dd>
+				<ul id="items" class="select_menu">
 					<li><a href="contents/notebook/search_test/index.html">
 						Passing<br/>Parameters
 					</a></li>
@@ -96,17 +93,12 @@
 						scrollHeight<br/>Property
 					</a></li>
 				</ul>
-			</div>
-			<div class="product">
-				<div id="about" class="index">About</div>
-				<div id="about_text">
-					令和になってプログラミングを始めたばかりの令和プログラマーです。<br/>
-					JAVA / SQL / HTML / CSS / JavaScript / VBA / Python / PHP を学びました。<br/>
-					データベースは、MySQL、H２、Oracle Databaseを使用したことがあります。<br/>
-					まだまだ未熟ですが、日々スキルUPに努めています。
-				</div>
-			</div>
-		</div>
+			<dt id="about">About</dt>
+				<dd>令和になってプログラミングを始めたばかりの令和プログラマーです。</dd>
+				<dd>JAVA / SQL / HTML / CSS / JavaScript / VBA / Python / PHP を学びました。</dd>
+				<dd>データベースは、MySQL、H２、Oracle Databaseを使用したことがあります。</dd>
+				<dd>まだまだ未熟ですが、日々スキルUPに努めています。</dd>
+		</dl>
 	</div>
 	<div id="empty"></div>
 </div>
