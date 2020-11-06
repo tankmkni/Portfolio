@@ -77,8 +77,8 @@ dd{
 #original_view fieldset{
 	text-align: center;
 	position: relative;
-	width: 420px;
-	height: 500px;
+	width: 380px;
+	height: 460px;
 	margin: 5px;
 	padding: 5px;
 }
@@ -101,18 +101,22 @@ legend{ font-size: 18px;}
 	background: springgreen;
 }
 #eight_queen_frame{
-	width:420px;
-	height:420px;
+	width:380px;
+	height:380px;
 	margin: 0 auto;
 }
-#eight_queen{ width:300px; height:420px;}
+#eight_queen{ width:300px; height:380px;}
 
 #exhibit_chess{}
 #exhibit_chess div{
 	margin: 0 auto;
 }
+#exhibit_chess a{
+	width: 120px;
+	margin: 10px auto 0 auto;
+}
 #exhibit_chess img{
-	width: 360px;
+	width: 320px;
 }
 #empty{
 	height: 50vh;
