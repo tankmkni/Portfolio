@@ -6,21 +6,24 @@
 	<script type="text/javascript" src="../../js/common.js"></script>
 	<title>search_test</title>
 </head>
-<body>
+<body onload="setIframesHeight()">
 	<fieldset>
+	
 		<h3>&lt;iframe&gt;１：パラメータ 無し</h3>
-		<iframe onload="setHeight( this )"
-				src="search_test_children.html"></iframe>
+		<iframe src="search_test_children.html"></iframe>
+	
 	</fieldset><br/>
 	<fieldset>
+	
 		<h3>&lt;iframe&gt;２：パラメータ １つ</h3>
-		<iframe onload="setHeight( this )"
-				src="search_test_children.html?q=search_test#hash_test"></iframe>
+		<iframe src="search_test_children.html?q=search_test#hash_test"></iframe>
+	
 	</fieldset><br/>
 	<fieldset>
+	
 		<h3>&lt;iframe&gt;３：パラメータ ２つ</h3>
-		<iframe onload="setHeight( this )"
-				src="search_test_children.html?id=1&name=test#hash_test"></iframe>
+		<iframe src="search_test_children.html?id=1&name=test#hash_test"></iframe>
+	
 	</fieldset><br/>
 </body>
 </html>

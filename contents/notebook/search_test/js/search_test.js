@@ -1,44 +1,60 @@
 function search_test(){ /* URLの値を取得し、加工して表示 */
 	
 	// URLの取得
-	var url = location.href.split("/");
+	var url = location.href.split("/").slice(-1)[0];
+
 	var divTag = document.getElementById("URL");
-	divTag.innerHTML += "「 <code>" + url[ url.length - 1 ] + "</code> 」";
+	var str = "&lt;iframe&gt; の src の取得："
+		+ "location.href.split('/').slice(-1)[0]<br/>"
+		+ "&emsp;&emsp;➡ 「 <code>" + url + "</code> 」";
+	divTag.innerHTML = str;
+
+
+
 
 	// URLのパラメータの取得
 	var urlParam = location.search;
-	divTag = document.getElementById("1");
-	divTag.innerHTML = "location.search ➡「 <code>" + urlParam + "</code> 」";
-	
-	// URLのアンカーの取得
-	var urlHash = location.hash;
-	divTag = document.getElementById("2");
-	divTag.innerHTML = "location.hash ➡「 <code>" + urlHash + "</code> 」";
-	
+
+	str = "<div>location.search";
+	divTag = document.getElementById("proc");
+	divTag.innerHTML = str + " ➡「 <code>" + urlParam + "</code> 」</div>";
+
+
+
+
 	// URLのパラメータを取得(substring(1)で一文字目の「?」を除去)
 	var subst = location.search.substring(1);
-	divTag = document.getElementById("3");
-	divTag.innerHTML = "location.search.substring(1) ➡「 <code>" + subst + "</code> 」";
+
+	str += ".substring(1)";
+	divTag.innerHTML += str + " ➡「 <code>" + subst + "</code> 」</div>";
+
+
+
 
 	// 「&」が含まれている場合は「&」で分割
-	var splited = location.search.substring(1).split('&');
-	divTag = document.getElementById("4");
-	divTag.innerHTML = "location.search.substring(1).split('&') ➡「 <code>" + splited + "</code> 」";
-	
-	// パラメータを格納する用の配列を用意
-	var variables = [];
-	var values = [];
+	var splited = subst.split('&');
 
-	// 用意した配列にパラメータを格納
+	str += ".split('&')"
+	divTag.innerHTML += str + " ➡「 <code>" + splited + "</code> 」";
+
+
+
+
+	// 「=」で分割
 	for (i = 0; i < splited.length; i++) {
-		var paramItem = splited[i].split('=');
-		variables[i] = paramItem[0];
-		values[i] = paramItem[1];
+		var sent = str + "[" + i + "].split('=') ➡「 <code>"
+
+			+ splited[i].split('=') 
+
+			+ "</code> 」</div>"
+		divTag.innerHTML += sent;
 	}
 
-	divTag = document.getElementById("5");
-	divTag.innerHTML = "variable names ➡「 <code>" + variables + "</code> 」";
-	
-	divTag = document.getElementById("6");
-	divTag.innerHTML = "values ➡「 <code>" + values + "</code> 」";
+
+
+
+	// URLのアンカーの取得
+	var urlHash = location.hash;
+
+	divTag.innerHTML += "<div>location.hash ➡「 <code>" + urlHash + "</code> 」</div>";
 }
