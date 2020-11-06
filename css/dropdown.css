@@ -1,5 +1,6 @@
 ul,li,a{
 	display: flex;				/*タグ内の要素を並列配置に*/
+	flex-wrap: wrap;			/*画面幅に伴って要素を折り返す*/
 	justify-content: center;	/*左右中央揃え*/
 	align-items: center;		/*上下中央揃え*/
 }
@@ -21,9 +22,8 @@ li{ list-style: none;	/* リストの不用なスタイルを削除 */}
 #nav li{
 	width: 25vw;
 	height: 8vmin;
-	padding: 1vmin;
+	margin: 0;
 	border: none;
-	
 }
 #nav a{
 	width: 25vw;
@@ -61,22 +61,29 @@ li{ list-style: none;	/* リストの不用なスタイルを削除 */}
 #nav ul li{
 	width: 20vw;
 }
+#nav ul a{
+	font-size: 4vmin;
+}
 
 
+.select_menu{}
 .select_menu li{
 	margin: 5px;
 	border: 1px solid silver;
 }
-.select_menu a{
-	padding: 10px;
-}
 #emulate,#items{ justify-content: left;	/*左揃え*/}
 #emulate a{
+	width: 220px;
 	height: 50px;
+	padding: 5px;
 	font-size: 18px;
 }
 .ico{
 	width: 40px;
 	height: 40px;
 	padding: 0 5px;
+}
+#items a{
+	width: 130px;
+	padding: 10px;
 }

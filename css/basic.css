@@ -69,6 +69,7 @@ dd{
 
 #original_view{
 	display: flex;				/*タグ内の要素を横並びに*/
+	flex-wrap: wrap;			/*画面幅に伴って要素を折り返す*/
 	/*justify-content: center;	左右中央揃え*/
 	align-items: center;		/*上下中央揃え*/
 	max-width: 100vw;
@@ -76,14 +77,14 @@ dd{
 #original_view fieldset{
 	text-align: center;
 	position: relative;
-	height: 400px;
+	width: 420px;
+	height: 500px;
 	margin: 5px;
 	padding: 5px;
 }
 legend{ font-size: 18px;}
-#exhibit_eight_queen{
-	width: 320px;
-}#exhibit_eight_queen legend span{
+#exhibit_eight_queen{}
+#exhibit_eight_queen legend span{
 	font-size: 12px;
 }
 #exhibit_eight_queen div{
@@ -99,18 +100,19 @@ legend{ font-size: 18px;}
 	font-size: 18p;
 	background: springgreen;
 }
-#eight_queen_frame{ width:320px; height:320px;}
-#eight_queen{ width:200px; height:320px;}
-
-#exhibit_chess{
-	width: 300px;
+#eight_queen_frame{
+	width:420px;
+	height:420px;
+	margin: 0 auto;
 }
+#eight_queen{ width:300px; height:420px;}
+
+#exhibit_chess{}
 #exhibit_chess div{
 	margin: 0 auto;
-	text-align: center;
 }
 #exhibit_chess img{
-	width: 280px;
+	width: 360px;
 }
 #empty{
 	height: 50vh;

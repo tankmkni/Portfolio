@@ -8,27 +8,23 @@ var shadowColors = new Array("blue","orange");
 var specifyIndex;
 
 
-
+/*** text-shadowと画像をセットする関数 ***/
 function setValue(){
-/*	text-shadowと画像をセットする関数
-----------------------------------------------------------------------------------------------------------*/
 	setImage();
 	setTextShadow();
 }
 
 
+/*** 画像をセットする関数 ***/
 function setImage(){
-/*	画像をセットする関数
-----------------------------------------------------------------------------------------------------------*/
 	var imgSrc = "img/" + fileNames[specifyIndex] + ".jpg";
 	var tag = document.getElementById("main_img");
 	tag.setAttribute("src", imgSrc);
 }
 
 
+/*** text-shadowをセットする関数 ***/
 function setTextShadow(){
-/*	text-shadowをセットする関数
-----------------------------------------------------------------------------------------------------------*/
 	var shadowColor = shadowColors[specifyIndex];
 	var tag = document.getElementById("portfolio");
 	tag.style.textShadow =
@@ -39,9 +35,9 @@ function setTextShadow(){
 }
 
 
+/*** 時間帯によって画像を切り替える関数 ***/
 function timeZone(){
-/*	時間帯によって画像を切り替える関数
-----------------------------------------------------------------------------------------------------------*/
+
 	//	時間の情報を取得
 	var hour = new Date().getHours();
 
@@ -55,12 +51,25 @@ function timeZone(){
 }
 
 
+/*** 画像をクリックすると画像を切り替える関数 ***/
 function switchImg(){
-/*	画像をクリックすると画像を切り替える関数
-----------------------------------------------------------------------------------------------------------*/
 	specifyIndex++;
 	if( specifyIndex >= fileNames.length ){
 		specifyIndex = 0;
 	}
 	setValue(); 
+}
+
+
+
+
+/*** iframeの縦と横のサイズを入れ替える関数 ***/
+function swapSize(){
+	var tag = document.getElementById("eight_queen");
+
+	var width = tag.scrollWidth;
+	var height = tag.scrollHeight;
+
+	tag.style.width = height + "px";
+	tag.style.height = width + "px";
 }
