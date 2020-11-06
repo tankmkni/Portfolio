@@ -46,7 +46,7 @@ function search_test(){ /* URLの値を取得し、加工して表示 */
 
 			+ splited[i].split('=') 
 
-			+ "</code> 」</div>"
+			+ "</code> 」</div>";
 		divTag.innerHTML += sent;
 	}
 
