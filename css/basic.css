@@ -105,7 +105,10 @@ legend{ font-size: 18px;}
 	height:380px;
 	margin: 0 auto;
 }
-#eight_queen{ width:300px; height:380px;}
+#eight_queen{
+	width:300px;
+	height:380px;
+}
 
 #exhibit_chess{}
 #exhibit_chess div{

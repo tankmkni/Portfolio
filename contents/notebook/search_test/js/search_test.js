@@ -1,13 +1,15 @@
 function search_test(){ /* URLの値を取得し、加工して表示 */
-	
+
+
+
+
 	// URLの取得
 	var url = location.href.split("/").slice(-1)[0];
 
+	var str = "<div>&lt;iframe&gt; の src の取得："
+		+ "location.href.split('/').slice(-1)[0]<br/>&emsp;&emsp;";
 	var divTag = document.getElementById("URL");
-	var str = "&lt;iframe&gt; の src の取得："
-		+ "location.href.split('/').slice(-1)[0]<br/>"
-		+ "&emsp;&emsp;➡ 「 <code>" + url + "</code> 」";
-	divTag.innerHTML = str;
+	divTag.innerHTML = str + "➡ 「 <code>" + url + "</code> 」</div>";
 
 
 
@@ -32,22 +34,20 @@ function search_test(){ /* URLの値を取得し、加工して表示 */
 
 
 	// 「&」が含まれている場合は「&」で分割
-	var splited = subst.split('&');
+	var splitAmpersand = subst.split('&');
 
 	str += ".split('&')"
-	divTag.innerHTML += str + " ➡「 <code>" + splited + "</code> 」";
+	divTag.innerHTML += str + " ➡「 <code>" + splitAmpersand + "</code> 」</div>";
 
 
 
 
 	// 「=」で分割
-	for (i = 0; i < splited.length; i++) {
-		var sent = str + "[" + i + "].split('=') ➡「 <code>"
-
-			+ splited[i].split('=') 
-
-			+ "</code> 」</div>";
-		divTag.innerHTML += sent;
+	for ( i = 0 ; i < splitAmpersand.length ; i++ ) {
+		var splitEqual = splitAmpersand[i].split('=');
+	
+		var sent = str + "[" + i + "].split('=')";
+		divTag.innerHTML += sent + " ➡「 <code>" + splitEqual + "</code> 」</div>";
 	}
 
 
