@@ -4,10 +4,17 @@ html{
 	-webkit-scroll-behavior:smooth;
 	scroll-behavior:smooth;
 }
-body,img,div,iframe,feildset,ul,a{ margin:0;padding:0; }
+body,img,div,iframe,fieldset,ul,a{ margin:0;padding:0; }
 body {
 	width: 100vw;
 	position: relative;
+}
+button:hover{
+	transform: scale(1.03);
+}
+button:active{
+	transform: scale(1.0);
+}
 }
 /*コンテナー（ホームページを囲む一番外側のブロック）
 ---------------------------------------------------------------------------*/
@@ -77,10 +84,10 @@ dd{
 #original_view fieldset{
 	text-align: center;
 	position: relative;
-	width: 380px;
-	height: 460px;
+	width: 400px;
+	height: 480px;
+	max-width: 90vw;
 	margin: 5px;
-	padding: 5px;
 }
 legend{ font-size: 18px;}
 #exhibit_eight_queen{}
@@ -101,13 +108,18 @@ legend{ font-size: 18px;}
 	background: springgreen;
 }
 #eight_queen_frame{
-	width:380px;
-	height:380px;
+	width: 400px;
+	height: 400px;
+	max-width: 90vw;
+	max-height: 90vw;
 	margin: 0 auto;
-}
+}                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
 #eight_queen{
-	width:300px;
-	height:380px;
+	width:280px;
+	height:400px;
+	max-width: 90vw;
+	max-height: 90vw;
+	margin: 2px;
 }
 
 #exhibit_chess{}
@@ -119,7 +131,8 @@ legend{ font-size: 18px;}
 	margin: 10px auto 0 auto;
 }
 #exhibit_chess img{
-	width: 320px;
+	width: 340px;
+	max-width: 90vw;
 }
 #empty{
 	height: 50vh;
