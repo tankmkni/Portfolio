@@ -73,3 +73,39 @@ function swapSize(){
 	tag.style.width = height + "px";
 	tag.style.height = width + "px";
 }
+
+
+
+
+/*** onload時の処理 ***/
+window.onload = function () {
+	
+	//時間帯によって画像を切り替える
+	timeZone();
+	
+	//マウスストーカー用のdivを取得
+	const s0 = document.getElementById('s0'); 
+	const s1 = document.getElementById('s1');
+	const s2 = document.getElementById('s2');
+	const s3 = document.getElementById('s3'); 
+	const s4 = document.getElementById('s4'); 
+	const s5 = document.getElementById('s5'); 
+	const s6 = document.getElementById('s6'); 
+	const s7 = document.getElementById('s7'); 
+	const s8 = document.getElementById('s8'); 
+	const s9 = document.getElementById('s9'); 
+
+	//上記のdivタグをマウスに追従させる処理
+	document.addEventListener('mousemove', function (e) {
+		s0.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+		s1.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+		s2.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+		s3.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+		s4.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+		s5.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+		s6.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+		s7.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+		s8.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+		s9.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+	});
+}
