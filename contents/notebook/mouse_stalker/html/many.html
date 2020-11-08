@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>マウスストーカー</title>
+<script>
+	window.onload = function () {
+
+		//マウスストーカーの数
+		const num = 100;
+		document.getElementById("num").innerHTML = num;
+
+		//マウスストーカー用のタグを作成
+		for( i = 0 ; i < num ; i++ ){
+			document.body.innerHTML += "<div "
+				+ "style='transition: transform " + (0.1 + (i/60)) + "s;'"
+				+ "class='stalker' id='stalker" + i + "'></div>";
+		}
+
+		//上記のタグをマウスに追従させる処理
+		document.addEventListener('mousemove', function (e) {
+			for( i = 0 ; i < num ; i++ ){
+				const tag = document.getElementById("stalker" + i);
+				tag.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+			}
+		});
+	}
+</script>
+<style>
+	.stalker{
+		pointer-events: none;
+		position: fixed;
+		top: -8px;     /*座標調節（カーソル位置と円の中心を合わせる）*/
+		left: -8px;    /*座標調節（カーソル位置と円の中心を合わせる）*/
+		width: 16px;   /*マウスストーカーの直径*/
+		height: 16px;  /*マウスストーカーの直径*/
+		border-radius: 50%;
+		background: rgba(0,0,0,0.1);
+		transform: translate(0,0);
+		transition-timing-function: ease-out;
+		z-index: 999;
+	}
+</style>
+</head>
+<body>
+	<h5>黒いドットが<span id="num"></span>個ついてくる</h5>
+</body>
+</html>
