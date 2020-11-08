@@ -150,19 +150,8 @@ legend{ font-size: 18px;}
 	width: 10px;   /*マウスストーカーの直径*/
 	height: 10px;  /*マウスストーカーの直径*/
 	border-radius: 50%;
-	background: rgba(0,0,0,0.05);
+	background: rgba(0,0,0,0.03);
 	transform: translate(0,0);
 	transition-timing-function: ease-out;
 	z-index: 999;
 }
-/*ちょっと遅れてついてくるように*/
-#s0{ transition: transform 0.1s;}
-#s1{ transition: transform 0.2s;}
-#s2{ transition: transform 0.3s;}
-#s3{ transition: transform 0.4s;}
-#s4{ transition: transform 0.5s;}
-#s5{ transition: transform 0.6s;}
-#s6{ transition: transform 0.7s;}
-#s7{ transition: transform 0.8s;}
-#s8{ transition: transform 0.9s;}
-#s9{ transition: transform 1.0s;}
