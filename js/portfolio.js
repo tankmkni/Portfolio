@@ -94,17 +94,17 @@ function drawMouseStalker(){
 	//マウスストーカーの数
 	const num = 10;
 
-	//マウスストーカー用のdivを作成
+	//マウスストーカー用のタグを作成
 	for( i = 0 ; i < num ; i++ ){
-		document.body.innerHTML += "<div id='s" + i + "' class='stalker'"
-			//ちょっと遅れてついてくるように
-			+ "style='transition:transform " + (0.1 + (i/10)) + "s;'></div>";
+		document.body.innerHTML += "<img src='img/ico/mouse_pointer.png'"
+			+ "style='transition:transform " + (0.1 + (i/10)) + "s;'"	//ちょっと遅れてついてくるように
+			+ "class='stalker' id='stalker" + i + "'>";
 	}
 
-	//上記のdivタグをマウスに追従させる処理
+	//上記のタグをマウスに追従させる処理
 	document.addEventListener('mousemove', function (e) {
 		for( i = 0 ; i < num ; i++ ){
-			const tag = document.getElementById("s" + i);
+			const tag = document.getElementById("stalker" + i);
 			tag.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
 		}
 	});
