@@ -8,16 +8,26 @@
 <body>
 <h1>メモ：マウスストーカー</h1>
 <h3>カーソルアイコンにマークがついてくる方法のまとめ</h3>
+<div>いくつかのサイトで見かけ、使ってみたくて調べてみました</div>
 <div>mousemoveイベントを使用：<br/>
+	&emsp;<code>document.addEventListener('mousemove', function (e) {<br/>
+	&emsp;&emsp;&emsp;stalker.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';<br/>
+	&emsp;});</code></div>
 <h3>test.html の実行</h3>
 <iframe id="exe" src="html/test.html" style="height:200px;"></iframe><br/>
 <h4>test.html のコード</h4>
 <object data="text/test.txt" type="text/plain" onload="setHeight( this )"></object><br/><br/>
 
 <h3>アレンジ</h3>
+<div>カーソルをグリグリと動かすと、クネクネと動いて楽しいです。</div>
 <iframe id="exe" src="html/many.html" style="height:200px;"></iframe><br/>
 <h4>アレンジのコード</h4>
-<object data="text/many.txt" type="text/plain" onload="setHeight( this )"></object><br/><br/>
+<object data="text/many.txt" type="text/plain" onload="setHeight( this )"></object>
+<div>※変数 <code>num</code> の値を増やしたり、<br/>
+	&emsp;<code>transition: transform sec;</code> の値を大きくすると、<br/>
+	&emsp;さらに魅惑的な動きになって面白いです</div>
+	<div>&emsp;他にもアイデア次第でいろんなエフェクトを付けられるようです</div>
+<br/><br/>
 
 <p>参考になったサイト</p>
 <a href="https://wemo.tech/3214">カーソルにくっついてくる「マウスストーカー」の作り方【リンクに吸い付く】</a><br/>
