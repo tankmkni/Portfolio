@@ -98,7 +98,7 @@ function drawMouseStalker(){
 	for( i = 0 ; i < num ; i++ ){
 		document.body.innerHTML += "<div id='s" + i + "' class='stalker'"
 			//ちょっと遅れてついてくるように
-			+ "style='transition:transform 0." + (1 + i) + "s;'></div>";
+			+ "style='transition:transform " + (0.1 + (i/10)) + "s;'></div>";
 	}
 
 	//上記のdivタグをマウスに追従させる処理
