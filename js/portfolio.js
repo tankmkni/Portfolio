@@ -97,7 +97,7 @@ function drawMouseStalker(){
 	//マウスストーカー用のタグを作成
 	for( i = 0 ; i < num ; i++ ){
 		document.body.innerHTML += "<img src='img/ico/mouse_pointer.png'"
-			+ "style='transition:transform " + (0.1 + (i/10)) + "s;'"	//ちょっと遅れてついてくるように
+			+ "style='transition:transform " + (0.2 + (i/5)) + "s;'"	//ちょっと遅れてついてくるように
 			+ "class='stalker' id='stalker" + i + "'>";
 	}
 

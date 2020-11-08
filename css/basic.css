@@ -149,7 +149,7 @@ legend{ font-size: 18px;}
 	left: -3.8px;	/*座標調節（カーソルと位置を合わせる）*/
 	width: 16px;	/*マウスストーカーの直径*/
 	height: 16px;	/*マウスストーカーの直径*/
-	opacity: 0.05;	/*画像の透過*/
+	opacity: 0.1;	/*画像の透過*/
 	transform: translate(0,0);
 	transition-timing-function: ease-out;
 	z-index: 999;

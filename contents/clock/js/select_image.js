@@ -1,5 +1,5 @@
 function setImg(){
-	var filename = location.search.split("=")[1];
-	var fileSrc = "../img/" + filename + ".png";
+	var fileName = location.search.split("=")[1];
+	var fileSrc = "../img/" + fileName + ".png";
 	document.getElementById("secondMark").setAttribute( "src" , fileSrc );
 }
