@@ -12,9 +12,10 @@
 
 		//マウスストーカー用のタグを作成
 		for( i = 0 ; i < num ; i++ ){
-			document.body.innerHTML += "<div "
-				+ "style='transition: transform " + (0.1 + (i/60)) + "s;'"
-				+ "class='stalker' id='stalker" + i + "'></div>";
+			document.body.innerHTML += "<div class='stalker' id='stalker" + i + "'"
+				
+				//動き出しを少しづつ遅らせる
+				+ "style='transition: transform " + (0.1 + (i/60)) + "s;'></div>";
 		}
 
 		//上記のタグをマウスに追従させる処理
@@ -35,7 +36,8 @@
 		width: 16px;   /*マウスストーカーの直径*/
 		height: 16px;  /*マウスストーカーの直径*/
 		border-radius: 50%;
-		background: rgba(0,0,0,0.1);
+		background: red;
+		opacity: 0.01;
 		transform: translate(0,0);
 		transition-timing-function: ease-out;
 		z-index: 999;
@@ -43,6 +45,6 @@
 </style>
 </head>
 <body>
-	<h5>黒いドットが<span id="num"></span>個ついてくる</h5>
+	<h5>赤いドットが<span id="num"></span>個ついてくる</h5>
 </body>
 </html>
