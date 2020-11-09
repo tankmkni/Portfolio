@@ -32,9 +32,8 @@
 		<div id="img_box" onclick="switchImg()">
 			<img id="main_img"><!--srcはscriptで指定-->
 			<div id="portfolio">Portfolio</div>
-			<div id="comment">※画像をクリックすると画像が切り替わります（時間帯で最初に表示される画像が変わります）</div>
+			<p class="comment" id="imgClick">※画像をクリックすると画像が切り替わります（時間帯で最初に表示される画像が変わります）</p>
 		</div>
-
 		<!-- プロダクト -->
 		<dl>
 			<dt id="original">Original Product</dt>
@@ -100,9 +99,11 @@
 				<dd>JAVA / SQL / HTML / CSS / JavaScript / VBA / Python / PHP を学びました。</dd>
 				<dd>データベースは、MySQL、H２、Oracle Databaseを使用したことがあります。</dd>
 				<dd>まだまだ未熟ですが、日々スキルUPに努めています。</dd>
+			
+			<div id="empty"></div>
+			<p id="lastModified">最終更新日：</p>
 		</dl>
 	</div>
-	<div id="empty"></div>
 </div>
 </body>
 </html>

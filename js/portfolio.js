@@ -12,6 +12,7 @@ var specifyIndex;
 
 /*** onload時の処理 ***/
 window.onload = function () {
+	writeLastModified();
 	timeZone();				//時間帯によって画像を切り替える
 	drawMouseStalker();		//マウスストーカー
 }
@@ -108,4 +109,20 @@ function drawMouseStalker(){
 			tag.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
 		}
 	});
+}
+
+
+
+
+
+/*** 最終更新日の表示 ***/
+function writeLastModified(){
+
+	var date = new Date(document.lastModified);
+	var y = date.getFullYear();
+	var m = date.getMonth() + 1;
+	var d = date.getDate();
+
+	var tag = document.getElementById("lastModified");
+	tag.innerHTML += y + " 年 " + m + " 月 " + d + " 日"
 }
