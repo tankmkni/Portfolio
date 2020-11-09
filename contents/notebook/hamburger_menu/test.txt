@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<title>ハンバーガーメニュー</title>
+</head>
+<body>
+
+	<!-- ハンバーガー部 -->
+	<div class="ham" id="ham">
+		<span class="ham_line ham_line1"></span>
+		<span class="ham_line ham_line2"></span>
+		<span class="ham_line ham_line3"></span>
+	</div>
+	
+	<!-- 出し入れするメニュー -->
+	<div class="menu_wrapper" id="menu_wrapper">
+		<div class="menu">
+			<ul>
+				<li><a href="#1">メニュー１</a></li>
+				<li><a href="#2">メニュー２</a></li>
+				<li><a href="#3">メニュー３</a></li>
+			</ul>
+		</div>
+	</div>
+
+</body>
+<script>
+
+	//クリックでクラス名を追加したり削除するスクリプト
+
+	const ham = document.getElementById('ham');
+	const menu_wrapper = document.getElementById('menu_wrapper');
+
+	//クラス名を交互に追加と削除
+	ham.addEventListener('click', function() {
+		ham.classList.toggle('clicked');
+		menu_wrapper.classList.toggle('clicked');
+	});
+
+</script>
+<style>
+
+	/* CSS : クラス名の変化で表示が変わる */
+
+	/* ハンバーガー部 */
+	.ham {	/* 本体（サイズ無しだと、クリックできる範囲がバー部分だけになる） */
+		position: relative;  /* バーの位置を指定するため親要素を relative に */
+		width: 40px;
+		height: 40px;
+	}
+	.ham_line {	/* ３本のバー */
+		position: absolute;  /* バーの位置を指定するため子要素を absolute に */
+		width: 20px;         /* バーの長さ */
+		height: 5px;         /* バーの幅 */
+		background: red;     /* バーの色 */
+	}
+	.ham_line1 { top: 10px;}	/* 上のバー */
+	.ham_line2 { top: 18px;}	/* 中心のバー */
+	.ham_line3 { top: 26px;}	/* 下のバー */
+
+	/* ×印への変化 */
+	.clicked .ham_line1 {
+		transform: rotate(45deg);
+		top: 18px;
+	}
+	.clicked .ham_line2 { width: 0px;}
+	.clicked .ham_line3 {
+		transform: rotate(-45deg);
+		top: 18px;
+	}
+
+	/* メニューを画面 "外" へ */
+	.menu {
+		position: fixed;
+		left: -150px;
+	}
+
+	/* メニューを画面 "内" へ */
+	.clicked .menu { left: 8px;}
+
+</style>
+</html>

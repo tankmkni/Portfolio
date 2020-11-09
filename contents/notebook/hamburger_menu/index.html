@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+	<link rel="stylesheet" href="../css/basic.css">
+	<script type="text/javascript" src="../js/common.js"></script>
+	<title>Hamburger Menu</title>
+</head>
+<body>
+<h1>メモ：ハンバーガーメニュー</h1>
+<h3>クリックするとメニューが表示されるアイコンの作り方</h3>
+<div>最近は脱ハンバーガーな記事も見かけますが、前から使ってみたかったので調べてみました</div>
+<div>classListプロパティ toggleメソッド ：<br/>
+	&emsp;タグに指定したクラス名がなければ追加し、あれば削除する<br/>
+	&emsp;<code>tag.classList.toggle('className');</code><br></div>
+<h3>test.html の実行</h3>
+<div>クリックすると×印になりメニューが現れる<br/>
+	×印をクリックすると元に戻る</div>
+<iframe id="exe" src="test.html"></iframe><br/>
+<h4>test.html のコード</h4>
+<iframe id="exe" src="test.txt" onload="setHeight(this)"></iframe><br/>
+
+<p>参考になったサイト</p>
+<a href="https://manabiact.com/make-hamburger-menu/">ハンバーガーメニューの作り方</a><br/>
+<a href="https://qiita.com/tomokichi_ruby/items/2460c5902d19b81cace5">classListの使い方まとめ</a><br/>
+<br/>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>
