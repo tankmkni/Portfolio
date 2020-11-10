@@ -1,0 +1,55 @@
+/*本体*/
+.ham {
+	position: fixed;	/*画面に固定*/
+	right: 0;			/*右端に表示*/
+	width: 40px;
+	height: 40px;
+	cursor: pointer;	/*カーソルを指定*/
+	z-index: 3;			/*最前面に指定*/
+}
+.ham_line {
+	position: absolute;	/*親要素がstatic以外なら位置を指定できる*/
+	right: 10px;
+	width: 20px;
+	height: 3px;
+	background: black;
+	border-radius: 1.5px;
+	transition: all 0.3s;
+}
+.ham_line1 {
+	top: 10px;
+}
+.ham_line2 {
+	top: 18px;
+}
+.ham_line3 {
+	top: 26px;
+}
+
+/* ×印への変化 */
+.clicked .ham_line1 {
+	transform: rotate(225deg);
+	top: 18px;
+}
+.clicked .ham_line2 { width: 0px;}
+.clicked .ham_line3 {
+	transform: rotate(-225deg);
+	top: 18px;
+}
+
+/*メニュー*/
+.ham_menu{
+	position: fixed;
+	right: -300px;	/*メニューをスライドして表示させるため画面外へ*/
+	padding-top: 8vmin;
+	transition: all 0.3s;
+	z-index: 3;
+}
+.ham_menu ul{
+	display: block;
+	padding: 10px;
+	background: white;
+	opacity: 0.95;
+	list-style: none;
+}
+.clicked .ham_menu { right: 0;}

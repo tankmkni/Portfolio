@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<title>トグルスイッチ</title>
+</head>
+<body>
+
+	<!--/* bodyタグの中身 */-->
+
+	<div id="toggle_switch_body">
+		<div id="toggle_switch"></div>
+	</div>
+
+</body>
+<script type="text/javascript">
+
+	//クリック時に指定したクラス名が無ければ追加、有れば削除するスクリプト
+
+	const tag = document.getElementById('toggle_switch_body');
+	tag.addEventListener('click', function(){
+		tag.classList.toggle('clicked');
+	});	
+
+</script>
+<style type="text/css">
+
+	/* CSS */
+
+	#toggle_switch_body{
+		display: flex;
+		align-items: center;     /*子要素を上下中央揃え*/
+		position: relative;      /*子要素で位置指定*/
+		width: 80px;
+		height: 50px;
+		border: solid 3px lightgray;
+		border-radius: 28px;     /* 半径 height ÷ 2 + border ピクセルの丸み*/
+		background: aquamarine;
+		cursor: pointer;         /*カーソルマーク指定*/
+	}
+	#toggle_switch{
+		position: absolute;
+		left: 1px;		/*位置指定の初期値*/
+		width: 48px;
+		height: 48px;
+		background: white;
+		border-radius: 50%;
+	}
+	.clicked #toggle_switch{ left: 31px;}	/*クリック時の位置指定*/
+
+</style>
+</html>

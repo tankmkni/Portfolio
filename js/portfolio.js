@@ -12,9 +12,10 @@ var specifyIndex;
 
 /*** onload時の処理 ***/
 window.onload = function () {
-	writeLastModified();
 	timeZone();				//時間帯によって画像を切り替える
 	drawMouseStalker();		//マウスストーカー
+	writeLastModified();	//最終更新日を表示
+	drawHamburgerMenu();	//ハンバーガーメニュー
 }
 
 
@@ -114,7 +115,6 @@ function drawMouseStalker(){
 
 
 
-
 /*** 最終更新日の表示 ***/
 function writeLastModified(){
 
@@ -125,4 +125,16 @@ function writeLastModified(){
 
 	var tag = document.getElementById("lastModified");
 	tag.innerHTML += y + " 年 " + m + " 月 " + d + " 日"
+}
+
+
+
+/*** ハンバーガーメニュー ***/
+function drawHamburgerMenu(){
+const ham = document.getElementById('ham');
+const menu_wrapper = document.getElementById('menu_wrapper');
+ham.addEventListener('click', function() {
+	ham.classList.toggle('clicked');
+	menu_wrapper.classList.toggle('clicked');
+});
 }
