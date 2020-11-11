@@ -36,9 +36,13 @@
 	<div class="menu_wrapper" id="menu_wrapper">
 		<div class="ham_menu">
 	    	<ul>
-	        	<li>Mouse Stalker</li>
-	        	<li><div id="toggle_switch_body" onclick="switchingStalker()">
-						<div id="toggle_switch"></div>
+	        	<li><div>Mouse Stalker</div>
+	        		<div id="toggle_stalker" class="toggle_body on_off" onclick="switchingToggle( this.id )">
+						<div class="toggle_switch"></div>
+					</div></li>
+	        	<li><div>Image Photo</div>
+	        		<div id="toggle_img" class="toggle_body" onclick="switchingToggle( this.id )">
+						<div class="toggle_switch"></div>
 					</div></li>
 	    	</ul>
 		</div>
@@ -48,10 +52,10 @@
 	<div id="scrool_box">
 
 		<!-- メインイメージ -->
-		<div id="img_box" onclick="switchImg()">
+		<div id="img_box">
 			<img id="main_img"><!--srcはscriptで指定-->
 			<div id="portfolio">Portfolio</div>
-			<p class="comment" id="imgClick">※画像をクリックすると画像が切り替わります（時間帯で最初に表示される画像が変わります）</p>
+			<p class="comment" id="imgComment">※時間帯によって最初に表示される画像が変わります</p>
 		</div>
 
 		<!-- プロダクト -->

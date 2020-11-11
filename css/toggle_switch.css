@@ -1,4 +1,4 @@
-#toggle_switch_body{
+.toggle_body{
 	display: flex;
 	align-items: center;     /*子要素を上下中央揃え*/
 	position: relative;      /*子要素で位置指定*/
@@ -9,18 +9,19 @@
 	border-radius: 9px;     /* 半径 height ÷ 2 + border ピクセルの丸み*/
 	background: aquamarine;
 	cursor: pointer;         /*カーソルマーク指定*/
-	font-size: 5px;
-}#toggle_switch_body::before{
+	font-size: 12px;
+}
+.on_off::before{
 	content: "ON";
 	position: absolute;
 	left: -25px;
 }
-#toggle_switch_body::after{
+.on_off::after{
 	content: "OFF";
 	position: absolute;
 	right: -30px;
 }
-#toggle_switch{
+.toggle_switch{
 	position: absolute;
 	left: 1px;		/*位置指定の初期値*/
 	width: 13px;
@@ -28,4 +29,14 @@
 	background: white;
 	border-radius: 50%;
 }
-.clicked_toggle #toggle_switch{ left: 10px;}	/*クリック時の位置指定*/
+.clicked_toggle .toggle_switch{ left: 10px;}	/*クリック時の位置指定*/
+#toggle_img::before{
+	content: "photo①";
+	position: absolute;
+	left: -55px;
+}
+#toggle_img::after{
+	content: "photo②";
+	position: absolute;
+	right: -55px;
+}

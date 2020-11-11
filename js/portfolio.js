@@ -14,9 +14,9 @@ const stalker_num = 10;
 /*** onload時の処理 ***/
 window.onload = function () {
 	timeZone();				//時間帯によって画像を切り替える
-	drawMouseStalker();		//マウスストーカー
-	chaseMouse();
 	writeLastModified();	//最終更新日を表示
+	drawMouseStalker();		//マウスストーカーを作る
+	chaseMouse();			//↑にカーソルを追尾させる
 }
 
 
@@ -28,14 +28,12 @@ function setValue(){
 	setTextShadow();
 }
 
-
 /*** 画像をセットする関数 ***/
 function setImage(){
 	var imgSrc = "img/" + fileNames[specifyIndex] + ".jpg";
 	var main_img = document.getElementById("main_img");
 	main_img.setAttribute("src", imgSrc);
 }
-
 
 /*** text-shadowをセットする関数 ***/
 function setTextShadow(){
@@ -64,8 +62,7 @@ function timeZone(){
 	setValue();
 }
 
-
-/*** 画像をクリックすると画像を切り替える関数 ***/
+/*** 画像を切り替える関数 ***/
 function switchImg(){
 	specifyIndex++;
 	if( specifyIndex >= fileNames.length ){
@@ -124,15 +121,35 @@ function removeMouseStalker(){
 }
 
 //マウスストーカーON/OFFの切り替え
-function switchingStalker(){
+function switchingStalker( tagId ){
+
 	let stalkers_box = document.getElementById("stalkers_box");
+
 	if( stalkers_box != null ){
 		removeMouseStalker();
 	}else{
 		drawMouseStalker();
 	}
-	
-	switchingToggle();
+}
+
+
+
+
+/*** トグルスイッチ ***/
+function switchingToggle( tagId ){
+
+	//トグルスイッチをスライドさせる
+	let elme = document.getElementById( tagId );
+	elme.classList.toggle('clicked_toggle');
+
+	//tagIdによって振り分ける
+	switch( tagId ){
+		case "toggle_stalker":
+			switchingStalker( tagId );
+			break;
+		case "toggle_img":
+			switchImg();
+	}
 }
 
 
@@ -161,13 +178,4 @@ function switchingHam(){
 
 	const menu_wrapper = document.getElementById('menu_wrapper');
 	menu_wrapper.classList.toggle('clicked_ham');
-}
-
-
-
-
-/*** トグルスイッチ ***/
-function switchingToggle(){
-	let toggle_switch_body = document.getElementById('toggle_switch_body');
-	toggle_switch_body.classList.toggle('clicked_toggle');
 }

@@ -50,6 +50,11 @@
 	padding: 10px;
 	background: white;
 	opacity: 0.95;
+}
+.ham_menu ul li{
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
 	list-style: none;
 }
 .clicked_ham .ham_menu { right: 0;}
