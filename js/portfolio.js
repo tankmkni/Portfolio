@@ -152,9 +152,6 @@ function switchingToggle( tagId ){
 	}
 }
 
-
-
-
 /*** 最終更新日の表示 ***/
 function writeLastModified(){
 

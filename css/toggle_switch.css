@@ -24,12 +24,15 @@
 .toggle_switch{
 	position: absolute;
 	left: 1px;		/*位置指定の初期値*/
+	transition: all 0.5s;
 	width: 13px;
 	height: 13px;
 	background: white;
 	border-radius: 50%;
 }
-.clicked_toggle .toggle_switch{ left: 10px;}	/*クリック時の位置指定*/
+.clicked_toggle .toggle_switch{
+	left: 10px;		/*クリック時の位置指定*/
+}
 #toggle_img::before{
 	content: "photo①";
 	position: absolute;
