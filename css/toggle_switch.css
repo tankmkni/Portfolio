@@ -1,0 +1,31 @@
+#toggle_switch_body{
+	display: flex;
+	align-items: center;     /*子要素を上下中央揃え*/
+	position: relative;      /*子要素で位置指定*/
+	width: 24px;
+	height: 15px;
+	margin: 0 30px;
+	border: solid 1px lightgray;
+	border-radius: 9px;     /* 半径 height ÷ 2 + border ピクセルの丸み*/
+	background: aquamarine;
+	cursor: pointer;         /*カーソルマーク指定*/
+	font-size: 5px;
+}#toggle_switch_body::before{
+	content: "ON";
+	position: absolute;
+	left: -25px;
+}
+#toggle_switch_body::after{
+	content: "OFF";
+	position: absolute;
+	right: -30px;
+}
+#toggle_switch{
+	position: absolute;
+	left: 1px;		/*位置指定の初期値*/
+	width: 13px;
+	height: 13px;
+	background: white;
+	border-radius: 50%;
+}
+.clicked_toggle #toggle_switch{ left: 10px;}	/*クリック時の位置指定*/

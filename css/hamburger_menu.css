@@ -5,7 +5,7 @@
 	width: 40px;
 	height: 40px;
 	cursor: pointer;	/*カーソルを指定*/
-	z-index: 3;			/*最前面に指定*/
+	z-index: 4;			/*最前面に指定*/
 }
 .ham_line {
 	position: absolute;	/*親要素がstatic以外なら位置を指定できる*/
@@ -27,12 +27,12 @@
 }
 
 /* ×印への変化 */
-.clicked .ham_line1 {
+.clicked_ham .ham_line1 {
 	transform: rotate(225deg);
 	top: 18px;
 }
-.clicked .ham_line2 { width: 0px;}
-.clicked .ham_line3 {
+.clicked_ham .ham_line2 { width: 0px;}
+.clicked_ham .ham_line3 {
 	transform: rotate(-225deg);
 	top: 18px;
 }
@@ -52,4 +52,4 @@
 	opacity: 0.95;
 	list-style: none;
 }
-.clicked .ham_menu { right: 0;}
+.clicked_ham .ham_menu { right: 0;}

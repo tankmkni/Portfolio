@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="css/basic.css" />
 <link rel="stylesheet" href="css/dropdown.css" />
 <link rel="stylesheet" href="css/hamburger_menu.css" />
+<link rel="stylesheet" href="css/toggle_switch.css" />
 <script type="text/javascript" src="js/portfolio.js"></script>
 <title>Portfolio</title>
 </head>
@@ -27,19 +28,20 @@
 	</ul>
 
 	<!-- ハンバーガーメニュー -->
-	<div class="menu_wrapper" id="menu_wrapper">
-		<div class="ham_menu">
-	    	<ul>
-	        	<li>準備中</li>
-	        	<li>------</li>
-	        	<li>------</li>
-	    	</ul>
-		</div>
-	</div>
-	<div class="ham" id="ham">
+	<div class="ham" id="ham" onclick="switchingHam()">
 		<span class="ham_line ham_line1"></span>
 		<span class="ham_line ham_line2"></span>
 		<span class="ham_line ham_line3"></span>
+	</div>
+	<div class="menu_wrapper" id="menu_wrapper">
+		<div class="ham_menu">
+	    	<ul>
+	        	<li>Mouse Stalker</li>
+	        	<li><div id="toggle_switch_body" onclick="switchingStalker()">
+						<div id="toggle_switch"></div>
+					</div></li>
+	    	</ul>
+		</div>
 	</div>
 
 	<!-- 本体 -->
@@ -51,6 +53,7 @@
 			<div id="portfolio">Portfolio</div>
 			<p class="comment" id="imgClick">※画像をクリックすると画像が切り替わります（時間帯で最初に表示される画像が変わります）</p>
 		</div>
+
 		<!-- プロダクト -->
 		<dl>
 			<dt id="original">Original Product</dt>
@@ -122,7 +125,6 @@
 				<dd>JAVA / SQL / HTML / CSS / JavaScript / VBA / Python / PHP を学びました。</dd>
 				<dd>データベースは、MySQL、H２、Oracle Databaseを使用したことがあります。</dd>
 				<dd>まだまだ未熟ですが、日々スキルUPに努めています。</dd>
-			
 			<div id="empty"></div>
 			<p id="lastModified">最終更新日：</p>
 		</dl>

@@ -1,21 +1,22 @@
 //	main_imgのファイル名の配列
-var fileNames = new Array("daytime","evening");
+const fileNames = new Array("daytime","evening");
 
 //	text-shadowの色の配列
-var shadowColors = new Array("blue","orange");
+const shadowColors = new Array("blue","orange");
 
 //	配列の添え字を指定するグローバル変数
 var specifyIndex;
 
-
+//マウスストーカーの数
+const stalker_num = 10;
 
 
 /*** onload時の処理 ***/
 window.onload = function () {
 	timeZone();				//時間帯によって画像を切り替える
 	drawMouseStalker();		//マウスストーカー
+	chaseMouse();
 	writeLastModified();	//最終更新日を表示
-	drawHamburgerMenu();	//ハンバーガーメニュー
 }
 
 
@@ -31,16 +32,16 @@ function setValue(){
 /*** 画像をセットする関数 ***/
 function setImage(){
 	var imgSrc = "img/" + fileNames[specifyIndex] + ".jpg";
-	var tag = document.getElementById("main_img");
-	tag.setAttribute("src", imgSrc);
+	var main_img = document.getElementById("main_img");
+	main_img.setAttribute("src", imgSrc);
 }
 
 
 /*** text-shadowをセットする関数 ***/
 function setTextShadow(){
 	var shadowColor = shadowColors[specifyIndex];
-	var tag = document.getElementById("portfolio");
-	tag.style.textShadow =
+	var portfolioTag = document.getElementById("portfolio");
+	portfolioTag.style.textShadow =
 		"  2px  2px 10px " + shadowColor +
 		",-2px  2px 10px " + shadowColor +
 		", 2px -2px 10px " + shadowColor +
@@ -78,38 +79,60 @@ function switchImg(){
 
 /*** iframeの縦と横のサイズを入れ替える関数 ***/
 function swapSize(){
-	var tag = document.getElementById("eight_queen");
+	var eight_queen = document.getElementById("eight_queen");
 
-	var width = tag.scrollWidth;
-	var height = tag.scrollHeight;
+	var width = eight_queen.scrollWidth;
+	var height = eight_queen.scrollHeight;
 
-	tag.style.width = height + "px";
-	tag.style.height = width + "px";
+	eight_queen.style.width = height + "px";
+	eight_queen.style.height = width + "px";
 }
 
 
 
 
 /*** マウスストーカー ***/
+
+//マウスストーカー作成
 function drawMouseStalker(){
 
-	//マウスストーカーの数
-	const num = 10;
-
 	//マウスストーカー用のタグを作成
-	for( i = 0 ; i < num ; i++ ){
-		document.body.innerHTML += "<img src='img/ico/mouse_pointer.png'"
+	document.body.innerHTML += "<div id='stalkers_box'></div>";
+	for( i = 0 ; i < stalker_num ; i++ ){
+		document.getElementById("stalkers_box").innerHTML += "<img src='img/ico/mouse_pointer.png'"
 			+ "style='transition:transform " + (0.2 + (i/5)) + "s;'"	//ちょっと遅れてついてくるように
 			+ "class='stalker' id='stalker" + i + "'>";
 	}
+}
 
-	//上記のタグをマウスに追従させる処理
+//上記のタグをマウスに追従させる処理
+function chaseMouse(){
 	document.addEventListener('mousemove', function (e) {
-		for( i = 0 ; i < num ; i++ ){
-			const tag = document.getElementById("stalker" + i);
-			tag.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+		for( i = 0 ; i < stalker_num ; i++ ){
+			const stalker_tag = document.getElementById("stalker" + i);
+			if( stalker_tag != null ){
+				stalker_tag.style.transform = 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+			}
 		}
 	});
+}
+
+//マウスストーカー削除
+function removeMouseStalker(){
+	const stalkers_box = document.getElementById("stalkers_box");
+	stalkers_box.remove();
+}
+
+//マウスストーカーON/OFFの切り替え
+function switchingStalker(){
+	let stalkers_box = document.getElementById("stalkers_box");
+	if( stalkers_box != null ){
+		removeMouseStalker();
+	}else{
+		drawMouseStalker();
+	}
+	
+	switchingToggle();
 }
 
 
@@ -123,18 +146,28 @@ function writeLastModified(){
 	var m = date.getMonth() + 1;
 	var d = date.getDate();
 
-	var tag = document.getElementById("lastModified");
-	tag.innerHTML += y + " 年 " + m + " 月 " + d + " 日"
+	var lastModified = document.getElementById("lastModified");
+	lastModified.innerHTML += y + " 年 " + m + " 月 " + d + " 日"
 }
 
 
 
+
 /*** ハンバーガーメニュー ***/
-function drawHamburgerMenu(){
-const ham = document.getElementById('ham');
-const menu_wrapper = document.getElementById('menu_wrapper');
-ham.addEventListener('click', function() {
-	ham.classList.toggle('clicked');
-	menu_wrapper.classList.toggle('clicked');
-});
+function switchingHam(){
+
+	const ham = document.getElementById('ham');
+	ham.classList.toggle('clicked_ham');
+
+	const menu_wrapper = document.getElementById('menu_wrapper');
+	menu_wrapper.classList.toggle('clicked_ham');
+}
+
+
+
+
+/*** トグルスイッチ ***/
+function switchingToggle(){
+	let toggle_switch_body = document.getElementById('toggle_switch_body');
+	toggle_switch_body.classList.toggle('clicked_toggle');
 }
