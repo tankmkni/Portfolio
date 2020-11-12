@@ -121,20 +121,20 @@ function removeMouseStalker(){
 }
 
 //マウスストーカーON/OFFの切り替え
-function switchingStalker( tagId ){
+function switchingStalker(){
 
 	let stalkers_box = document.getElementById("stalkers_box");
 
 	if( stalkers_box == null ){
 
-	/*
-	*トグルスイッチのtransition: 0.3s;が終了してから実行
-	*なぜかこれだけ、↑が効かない
-	*同期/非同期の問題だとは思うけど…
-	*保守性に問題あるので別な方法のほうが良さそうだけど、とりあえずこれで（2020/11/12）
-	*/
-	let drawStalker = function(){ drawMouseStalker(); };
-	setTimeout( drawStalker , 300 );
+		/*
+		*トグルスイッチのtransition: 0.3s;が終了してから実行
+		*なぜかこれだけ、↑が効かない
+		*同期/非同期の問題だとは思うけど…
+		*保守性に問題あるので別な方法のほうが良さそうだけど、とりあえずこれで（2020/11/12）
+		*/
+		let drawStalker = function(){ drawMouseStalker(); };
+		setTimeout( drawStalker , 300 );
 
 	}else{
 		removeMouseStalker();
@@ -154,7 +154,7 @@ function switchingToggle( tagId ){
 	//tagIdによって振り分ける
 	switch( tagId ){
 		case "toggle_stalker":
-			switchingStalker( tagId );
+			switchingStalker();
 			break;
 		case "toggle_img":
 			switchImg();

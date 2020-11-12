@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<title>トグルスイッチ</title>
+</head>
+<body onload="drawMouseStalker();chaseMouse();">
+
+	<div style="margin: 0 10px;">
+		<div><div>マウスストーカーのON / OFF</div>
+			<div id="toggle_stalker" class="toggle_body on_off" onclick="switchingToggle( this.id )">
+				<div class="toggle_switch"></div></div>
+			<div>ON ← OFF の時にtransitionが効かない</div>
+		</div><br/>
+		<div><div>別の処理&emsp;transitionが両方に効いている</div>
+			<div id="toggle_test" class="toggle_body on_off" onclick="switchingToggle( this.id )">
+				<div class="toggle_switch"></div></div>
+			<div><span id="target">ON</span> の表示</div>
+		</div></div>
+	</div>
+	
+</body>
+<script type="text/javascript">
+
+	/*** マウスストーカー ***/
+
+	const stalker_num = 10;
+
+	//マウスストーカー作成
+	function drawMouseStalker(){
+
+		//マウスストーカー用のタグを生成
+		document.body.innerHTML += "<div id='stalkers_box'></div>";
+		for( i = 0 ; i < stalker_num ; i++ ){
+			document.getElementById("stalkers_box").innerHTML
+				+= "<img src='../../../img/ico/mouse_pointer.png'"
+				+ "style='transition:transform " + (0.2 + (i/5)) + "s;'"
+				+ "class='stalker' id='stalker" + i + "'>";
+		}
+	}
+
+	//上記のタグをマウスに追従させる処理
+	function chaseMouse(){
+		document.addEventListener('mousemove', function (e) {
+			for( i = 0 ; i < stalker_num ; i++ ){
+				const stalker_tag = document.getElementById("stalker" + i);
+				if( stalker_tag != null ){
+					stalker_tag.style.transform
+						= 'translate(' + e.clientX + 'px, ' + e.clientY + 'px)';
+				}
+			}
+		});
+	}
+
+	//マウスストーカー削除
+	function removeMouseStalker(){
+		const stalkers_box = document.getElementById("stalkers_box");
+		stalkers_box.remove();
+	}
+
+	//マウスストーカーON/OFFの切り替え
+	function switchingStalker(){
+
+		let stalkers_box = document.getElementById("stalkers_box");
+
+		if( stalkers_box == null ){
+			drawMouseStalker();
+		}else{
+			removeMouseStalker();
+		}
+	}
+
+
+	/*** トグルスイッチ ***/
+	function switchingToggle( tagId ){
+
+		//トグルスイッチをスライドさせる
+		let elme = document.getElementById( tagId );
+		elme.classList.toggle('clicked_toggle');
+
+		//tagIdによって振り分ける
+		switch( tagId ){
+			case "toggle_stalker":
+				switchingStalker();
+				break;
+			case "toggle_test":
+				anotherProcess();
+		}
+	}
+	
+	function anotherProcess(){
+
+		let tag = document.getElementById("target");
+		switch( tag.innerHTML ){
+			case "ON":
+				tag.innerHTML = "OFF";
+				break;
+			case "OFF":
+				tag.innerHTML = "ON";
+		}
+	}
+
+</script>
+<style type="text/css">
+
+	/* CSS */
+
+	/*** マウスストーカー ***/
+	.stalker {
+		pointer-events: none;
+		position: fixed;
+		top: 0px;
+		left: -3.8px;
+		width: 16px;
+		height: 16px;
+		opacity: 0.1;
+		transform: translate(0,0);
+		transition-timing-function: ease-out;
+		z-index: 999;
+	}
+
+	/*** トグルスイッチ ***/
+
+	.toggle_body{
+		display: flex;
+		align-items: center;
+		position: relative;
+		width: 24px;
+		height: 15px;
+		margin: 0 30px;
+		border: solid 1px lightgray;
+		border-radius: 9px;
+		background: aquamarine;
+		cursor: pointer;
+		font-size: 12px;
+	}
+	.on_off::before{
+		content: "ON";
+		position: absolute;
+		left: -25px;
+	}
+	.on_off::after{
+		content: "OFF";
+		position: absolute;
+		right: -30px;
+	}
+	.toggle_switch{
+		position: absolute;
+		left: 1px;
+		width: 13px;
+		height: 13px;
+		background: white;
+		border-radius: 50%;
+
+		/* これが効いたり効かなかったり */
+		transition: 0.3s;
+	}
+	.clicked_toggle .toggle_switch{ left: 10px;}
+
+</style>
+</html>
