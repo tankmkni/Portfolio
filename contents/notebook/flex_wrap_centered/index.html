@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../css/basic.css">
+<script type="text/javascript" src="../js/common.js"></script>
+<title>flex-wrapのセンター寄せ</title>
+</head>
+<body>
+<h1>メモ：flex-wrapのセンター寄せ</h1>
+<h4>やりたい事</h4>
+<ul>
+<li>子要素を並列配置： <code>display: flex;</code> を使用</li>
+<li>画面幅をはみ出した子要素を折り返す： <code>flex-wrap: wrap;</code> を使用</li>
+<li>折り返した子要素は、左から並べる</li>
+<li>要素全体を左右中央寄せ</li>
+<li>余った要素も他の要素とずらさない</li>
+<li>画面サイズが変更されても上記を満たす</li>
+</ul>
+<h4>問題点</h4>
+<ul>
+<li><code>margin: auto;</code>だと余った要素がずれる</li>
+<li>ネットで調べた、親の親要素を<code>inline-block</code>にしても効果がない</li>
+<li>親要素はある意味すでに左右中央に配置されている<br/>
+	画面幅 >= 親要素の幅&emsp;の時には<br/>
+	&emsp;親要素の幅 = 子要素の幅の合計<br/>
+	画面幅 < 親要素の幅&emsp;になると子要素が折り返す<br/>
+	&emsp;親要素の幅 = 画面幅&emsp;に変化&emsp;<span style="color:red;">※子要素の１行の幅ではない</span></li>
+<li>①、親要素の中で折り返した子要素を、折り返した見た目で左右中央に寄せる<br/>
+	②、親要素の幅を、折り返した子要素の１行の幅に合わせる<br/>
+	&emsp;のどちらかが必要だが、それらをcssだけで解決する手法が見つけられない</li>
+</ul>
+
+<h4>JavaScriptを使えば上記の②ができそうなのでトライ</h4>
+<div>実行するコード：test.html</div>
+<iframe id="exe" src="test.txt" style="height:500px;" onload="setHeight(this)"></iframe><br/>
+<button onclick="location.href='test.html'" style="width: 300px;">実行結果を別画面で表示</button>
+<div>一応やりたい事は満たしているが、marginを付ける場合には <code>boxWidth</code> にmarginの値を足す必要がある<br/>
+	CSSだけのやり方があるかもしれないので継続課題としたい</div>
+
+<p>参考になったサイト</p>
+<a href="https://qiita.com/junara/items/dd9f34a4f2baccf58b89">（個人的まとめ）よく使うflexboxの設定</a><br/>
+<a href="https://developer.mozilla.org/ja/docs/Web/API/HTMLElement/offsetWidth">HTMLElement.offsetWidth</a><br/>
+<br/>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>

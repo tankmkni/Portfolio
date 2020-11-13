@@ -12,7 +12,4 @@ function test(){	// 親要素のボタン操作で子要素の値を操作
 	// target要素を操作
 	target.innerHTML = "親要素の操作で、子要素の表示内容を変更";
 	target.setAttribute( "style","color: red;" );
-	
-	// <iframe>の高さを調整
-	setHeight( iframeElem );
 }

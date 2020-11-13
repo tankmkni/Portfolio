@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>test</title>
+</head>
+<body>
+	<div class="wrap">
+		<div class="area">
+			<div class="box" id="wrap"></div>
+			<div class="box" id="area"></div>
+			<div class="box" id="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+			<div class="box"></div>
+		</div>
+	</div>
+</body>
+<style type="text/css">
+
+	/*** CSS 必要最低限な値のみ ***/
+
+	.wrap{
+		display:flex;                /*子要素を並列配置*/
+		justify-content: center;     /*子要素を左右中央配置*/
+		align-items: center;         /*子要素を上下中央配置*/
+	}
+	.area{
+		display:flex;                /*子要素を並列配置*/
+		justify-content: flex-start; /*子要素を"左寄せ"で配置*//*初期値なので省略可*/
+		align-items: center;         /*子要素を上下中央配置*/
+		flex-wrap: wrap;             /*子要素を画面幅で折り返す*/
+	}
+	.box{
+		border: solid 2px #f80;
+		width:  200px;
+		height: 110px;
+		padding: 5px;
+		margin: 0px;
+	}
+
+</style>
+<script type="text/javascript">
+
+	/*** スクリプト ***/
+
+	// ３つのオブジェクトの取得
+	const wrap = document.getElementsByClassName("wrap")[0];
+	const area = document.getElementsByClassName("area")[0];
+	const box = document.getElementsByClassName("box");
+
+	// aleaの幅を計算して設定する関数
+	function setWidth(){
+
+		// 現在のwrapの幅を取得
+		let wrapWidth = wrap.scrollWidth;
+
+		// boxの幅を取得
+		// border/padding幅も含めて取得 ※marginは含まない！
+		let boxWidth = box[0].offsetWidth;
+
+		// １行のboxの数を決定
+		let tmp = Math.floor(wrapWidth / boxWidth);
+
+		// boxの数以上だった場合の修正
+		if( tmp > box.length ){
+			tmp = box.length;
+		}
+
+		// １個未満になってしまった時の修正
+		if( tmp < 1 ){
+			tmp = 1;
+		}
+
+		// areaの幅をセット
+		area.style.width = tmp * boxWidth + "px";
+
+		// ３つの要素の幅を表記
+		document.getElementById("wrap").innerHTML = "wrap.width = " + wrap.scrollWidth;
+		document.getElementById("area").innerHTML = "area.width = " + area.scrollWidth;
+		document.getElementById("box").innerHTML = "box.width = " + box[0].offsetWidth;
+	}
+
+	// 関数の実行
+	setWidth();
+
+	// 画面幅が変わったら実行
+	window.onresize  =  function(){ setWidth();};
+
+</script>
+</html>

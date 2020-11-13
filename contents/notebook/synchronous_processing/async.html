@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>非同期処理test</title>
+</head>
+<body></body>
+
+<script type="text/javascript">
+
+	const tag = document.body;
+
+	const t1 = function(){ tag.innerHTML += " ① " };
+	const t2 = function(){ tag.innerHTML += " ② " };
+	const t3 = function(){ tag.innerHTML += " ③ " };
+
+	t1();
+	t2();
+	t3();
+	
+	tag.innerHTML += "<br/><br/>"
+	
+	t1();
+	setTimeout(t2, 0);
+	t3();
+</script>
+</html>
