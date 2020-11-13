@@ -22,6 +22,10 @@ code{
 }
 button{
 	margin: 5px;
-	color: red:
-	background: red;
+	color: white;
+	background: royalblue;
+	border-color: midnightblue;
+	border-radius: 3px;
 }
+button:hover{ transform: scale(1.03);}
+button:active{ transform: scale(1.0);}

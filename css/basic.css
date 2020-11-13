@@ -4,18 +4,15 @@ html{
 	-webkit-scroll-behavior:smooth;
 	scroll-behavior:smooth;
 }
-body,img,div,iframe,fieldset,ul,a,p{ margin:0;padding:0; }
+body,img,div,iframe,fieldset,ul,a,p{ margin:0;padding:0;}
 body {
 	width: 100vw;
 	position: relative;
 }
-button:hover{
-	transform: scale(1.03);
-}
-button:active{
-	transform: scale(1.0);
-}
-
+button:hover{ transform: scale(1.03);}
+button:active{ transform: scale(1.0);}
+a:hover{ transform: scale(1.05);}
+a:active{ transform: scale(1.0);}
 
 /*コンテナー（ホームページを囲む一番外側のブロック）
 ---------------------------------------------------------------------------*/

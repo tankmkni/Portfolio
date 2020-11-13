@@ -1,23 +1,24 @@
 ul,li,a{
-	display: flex;				/*タグ内の要素を並列配置に*/
-	flex-wrap: wrap;			/*画面幅に伴って要素を折り返す*/
-	justify-content: center;	/*左右中央揃え*/
-	align-items: center;		/*上下中央揃え*/
+	display: flex;            /*タグ内の要素を並列配置に*/
+	flex-wrap: wrap;          /*画面幅に伴って要素を折り返す*/
+	justify-content: center;  /*左右中央揃え*/
+	align-items: center;      /*上下中央揃え*/
 }
-li{ list-style: none;	/* リストの不用なスタイルを削除 */}
+li{ list-style: none;}        /* リストの不用なスタイルを削除 */
 .select_menu a{
-	text-decoration: none;	/* テキスト下線の非表示 */
-	text-align: center;		/* テキスト左右中央配置 */
+	text-decoration: none;    /* テキスト下線の非表示 */
+	text-align: center;       /* テキスト左右中央配置 */
+	transition: 0.3s;         /* 変化する時間を指定 */
 }
 #nav{
-	position: fixed;	/* 要素をスクロールさせずに固定 */
+	position: fixed;          /* 要素をスクロールさせずに固定 */
 	
 	width: 100vw;
 	height: 8vmin;
 
-	background: white;	/* 背景色を指定 */
-	opacity: 0.95;		/* 透過の設定 */
-	z-index: 2;			/* 重なりの順序 */
+	background: white;        /* 背景色を指定 */
+	opacity: 0.95;            /* 透過の設定 */
+	z-index: 2;               /* 重なりの順序 */
 }
 #nav li{
 	width: 25vw;

@@ -10,7 +10,7 @@ function test(){	// 親要素のボタン操作で子要素の値を操作
 	var target = innerElem.getElementById( "target" );
 
 	// target要素を操作
-	target.innerHTML = "親要素の操作で<br/>子要素の表示内容を変更";
+	target.innerHTML = "親要素の操作で、子要素の表示内容を変更";
 	target.setAttribute( "style","color: red;" );
 	
 	// <iframe>の高さを調整
