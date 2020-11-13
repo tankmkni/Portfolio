@@ -41,13 +41,14 @@
 .ham_menu{
 	position: fixed;
 	right: -300px;	/*メニューをスライドして表示させるため画面外へ*/
-	padding-top: 8vmin;
+	margin-top: 8vmin;
 	transition: all 0.3s;
 	z-index: 3;
 }
 .ham_menu ul{
 	display: block;
 	padding: 10px;
+	border-radius: 0 0 0 15px;
 	background: white;
 	opacity: 0.95;
 }

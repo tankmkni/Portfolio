@@ -11,10 +11,9 @@
 <div>トグルスイッチでスイッチの変化に掛かる時間を指定したが、<br/>
 	処理の内容によって変化に掛かる時間の指定が効かない現象が発生</div>
 <div>どうやらJavaScriptの非同期処理が原因のようなので、対応策を調査</div>
-
 <h3>症状の再現：reproduction.htmlの実行</h3>
 <div>マウスストーカーの OFF → ON の時だけ、<br/>
-	トグルスイッチの <code>transition: 0.3s;</code> が効かない</div>
+	トグルスイッチの <code>transition: 1s;</code> が効かない</div>
 <div>別の処理の時には効いている</div>
 <iframe id="exe" src="reproduction.html" style="height: 200px;"></iframe><br/>
 <h4>reproduction.html のコード</h4>
@@ -35,9 +34,9 @@ function switchingStalker(){
 </code></pre>
 部分の <code>drawMouseStalker();</code> を
 <pre><code>	let drawStalker = function(){ drawMouseStalker(); };
-	setTimeout( drawStalker , 300 );
+	setTimeout( drawStalker , 1000 );
 </code></pre>
-と遅延処理でとりあえずは対応できるが、保守性を考えるとこのままでは…
+と遅延処理させればとりあえずの対応はできるが、保守性を考えるとこのままでは…
 </div>
 <h3>上記の通り修正：temporary.htmlの実行</h3>
 <iframe id="exe" src="temporary.html" style="height: 200px;"></iframe><br/>

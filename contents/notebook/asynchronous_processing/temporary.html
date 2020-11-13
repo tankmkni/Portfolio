@@ -65,7 +65,7 @@
 		if( stalkers_box == null ){
 			//遅延（0.3秒）後に処理を実行
 			let drawStalker = function(){ drawMouseStalker(); };
-			setTimeout( drawStalker , 300 );
+			setTimeout( drawStalker , 1000 );
 		}else{
 			removeMouseStalker();
 		}
@@ -152,7 +152,7 @@
 		height: 13px;
 		background: white;
 		border-radius: 50%;
-		transition: 0.3s;
+		transition: 1s;
 	}
 	.clicked_toggle .toggle_switch{ left: 10px;}
 

@@ -152,7 +152,7 @@
 		border-radius: 50%;
 
 		/* これが効いたり効かなかったり */
-		transition: 0.3s;
+		transition: 1s;
 	}
 	.clicked_toggle .toggle_switch{ left: 10px;}
 
