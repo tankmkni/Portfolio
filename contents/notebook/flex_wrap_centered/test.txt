@@ -8,7 +8,7 @@
 			<div class="box" id="wrap"></div>
 			<div class="box" id="area"></div>
 			<div class="box" id="box"></div>
-			<div class="box"></div>
+			<div class="box" id="margin"></div>
 			<div class="box"></div>
 			<div class="box"></div>
 			<div class="box"></div>
@@ -37,7 +37,7 @@
 		width:  200px;
 		height: 110px;
 		padding: 5px;
-		margin: 0px;
+		margin: 5px;
 	}
 
 </style>
@@ -60,8 +60,12 @@
 		// border/padding幅も含めて取得 ※marginは含まない！
 		let boxWidth = box[0].offsetWidth;
 
+		//marginの取得してboxWidthに追加
+		let margin = window.getComputedStyle( box[0] ).margin;
+		boxWidth += parseInt( margin ) * 2;
+
 		// １行のboxの数を決定
-		let tmp = Math.floor(wrapWidth / boxWidth);
+		let tmp = Math.floor( wrapWidth / boxWidth );
 
 		// boxの数以上だった場合の修正
 		if( tmp > box.length ){
@@ -76,10 +80,12 @@
 		// areaの幅をセット
 		area.style.width = tmp * boxWidth + "px";
 
-		// ３つの要素の幅を表記
+		// ３つの要素の幅を表記(テスト結果確認用)
 		document.getElementById("wrap").innerHTML = "wrap.width = " + wrap.scrollWidth;
 		document.getElementById("area").innerHTML = "area.width = " + area.scrollWidth;
-		document.getElementById("box").innerHTML = "box.width = " + box[0].offsetWidth;
+		document.getElementById("box").innerHTML = "box.width = " + box[0].offsetWidth
+			 + "<br/>&emsp;Including<br/>&emsp;padding & border";
+		document.getElementById("margin").innerHTML = "box.width<br/>&emsp;+ margin = "+ boxWidth;
 	}
 
 	// 関数の実行
