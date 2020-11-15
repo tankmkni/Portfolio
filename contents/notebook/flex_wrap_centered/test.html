@@ -30,7 +30,7 @@
 		display:flex;                /*子要素を並列配置*/
 		justify-content: flex-start; /*子要素を"左寄せ"で配置*//*初期値なので省略可*/
 		align-items: center;         /*子要素を上下中央配置*/
-		flex-wrap: wrap;             /*子要素を画面幅で折り返す*/
+		flex-wrap: wrap;             /*子要素(.box)を親要素(.wrap)の幅で折り返す*/
 	}
 	.box{
 		border: solid 2px #f80;
@@ -60,25 +60,25 @@
 		// border/padding幅も含めて取得 ※marginは含まない！
 		let boxWidth = box[0].offsetWidth;
 
-		//marginの取得してboxWidthに追加
+		//marginの値を取得してboxWidthに追加
 		let margin = window.getComputedStyle( box[0] ).margin;
 		boxWidth += parseInt( margin ) * 2;
 
 		// １行のboxの数を決定
-		let tmp = Math.floor( wrapWidth / boxWidth );
+		let boxNum = Math.floor( wrapWidth / boxWidth );
 
 		// boxの数以上だった場合の修正
-		if( tmp > box.length ){
-			tmp = box.length;
+		if( boxNum > box.length ){
+			boxNum = box.length;
 		}
 
 		// １個未満になってしまった時の修正
-		if( tmp < 1 ){
-			tmp = 1;
+		if( boxNum < 1 ){
+			boxNum = 1;
 		}
 
 		// areaの幅をセット
-		area.style.width = tmp * boxWidth + "px";
+		area.style.width = boxNum * boxWidth + "px";
 
 		// ３つの要素の幅を表記(テスト結果確認用)
 		document.getElementById("wrap").innerHTML = "wrap.width = " + wrap.scrollWidth;
@@ -92,7 +92,7 @@
 	setWidth();
 
 	// 画面幅が変わったら実行
-	window.onresize  =  function(){ setWidth();};
+	window.onresize = () => setWidth();
 
 </script>
 </html>

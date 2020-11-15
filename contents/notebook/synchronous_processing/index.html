@@ -10,20 +10,37 @@
 <h3>Promiseオブジェクトを使用した同期処理のやり方</h3>
 <div></div>
 <h4>非同期処理の再現</h4>
-<div>実行するコード：async.html</div>
-<iframe id="exe" src="async.txt" onload="setHeight(this)"></iframe><br/>
-<div>上記の実行結果</div>
-<iframe id="exe" src="async.html" style="height: 100px;"></iframe><br/>
-<div><code>setTimeout(t2, 0);</code>の遅延処理が0秒でも順番が逆になる<br/>
-	<code>t1 → setTimeout → t3 → t2</code> の実行順になるということらしい</div>
+<h5>再現用コード：async.html</h5>
+<iframe src="async.txt" style="height: 320px;" onload="setHeight(this)"></iframe><br/>
+<div>今頃だが、ついでに無名関数とアロー関数についても学べた…</div>
+<h5>再現用コードの実行結果</h5>
+<iframe src="async.html" style="height: 100px;"></iframe><br/>
+<div><code>setTimeout()</code>の遅延処理が0秒でも、期待通りの実行順にならない…</div>
+<div>まず <code>① → setTimeout() → ③</code> と実行順が割り当てられ、<br/>
+	その後ろに <code>②</code> が割り当てられるということらしい</div>
 
-
-<p>参考になったサイト</p>
-<a href="https://qiita.com/YoshikiNakamura/items/732ded26c85a7f771a27">JavaScriptの同期、非同期、コールバック、プロミス辺りを整理してみる</a><br/>
-<a href="https://qiita.com/mazxxxry/items/ffac3d07903e6743564c">はじめての同期処理、非同期処理 〜Promise〜</a><br/>
-<a href=""></a><br/>
-<br/>
-<button onclick="history.back()">戻る</button>
+<h4>Promiseを使ってみる</h4>
+<h5>基本コード：sync.html</h5>
+<iframe src="sync.txt" style="height: 500px;" onload="setHeight(this)"></iframe><br/>
+<h5>基本コードの実行結果</h5>
+<iframe src="sync.html" style="height: 50px;"></iframe><br/>
+<div>遅延をいれても、期待している順番になった</div>
+<h4>基本コードを基に検証</h4>
+<h5>トライコード：test.html</h5>
+<iframe src="test.txt" style="height: 500px;" onload="setHeight(this)"></iframe><br/>
+<h5>トライコードの実行結果</h5>
+<iframe src="test.html" style="height: 50px;"></iframe><br/>
+<div>基本的なコードの書き方がようやくわかったが、まだ完全には理解できない部分も多い<br/>
+	具体的なPromiseチェーンの利用やPromise.all()などもふんわりとしかわかっていないし、
+	catch()の使用はバックエンドでは必須だろうから、より理解を深めなくてはならないだろう</div>
+<h5>参考になったサイト</p>
+<a href="https://qiita.com/YoshikiNakamura/items/732ded26c85a7f771a27" target="_brank">JavaScriptの同期、非同期、コールバック、プロミス辺りを整理してみる</a><br/>
+<a href="https://qiita.com/mazxxxry/items/ffac3d07903e6743564c" target="_brank">はじめての同期処理、非同期処理 〜Promise〜</a><br/>
+<a href="http://www.tohoho-web.com/ex/promise.html" target="_brank">とほほのPromise入門</a><br/>
+<a href="https://liginc.co.jp/344056#top" target="_brank">setTimeoutはダサいぞ。JavaScript Promiseを使って処理を順番に実行しよう</a><br/>
+<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise" target="_brank">Promise</a><br/>
+<br/><a href="https://qiita.com/may88seiji/items/4a49c7c78b55d75d693b" target="_brank">JavaScript アロー関数を説明するよ</a><br/>
+<br/><button onclick="history.back()">戻る</button>
 <br/><br/><br/>
 </body>
 </html>

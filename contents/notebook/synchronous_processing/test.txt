@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>同期処理try</title>
+</head>
+
+<body></body>
+
+<script type="text/javascript">
+
+	const exe = str => document.body.innerHTML += " → " + str;
+
+	let promise = new Promise( (resolve, reject) => {
+		exe("①");
+		resolve("②");
+	});
+
+	promise.then( num => {
+		return new Promise( (resolve, reject) => {
+			setTimeout(() => {
+				setTimeout(() => exe("TRY"),0);  // この処理は最後になってしまう(要プロミス化)
+				resolve("③");
+				exe( num );                      // ！その後の処理もOKっぽい
+			}, 300)
+		})
+	
+	}).then( num => {
+		exe( num );
+		return "④";
+	}).then( num => exe( num ))
+
+	// プロミス化した前処理の処理結果が必要ないからか、実行順が制御されない
+	.then( exe( "Last" ));
+
+</script>
+</html>

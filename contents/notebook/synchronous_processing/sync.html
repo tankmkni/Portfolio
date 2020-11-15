@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>Promiseの使用</title>
+</head>
+
+<body></body>
+
+<script type="text/javascript">
+
+	const exe = str => document.body.innerHTML += " → " + str;
+
+	// promiseインスタンスの生成(この時点で①は出力されている)
+	let promise = new Promise( (resolve, reject) => {
+		exe("①");
+		resolve("②");			// 引数を渡すこともできる
+	});
+
+	// resolveで渡された引数をnumとして使用
+	promise.then( num => {
+
+		// リターンをプロミス化することで順序を制御
+		return new Promise( (resolve, reject) => {
+			setTimeout(() => {
+				exe( num );
+				resolve("③");	// 時間の掛かる処理の" 中 "から、resolve()を返す
+			}, 300)
+		})
+
+	// メソッドチェーン（プロミス化を繰り返せばプロミスチェーン？）
+	}).then( num => {
+		exe( num );
+		return "④";
+	}).then( num => exe( num ));
+
+</script>
+</html>

@@ -4,6 +4,26 @@
 <link rel="stylesheet" href="../css/basic.css">
 <script type="text/javascript" src="../js/common.js"></script>
 <title>flex-wrapのセンター寄せ</title>
+<style>
+#button{
+	display:flex;                /*子要素を並列配置*/
+	align-items: center;         /*子要素を上下中央配置*/
+	width: 200px;
+	margin: 3px;
+	background: bisque;
+	border: 4px groove bisque;
+	border-radius:3%;
+	cursor: pointer;         /*カーソルマーク指定*/
+}
+#button:hover{ transform: scale(1.03);}
+#button:active{ transform: scale(1.0);}
+#button a{
+    width:100%;
+	text-decoration:none;
+	text-align: center;
+	line-height: 3;
+}
+</style>
 </head>
 <body>
 <h1>メモ：flex-wrapのセンター寄せ</h1>
@@ -33,7 +53,7 @@
 <h4>JavaScriptを使えば上記の②ができそうなのでトライ</h4>
 <div>実行するコード：test.html</div>
 <iframe id="exe" src="test.txt" style="height:500px;" onload="setHeight(this)"></iframe><br/>
-<button onclick="location.href='test.html'" style="width: 300px;">実行結果を別画面で表示</button>
+<div id="button"><a href="test.html" target="_blank">実行結果を別画面で表示</a></div>
 <div>一応やりたい事は満たしているが、<br/>
 	CSSだけのやり方があるかもしれないので継続課題としたい</div>
 
