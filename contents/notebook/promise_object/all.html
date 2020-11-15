@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/><title>promise all try</title></head>
+<body></body>
+<script type="text/javascript">
+
+	const print = str => document.body.innerHTML += "&emsp;" + str;
+	const br = () => print("<br/>");
+
+	const t1 = 1;                     // ただの数値型も受け取れる
+	const t2 = Promise.resolve("t2"); // インスタンス化していない？
+
+	// 異なる処理時間を再現するPromiseインスタンス
+	const promise = (str,time) => new Promise( (resolve,reject) =>
+		setTimeout( ()=>{ print(time + "=" + str); resolve(str);},time));
+
+	// 基本の形
+	// 複数の結果を受け取れる(受け取り順は記載順？)
+	Promise.all([
+		t1,t2,
+		promise("t3",4),
+		promise("t4",2),
+		promise("t5",5),
+		promise("t6",1),
+		promise("t7",3)
+
+	// 処理時間が異なる全ての処理が終わってから次の処理に移るのがわかる
+	]).then( values =>{ br(); print( values ); return values;})
+
+	// 配列として扱える
+	.then( values => {
+		br();
+		for( val of values ){
+			print( val );
+		}
+		br();
+
+		// そのまま計算にも使える
+		print( "values[0] / 2 = " + values[0] / 2 );
+	});
+
+</script>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+	<link rel="stylesheet" href="../css/basic.css">
+	<script type="text/javascript" src="../js/common.js"></script>
+	<title>promise検証</title>
+</head>
+<body>
+<h1>メモ：promiseでいろいろやってみる</h1>
+<h3>Promiseオブジェクトの理解を深める</h3>
+<h4>基本コードに追加して挙動を見てみる</h4>
+<a href="../synchronous_processing/index.html">基本コードのページへ</a><br/>
+<h5>test.htmlのコード</h5>
+<iframe src="test.txt" style="height: 500px;" onload="setHeight(this)"></iframe><br/>
+<h5>test.htmlの実行結果</h5>
+<iframe src="test.html" style="height: 50px;"></iframe><br/>
+<div>コールバックを受け取る形にしないと、実行順を制御できないという事だろう</div>
+
+<h4>Promise.all()を使ってみる</h4>
+<div>同時進行の複数の処理全てが終わってから次が実行される</div>
+<h5>all.htmlのコード</h5>
+<iframe src="all.txt" style="height: 500px;" onload="setHeight(this)"></iframe><br/>
+<h5>all.htmlの実行結果</h5>
+<iframe src="all.html" style="height: 120px;"></iframe><br/>
+<div>それぞれの処理が実行し終わってから次の処理に移ることが確認できた</div>
+
+<h5>参考になったサイト</h5>
+<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Global_Objects/Promise/all" target="_brank">Promise.all()</a><br/>
+<br/><button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>

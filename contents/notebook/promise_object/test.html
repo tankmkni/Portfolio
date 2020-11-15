@@ -1,0 +1,50 @@
+<!DOCTYPE html><html>
+<head><meta charset="utf-8"/><title>同期処理try</title></head>
+<body></body>
+<script type="text/javascript">
+
+	const exe = str => document.body.innerHTML += "&ensp;→&ensp;" + str;
+	let whatNum = "What Number";
+
+	let promise = new Promise( (resolve, reject) => {
+		exe("①"); // ①を表示
+		resolve("②");
+	});
+
+	promise.then( num => {
+		return new Promise( (resolve, reject) => {
+			setTimeout(() => {
+
+				// この処理の実行順は？
+				setTimeout(() => exe("TRY"),0);
+
+				resolve("③");
+
+				// resolve()の後の記載でも扱いは一緒？
+				exe( num ); // ②を表示
+
+			}, 300)
+		})
+
+	}).then( num => {
+		exe( num ); // ③を表示
+		
+		// ここでTRYが記載される！！
+		
+		// プロミスチェーンにすれば時間の掛かる処理の実行順も制御できる
+		return new Promise( resolve => 
+			setTimeout(() => {
+				resolve("④");
+				exe( num ); // ③をもう一度表示
+			}, 300)
+		)
+	}).then( num => {
+		exe( num ); // ④を表示
+		return "⑤";
+	}).then( num => exe( num ) // ⑤を表示
+	
+	// プロミス化した前処理結果が不要なせいか、結果を求めるメソッドより先に実行
+	).then( exe( whatNum ));
+
+</script>
+</html>
