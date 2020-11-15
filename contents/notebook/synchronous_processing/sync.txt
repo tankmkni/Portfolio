@@ -10,6 +10,7 @@
 	const exe = str => document.body.innerHTML += " → " + str;
 
 	// promiseインスタンスの生成(この時点で①は出力されている)
+	// resolev(処理成功) か reject(処理失敗) を返す(名前は任意)
 	let promise = new Promise( (resolve, reject) => {
 		exe("①");
 		resolve("②");			// 引数を渡すこともできる
