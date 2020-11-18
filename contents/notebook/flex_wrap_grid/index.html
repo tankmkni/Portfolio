@@ -5,19 +5,19 @@
 <script type="text/javascript" src="../js/common.js"></script>
 <title>flex-wrapのセンター寄せ</title>
 <style>
-#button{
+.button{
 	display:flex;                /*子要素を並列配置*/
 	align-items: center;         /*子要素を上下中央配置*/
-	width: 200px;
+	width: 400px;
 	margin: 3px;
 	background: bisque;
 	border: 4px groove bisque;
 	border-radius:3%;
 	cursor: pointer;         /*カーソルマーク指定*/
 }
-#button:hover{ transform: scale(1.03);}
-#button:active{ transform: scale(1.0);}
-#button a{
+.button:hover{ transform: scale(1.03);}
+.button:active{ transform: scale(1.0);}
+.button a{
     width:100%;
 	text-decoration:none;
 	text-align: center;
@@ -53,14 +53,23 @@
 <h4>JavaScriptを使えば上記の②ができそうなのでトライ</h4>
 <div>実行するコード：test.html</div>
 <iframe id="exe" src="test.txt" style="height:500px;" onload="setHeight(this)"></iframe><br/>
-<div id="button"><a href="test.html" target="_blank">実行結果を別画面で表示</a></div>
+<div class="button"><a href="test.html" target="_blank">test.htmlの実行結果を別画面で表示</a></div>
 <div>一応やりたい事は満たしているが、<br/>
 	CSSだけのやり方があるかもしれないので継続課題としたい</div>
+<div>これを書いた数日後、級友から <code>grid</code> の存在を教わったので追記</div>
+<h4><code>grid</code> を使うと、CSSだけで実現できた</h4>
+<div>実行するコード：grid_test.html</div>
+<iframe id="exe" src="grid_test.txt" style="height:500px;" onload="setHeight(this)"></iframe><br/>
+<div class="button"><a href="grid_test.html" target="_blank">grid_test.html実行結果を別画面で表示</a></div>
+<div>素晴らしい…</div>
 
-<p>参考になったサイト</p>
+<br/><p>参考になったサイト</p>
 <a href="https://qiita.com/junara/items/dd9f34a4f2baccf58b89">（個人的まとめ）よく使うflexboxの設定</a><br/>
 <a href="https://developer.mozilla.org/ja/docs/Web/API/HTMLElement/offsetWidth">HTMLElement.offsetWidth</a><br/>
 <a href="https://qiita.com/amamamaou/items/bb79bec002a6ff033810">window.getComputedStyle() で要素のスタイルを取得する</a><br/>
+<br/>
+<a href="https://www.webcreatorbox.com/tech/css-grid-basic-layout">CSS Gridを使ったレスポンシブ対応の基本レイアウト</a><br/>
+<a href="https://naruhodo.repop.jp/grid-layout-centering/">【CSS】グリッドレイアウト、縦や横で要素の中央揃え方法</a><br/>
 <br/>
 <button onclick="history.back()">戻る</button>
 <br/><br/><br/>

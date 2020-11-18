@@ -13,9 +13,7 @@ fieldset{
 	border: 1px dashed gray;
 }
 h3{ margin: 0;}
-div{
-	margin: 20px 30px;
-}
+div{ margin: 20px 30px;}
 code{
 	color:blue;
 	font-size: 15px;
