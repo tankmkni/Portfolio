@@ -50,10 +50,10 @@ Virtualboxに新規で仮想マシンを作成し、
 
 <h4>ネットーワークを利用できるかを確認</h4>
 <h5><code>ping google.com</code></h5>
-<img src="img/ping_google.png">
+<img src="img/ping_google.PNG">
 <div>反応が返ってこない</div>
 <h5><code>ip addr show</code></h5>
-<img src="img/ip_addr_show.png">
+<img src="img/ip_addr_show.PNG">
 <div>繋がっていない、ようだ</div>
 <h5>参考になったサイト</h5>
 <a href="https://weblabo.oscasierra.net/installing-tomcat9-centos7-1/">Apache Tomcat 9 を CentOS 7 にインストールする手順</a><br/>
@@ -63,21 +63,21 @@ Virtualboxに新規で仮想マシンを作成し、
 <br/><br/>
 <h4>ネットーワークを接続</h4>
 <h5>別の確認方法&emsp;<code>nmcli d</code></h5>
-<img src="img/nmcli_d.png">
+<img src="img/nmcli_d.PNG">
 <h5>ensp0s3を接続&emsp;<code>nmcli connection up enp0s3</code></h5>
-<img src="img/nmcli_connection_up.png">
+<img src="img/nmcli_connection_up.PNG">
 <div>繋がった！、かな？</div>
 <h5>確認&emsp;<code>nmcli d</code></h5>
-<img src="img/nmcli_d_2.png">
+<img src="img/nmcli_d_2.PNG">
 <div>繋がった！</div>
 <h5><code>ping google.com -c 3</code>&emsp;（-c オプションで３回と指定）</h5>
-<img src="img/ping_google_2.png">
+<img src="img/ping_google_2.PNG">
 <div>反応する！</div>
 <h5>グーグルサイトに繋いでみる&emsp;<code>curl google.com</code></h5>
-<img src="img/curl_google.png">
+<img src="img/curl_google.PNG">
 <div>あれ？&emsp;エラーなしリターンなしで永久ループ？&emsp;Ctrl + c で離脱</div>
 <h5><code>curl -4 google.com</code>&emsp;にすると</h5>
-<img src="img/curl_-4_google.png">
+<img src="img/curl_-4_google.PNG">
 <div>取得できた</div>
 <h5>参考になったサイト</h5>
 <a href="https://qiita.com/C_HERO/items/b05b59f8b67804b421e2">【VirtualBox】CentOS8をインスト―ルしてネットワーク接続するまで</a><br/>
