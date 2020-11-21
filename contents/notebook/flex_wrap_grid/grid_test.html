@@ -16,9 +16,11 @@
 </body>
 <style type="text/css">
 .grid {
-	display: grid;
+	display: grid;               /*グリッドレイアウト*/
 	justify-content: center;     /*子要素を左右中央配置*/
-	gap: 10px;
+	gap: 10px;                   /*行や列の間のすき間 (溝) */
+	
+	/*子要素を親要素の幅で折り返す*//* 子要素の幅をここで指定 */
 	grid-template-columns: repeat(auto-fit, 200px);
 }
 .item {

@@ -15,7 +15,7 @@ fieldset{
 }
 legend{ font-size: 20px;}
 h1{ margin: 0;}
-h4{ margin: 20px 10px;}
+h2,h3,h4,h5,h6{ margin: 20px 10px;}
 div{ margin: 20px 30px;}
 a{ font-size: 16px;}
 code{

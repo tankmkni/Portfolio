@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+	<link rel="stylesheet" href="../css/basic.css">
+	<script type="text/javascript" src="../js/common.js"></script>
+	<title>VirtualBox CentOS</title>
+</head>
+<body>
+<h1>メモ：環境構築を体験</h1>
+<h4>仮想マシンでLinuxを使ってアプリケーションサーバーにUPしたアプリを実行させたい</h4>
+<div>目標：VirtualboxでCentOSを使ってTomcatをインストールしてdocoTubuを実行する</div>
+<br/>
+
+<h3>Virtualboxのインストール</h3>
+<a href="https://www.virtualbox.org/">Oracle VirtualBox</a>
+<div>公式サイトからダウンロードしてガイドに沿ってインストールするだけなので、難しいことは特に無し。<br/>
+細かいやり方はネットで検索すると大量にでてくるのでそれらを参考にする。</div>
+<div>今回はバージョン 6.1.16 を入手</div>
+<h5>参考になったサイト</h5>
+<a href="https://www.sejuku.net/blog/72833">いまさら聞けない！Virtualboxとは何か？基礎の基礎を解説！</a><br/>
+<a href="https://sukkiri.jp/technologies/virtualizers/virtualbox/virtualbox-win_install.html">OracleVM VirtualBoxのインストール手順＜Windows向け＞</a><br/>
+<br/><br/>
+
+<h3>CentOSのインストール</h3>
+<a href="https://www.centos.org/">CentOS 公式サイト</a><br/>
+<div>上記からCentOS-7のisoファイルをダウンロード<br/>
+Virtualboxに新規で仮想マシンを作成し、
+<dl><dt>設定→ネットワーク</dt>
+<dd>アダプター１→ブリッジアダプター</dd>
+<dd>アダプター２→ホストオンリーアダプター</dd></dl>
+設定→ストレージ→コントローラー：IDEにダウンロードしたisoファイルをセット<br/>
+起動するとインストールが始まる<br/><br/>
+インストールが終わったらisoファイルを除去しておかないと、起動のたびにインストールし直すことになってしまう</div>
+<h5>参考になったサイト</h5>
+<a href="https://qiita.com/tamago3keran/items/260899458959d3214dcf">VirtualBoxにCentOSをインストール</a><br/>
+<a href="https://www.kakiro-web.com/virtualbox/virtualbox-create-virtual-machine-centos.html">VirtualBoxにCentOS7用の仮想マシンを作成</a><br/>
+<a href="https://qiita.com/hirooka0527/items/10821f5490738328b442">VirtualBoxのブリッジアダプターを使ってみる。</a><br/>
+<a href="https://wa3.i-3-i.info/word15502.html">わわわIT用語辞典 > セントオーエス (CentOS)</a><br/>
+<a href="https://wa3.i-3-i.info/word12472.html">わわわIT用語辞典 > Linuxディストリビューション</a><br/>
+<a href="https://wa3.i-3-i.info/word17621.html">わわわIT用語辞典 > isoファイル</a><br/>
+<a href="https://wa3.i-3-i.info/word11978.html">わわわIT用語辞典 > NAT</a><br/>
+<br/><br/>
+
+<h3>JDK8のインストール</h3>
+<div>Tomcatはjavaで作られているので、JDKのインストールが必要</div>
+<div><dl><dt>ダウンロード方法の選択肢</dt>
+<dd>①・ホストのWindowsにダウンロードしたファイルを転送</dd>
+<dd>②・CentOSからネットに接続して直にダウンロード</dd></dl></div>
+<div>今回は②でトライ</div>
+
+
+<h5>参考になったサイト</h5>
+<a href="https://weblabo.oscasierra.net/installing-tomcat9-centos7-1/">Apache Tomcat 9 を CentOS 7 にインストールする手順</a><br/>
+<a href=""></a><br/>
+<br/><br/>
+<div>たかがここまでで四苦八苦…<br/>
+まだまだ先が長そうですが、だらだらと更新していきます<br/></div>
+<br/><button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>
