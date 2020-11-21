@@ -1,3 +1,4 @@
+html{ scroll-behavior:smooth;}
 body{
 	padding: 20px;
 	font-size: 16px;
@@ -16,6 +17,8 @@ fieldset{
 legend{ font-size: 20px;}
 h1{ margin: 0;}
 h2,h3,h4,h5,h6{ margin: 20px 10px;}
+ul{ list-style: none;}
+ul li a{ text-decoration: none;}
 div{ margin: 20px 30px;}
 a{ font-size: 16px; margin-left: 20px;}
 code{

@@ -9,9 +9,19 @@
 <h1>メモ：環境構築を体験</h1>
 <h4>仮想マシンでLinuxを使ってアプリケーションサーバーにUPしたアプリを実行させたい</h4>
 <div>目標：VirtualboxでCentOSを使ってTomcatをインストールしてdocoTubuを実行する</div>
-<br/>
 
-<h3>Virtualboxのインストール</h3>
+<hr><h4>目次:</h4><ul style="list-style:none;">
+<li><a href="#virtualbox_install">１・Virtualboxのインストール</a></li>
+<li><a href="#centos_install">２・CentOSのインストール</a></li>
+<li><a href="#jdk_install">３・JDK8のインストール</a></li>
+<li><ul>
+	<li><a href="#connection_confirmation">3.1 ネットーワークを利用できるかを確認</a></li>
+	<li><a href="#connect">3.2 ネットーワークを接続</a></li>
+	<li><a href="#jdk8_install">3.3 JDK8のインストール</a></li>
+</ul></li>
+<li><a href="#"></a></li>
+</ul><hr>
+<h3 id="virtualbox_install">１・Virtualboxのインストール</h3>
 <a href="https://www.virtualbox.org/">Oracle VirtualBox</a>
 <div>公式サイトからダウンロードしてガイドに沿ってインストールするだけなので、難しいことは特に無し。<br/>
 細かいやり方はネットで検索すると大量にでてくるのでそれらを参考にする。</div>
@@ -21,7 +31,7 @@
 <a href="https://sukkiri.jp/technologies/virtualizers/virtualbox/virtualbox-win_install.html">OracleVM VirtualBoxのインストール手順＜Windows向け＞</a><br/>
 <br/><br/>
 
-<h3>CentOSのインストール</h3>
+<h3 id="centos_install">２・CentOSのインストール</h3>
 <a href="https://www.centos.org/">CentOS 公式サイト</a><br/>
 <div>上記からCentOS-7のisoファイルをダウンロード<br/>
 Virtualboxに新規で仮想マシンを作成し、
@@ -41,14 +51,14 @@ Virtualboxに新規で仮想マシンを作成し、
 <a href="https://wa3.i-3-i.info/word11978.html">わわわIT用語辞典 > NAT</a><br/>
 <br/><br/>
 
-<h3>JDK8のインストール</h3>
+<h3 id="jdk_install">３・JDK8のインストール</h3>
 <div>Tomcatはjavaで作られているので、JDKのインストールが必要</div>
 <div><dl><dt>ダウンロード方法の選択肢</dt>
 <dd>①・ホストのWindowsにダウンロードしたファイルを転送</dd>
 <dd>②・CentOSからネットに接続して直にダウンロード</dd></dl></div>
 <div>今回は②でトライ</div>
 
-<h4>ネットーワークを利用できるかを確認</h4>
+<h4 id="connection_confirmation">3.1 ネットーワークを利用できるかを確認</h4>
 <h5><code>ping google.com</code></h5>
 <img src="img/ping_google.PNG">
 <div>反応が返ってこない</div>
@@ -61,7 +71,8 @@ Virtualboxに新規で仮想マシンを作成し、
 <a href="https://qiita.com/ponsuke0531/items/b61eeefdad9bb5e2ac28">CentOS7において「ip addr show」の結果をちょっと理解できるように調べた記録</a><br/>
 <a href="https://www.atmarkit.co.jp/ait/articles/0610/14/news021.html#:~:text=127.0.0.1%E3%81%AF%E3%83%AD%E3%83%BC%E3%82%AB%E3%83%AB%E3%83%BB%E3%83%AB%E3%83%BC%E3%83%97,IP%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E3%82%92%E5%88%A9%E7%94%A8%E3%81%A7%E3%81%8D%E3%82%8B%E3%80%82">ローカル・ループバック・アドレス（127.0.0.1）とは？</a><br/>
 <br/><br/>
-<h4>ネットーワークを接続</h4>
+
+<h4 id="connect">3.2 ネットーワークを接続</h4>
 <h5>別の確認方法&emsp;<code>nmcli d</code></h5>
 <img src="img/nmcli_d.PNG">
 <h5>ensp0s3を接続&emsp;<code>nmcli connection up enp0s3</code></h5>
@@ -82,7 +93,18 @@ Virtualboxに新規で仮想マシンを作成し、
 <h5>参考になったサイト</h5>
 <a href="https://qiita.com/C_HERO/items/b05b59f8b67804b421e2">【VirtualBox】CentOS8をインスト―ルしてネットワーク接続するまで</a><br/>
 <a href="http://blog.livedoor.jp/sce_info3-craft/archives/9868900.html">curlなどのレスポンスが遅いとき(ipv6のDNSに接続できず)</a><br/>
-<a href=""></a><br/>
+<br/><br/>
+
+<h4 id="jdk8_install">3.3 JDK8のインストール</h4>
+<div>3.3.1<a href="https://www.oracle.com/java/technologies/javase-downloads.html">オラクルのダウンロードページ</a>
+から欲しいJDKのライセンス規約同意後のダウンロードリンクをコピーしておく</div>
+<img src="img/jdk_download.PNG" style="max-width:80%">
+<div>3.3.2&emsp;curlでダウンロード（絶対パスだからコード長い(泣)）</div>
+<code>curl -OL --header "Cookie: gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie" https://www.oracle.com/webapps/redirect/signon?nexturl=https://download.oracle.com/otn/java/jdk/8u271-b09/61ae65e088624f5aaa0b1d2d801acb16/jdk-8u271-linux-x64.rpm</code>
+
+
+<h5>参考になったサイト</h5>
+<a href="https://qiita.com/hidekuro/items/6bcf88ec7e233fb9cf79">wget/curlでOracleJDKをダウンロード</a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
