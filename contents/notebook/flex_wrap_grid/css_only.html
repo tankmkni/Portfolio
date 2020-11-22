@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>CSS only</title>
+</head>
+<body>
+	<div class="area">
+		<div class="box">1</div>
+		<div class="box">2</div>
+		<div class="box">3</div>
+		<div class="box">4</div>
+		<div class="box">5</div>
+		<div class="box">6</div>
+		<div class="box">7</div>
+
+		<div class="box shim"></div>  <!-- shim(詰め物)を、               -->
+		<div class="box shim"></div>  <!-- 最大列数 マイナス１ヶ配置する  -->
+		<div class="box shim"></div>  <!-- 今回は最大５列と仮定して       -->
+		<div class="box shim"></div>  <!-- ４ヶのshimを配置、             -->
+	</div>
+</body>
+<style type="text/css">
+
+	.area{
+		display:flex;                 /* 子要素を並列配置             */
+		justify-content: center;      /* 子要素を左右中央配置         */
+		align-items: center;          /* 子要素を上下中央配置         */
+		flex-wrap: wrap;              /* 子要素を親要素の幅で折り返す */
+	}
+	.box{
+		border: solid 2px #f80;
+		width:  200px;
+		height: 110px;
+		padding: 15px;
+		margin: 5px;
+	}
+	.shim{
+		height: 0;                    /* shim(詰め物)の幅は box と同じまま、   */
+		border-top: none;             /* 高さを全てゼロにする                  */
+		border-bottom: none;          /*                                       */
+		padding-top: 0;               /* 最後の行のズレは、                    */
+		padding-bottom: 0;            /* 見えない要素でズレさせる              */
+		margin-top: 0;                /* 理屈はわかり易い(?)けど、う～ん…     */
+		margin-bottom: 0;
+	}
+
+</style>
+</html>
