@@ -23,13 +23,21 @@
 	</div>
 </body>
 <style type="text/css">
+	body{ 
+		border: solid 2px cyan;
+		padding: 10px;
+	}
 	.area{
 		display:flex;                       /* 子要素を並列配置             */
 		justify-content: center;            /* 子要素を左右中央配置         */
 		align-items: center;                /* 子要素を上下中央配置         */
 		flex-wrap: wrap;                    /* 子要素を親要素の幅で折り返す */
+		border: solid 2px aquamarine;
 	}
-	.toLeft{ justify-content: flex-start;}  /*子要素を"左寄せ(初期値)"で配置*/
+	.toLeft{
+		justify-content: flex-start;        /*子要素を"左寄せ(初期値)"で配置*/
+		margin-top: 10px;
+	}	
 	.box{
 		border: solid 2px #f80;
 		width:  120px;

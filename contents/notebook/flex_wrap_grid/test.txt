@@ -16,7 +16,12 @@
 	</div>
 </body>
 <style type="text/css">
-
+	body{ 
+		border: solid 2px cyan;
+		padding: 10px;
+	}
+	.area{ border: solid 2px aquamarine;}
+	
 	/*** CSS 必要最低限な値のみ ***/
 
 	.wrap{
