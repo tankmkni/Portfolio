@@ -17,8 +17,9 @@
 <li><ul>
 	<li><a href="#connection_confirmation">3.1 ネットーワークを利用できるかを確認</a></li>
 	<li><a href="#connect">3.2 ネットーワークを接続</a></li>
-	<li><a href="#jdk8_install">3.3 JDK8のインストール</a></li>
+	<li><a href="#jdk8_install">3.3 JDK8のダウンロード/インストール（１回目）</a></li>
 </ul></li>
+<li><a href="#TeraTerm_install">４・TeraTermを使ってみる</a></li>
 <li><a href="#"></a></li>
 </ul><hr>
 <h3 id="virtualbox_install">１・Virtualboxのインストール</h3>
@@ -33,7 +34,7 @@
 
 <h3 id="centos_install">２・CentOSのインストール</h3>
 <a href="https://www.centos.org/">CentOS 公式サイト</a><br/>
-<div>上記からCentOS-7のisoファイルをダウンロード<br/>
+<div>上記から <code>CentOS-7-x86_64-Minimal-2009.iso</code> をダウンロード<br/>
 Virtualboxに新規で仮想マシンを作成し、
 <dl><dt>設定→ネットワーク</dt>
 <dd>アダプター１→ブリッジアダプター</dd>
@@ -107,7 +108,7 @@ Virtualboxに新規で仮想マシンを作成し、
 <img src="img/3.3/curl_OL.PNG" style="max-width:80%">
 <div>アーカイブファイルが作成されている</div>
 <h5>CentOSへのインストール</h5>
-<code>rem -ivh FileName</code><br/>
+<code>rpm -ivh FileName</code><br/>
 <img src="img/3.3/rpm_ivh.PNG" style="max-width:80%">
 <div>あれ!?&emsp;エラーだ</div>
 <code>yum install FileName</code><br/>
@@ -126,16 +127,28 @@ Virtualboxに新規で仮想マシンを作成し、
 <div>三つとも完全にはダウンロードできていないよう</div>
 <code>rm FileName</code><br/>
 <img src="img/3.3/rm.PNG" style="max-width:80%">
-<div>何回かファイルを削除してやり直してもダメ</div><br/>
-<code>rpm FileName</code><br/>
-<img src="img/3.3/rpm.PNG" style="max-width:80%">
+<div>何回かファイルを削除してやり直してもダメ</div>
+<div>う～む、何が原因かは不明だが、CentOSにダイレクトにダウンロードは一旦諦めて、<br/>
+Windowsにダウンロードしたファイルを転送して渡す方法をトライしてみよう</div><br/>
+<h5>参考になったサイト</h5>
+<a href="https://qiita.com/hidekuro/items/6bcf88ec7e233fb9cf79">wget/curlでOracleJDKをダウンロード</a><br/>
 
-
+<br/><br/><br/>
+<h3 id="TeraTerm_install">４・TeraTermを使ってみる</h3>
+<div>”定番のターミナルエミュレーター”なのだそうで、転送させる方法を調べているとこのソフトをよく見かける</div>
+<a href="https://ja.osdn.net/projects/ttssh2/">Tera Term (テラターム) プロジェクト日本語トップページ</a><br/>
+<div>上記サイトから最新版の<code>teraterm-4.105.exe</code> (日付: 2019-12-07) をダウンロード<br/>
+インストールも全て変更しないで終了</div>
+<div>※Program Filesの変更権限がない場合、保存場所を権限のある範囲の場所に指定しないとインストールできない<br/>
+<img src="img/4/TeraTerm_access_denied.png" style="max-width:80%"></div>
+<div>ゲスト側（CentOS）がネットへ接続されているか確認（毎回設定を忘れてて、時間をムダにした人がいます…）<br/>
+<code>nmcli d</code><br/>
+<img src="img/3.2/nmcli_d_2.PNG"></div>
 
 
 
 <h5>参考になったサイト</h5>
-<a href="https://qiita.com/hidekuro/items/6bcf88ec7e233fb9cf79">wget/curlでOracleJDKをダウンロード</a><br/>
+<a href="https://wa3.i-3-i.info/word12679.html">わわわIT用語辞典 > Tera Term</a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
