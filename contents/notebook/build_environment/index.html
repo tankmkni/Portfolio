@@ -10,16 +10,25 @@
 <h4>仮想マシンでLinuxを使ってアプリケーションサーバーにUPしたアプリを実行させたい</h4>
 <div>目標：VirtualboxでCentOSを使ってTomcatをインストールしてdocoTubuを実行する</div>
 
-<hr><h4>目次:</h4><ul style="list-style:none;">
+<hr><h4 id="table_of_contents">目次:</h4><ul style="list-style:none;">
 <li><a href="#virtualbox_install">１・Virtualboxのインストール</a></li>
 <li><a href="#centos_install">２・CentOSのインストール</a></li>
 <li><a href="#jdk_install">３・JDK8のインストール</a></li>
 <li><ul>
 	<li><a href="#connection_confirmation">3.1 ネットーワークを利用できるかを確認</a></li>
 	<li><a href="#connect">3.2 ネットーワークを接続</a></li>
-	<li><a href="#jdk8_install">3.3 JDK8のダウンロード/インストール（１回目）</a></li>
+	<li><a href="#jdk8_install">3.3 JDK8のダウンロード/インストール（失敗）</a></li>
 </ul></li>
 <li><a href="#TeraTerm_install">４・TeraTermを使ってみる</a></li>
+<li><ul>
+	<li><a href="#c_4_1">4.1 インストールからCentOSへの接続まで</a></li>
+	<li><a href="#c_4_2">4.2 WindowsにダウンロードしたJDK8を転送してインストールさせる</a></li>
+</ul></li>
+<li><a href="#tomcat">５・Tomcat8のインストール</a></li>
+<li><ul>
+	<li><a href="#c_5_1">5.1 </a></li>
+	<li><a href="#c_5_2">5.2 </a></li>
+</ul></li>
 <li><a href="#"></a></li>
 </ul><hr>
 <h3 id="virtualbox_install">１・Virtualboxのインストール</h3>
@@ -83,7 +92,12 @@ Virtualboxに新規で仮想マシンを作成し、
 <h5>確認&emsp;<code>nmcli d</code></h5>
 <img src="img/3.2/nmcli_d_2.PNG">
 <div>繋がった！</div>
-<div>※これだけだと、再起動のたびに再接続が必要</div>
+<div>※これだけだと、再起動のたびに再接続が必要<br/>
+&emsp;起動時に自動接続にする設定<br/>
+&emsp;<code>nmcli con mod enp0s3 connection.autoconnect "yes"</code><br/>
+&emsp;<img src="img/3.2/autoconnection.PNG" style="max-width:80%"><br/>
+&emsp;再起動しても繋がっていることを確認できた</div>
+<div></div>
 <h5><code>ping google.com -c 3</code>&emsp;（-c オプションで３回と指定）</h5>
 <img src="img/3.2/ping_google_2.PNG">
 <div>反応する！</div>
@@ -93,9 +107,11 @@ Virtualboxに新規で仮想マシンを作成し、
 <h5><code>curl -4 google.com</code>&emsp;にすると</h5>
 <img src="img/3.2/curl_-4_google.PNG">
 <div>取得できた</div>
+
 <h5>参考になったサイト</h5>
 <a href="https://qiita.com/C_HERO/items/b05b59f8b67804b421e2">【VirtualBox】CentOS8をインスト―ルしてネットワーク接続するまで</a><br/>
 <a href="http://blog.livedoor.jp/sce_info3-craft/archives/9868900.html">curlなどのレスポンスが遅いとき(ipv6のDNSに接続できず)</a><br/>
+<a href="https://s2node.com/2016/03/centos-7-%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF%E6%9C%80%E4%BD%8E%E9%99%90%E5%88%9D%E6%9C%9F%E8%A8%AD%E5%AE%9A/">CENTOS 7 ネットワーク最低限初期設定</a><br/>
 <br/><br/><br/>
 
 <h4 id="jdk8_install">3.3 JDK8のインストール</h4>
@@ -136,28 +152,103 @@ Windowsにダウンロードしたファイルを転送して渡す方法をト�
 <br/><br/><br/>
 <h3 id="TeraTerm_install">４・TeraTermを使ってみる</h3>
 <div>”定番のターミナルエミュレーター”なのだそうで、転送させる方法を調べているとこのソフトをよく見かける</div>
+<br/><h4 id="c_4_1">4.1 インストールからCentOSへの接続まで</h4>
 <a href="https://ja.osdn.net/projects/ttssh2/">Tera Term (テラターム) プロジェクト日本語トップページ</a><br/>
 <div>上記サイトから最新版の<code>teraterm-4.105.exe</code> (日付: 2019-12-07) をダウンロード<br/>
 インストールも全て変更しないで終了</div>
 <div>※Program Filesの変更権限がない場合、保存場所を権限のある範囲の場所に指定しないとインストールできない<br/>
 <img src="img/4/TeraTerm_access_denied.png" style="max-width:80%"></div>
+<div><dl><dt>CentOSのネット接続設定を変更する</dt><br/>
+<dd>割り当てを&ensp;<code>NAT</code>&ensp;にして、&ensp;<code>高度</code>&ensp;の&ensp;<code>ポートフォワーディング</code>&ensp;をクリック</dd>
+<img src="img/4/net_setting.PNG"><br/><br/>
+<dd>右上のプラスボタンで新しいルールを作成する<br/>
+名前はなんでも良く、プロトコルはそのまま、ホストポートも空いていれば自由<br/>
+ゲストポートは詳細はわからないが今回は&ensp;<code>22</code>&ensp;を使用</dd>
+<img src="img/4/port_forwarding.PNG"><br/><br/>
+<dd>一応、再起動する</dd>
+</dl></div><br/>
 <div>ゲスト側（CentOS）がネットへ接続されているか確認（毎回設定を忘れてて、時間をムダにした人がいます…）<br/>
 <code>nmcli d</code><br/>
 <img src="img/3.2/nmcli_d_2.PNG"></div>
+<div>TeraTermを起動<br/>
+<img src="img/4/tera_new.PNG"><br/>
+上記のように入力して&ensp;<code>OK</code>&ensp;を押す</div>
+<div>セキュリティ警告はでるが&ensp;<code>続行</code>&ensp;を押す<br/>
+<img src="img/4/security.PNG"><br/>
+毎回でるが、書いてある設定で消せる</div>
+<div>ログイン画面に入れれば成功！<br/>
+<img src="img/4/login.PNG"><br/>
+CentOSにログインするのと同じユーザーパスワードでログインする</div>
+<div>WindowsのTeraTermからVirtualboxのCentOSに接続できた！<br/>
+<img src="img/4/home.PNG"></div>
 
-
-
+<br/><h4 id="c_4_2">4.2 WindowsにダウンロードしたJDK8を転送してインストールさせる</h4>
+<div>Windows上のファイルをTeraTermのウィンドウにドラッグするとこの画面になる<br/>
+<img src="img/4/send.PNG"><br/>
+ホームディレクトリに送りたいのでこのまま&ensp;<code>OK</code>&ensp;を押す</div>
+<div>送信が始まった！<br/>
+<img src="img/4/send_2.PNG"></div>
+<div>ちゃんと追加されている！<br/>
+<img src="img/4/in_jdk.PNG"></div>
+<div>java のがまだインストールされていないことを確認<br/>
+<code>java -version</code><br/>
+<img src="img/4/java_not.PNG"></div>
+<div>rpmでインストール<br/>
+<code>rpm -ihv FileName</code><br/>
+<img src="img/4/jdk_install.PNG" style="max-width:80%"><br/>
+いいぞ！</div>
+<div>インストールされていることを確認<br/>
+<code>java -version</code><br/>
+<img src="img/4/install_ok.PNG"><br/>
+できてる！</div>
+<br/>
 <h5>参考になったサイト</h5>
-<a href="https://wa3.i-3-i.info/word12679.html">わわわIT用語辞典 > Tera Term</a><br/>
-<a href=""></a><br/>
-<a href=""></a><br/>
+<a href="https://weblabo.oscasierra.net/installing-tomcat9-centos7-1/">わわわIT用語辞典 > Tera Term</a><br/>
+
+
+<br/><br/><br/>
+<h3 id="tomcat">５・Tomcat8のインストール</h3>
+<div>セキュリティ上の理由で、Tomcatは非特権ユーザー（root以外）で実行しなくてはいけないらしい<br/>
+なのでtomcatグループのtomcatユーザーを新規作成<br/>
+<code>groupadd tomcat</code>&ensp;グループの追加
+<code>getent group</code>&ensp;グループの一覧表示<br/>
+<img src="img/5/group.PNG" style="max-width:80%"><br/>
+最後に追加されている</div>
+<div>
+<dl><dt>新しいユーザーの追加<br/>
+<code>useradd -M -s /bin/nologin -g tomcat -d /opt/tomcat tomcat</code></dt>
+<dd><code>-M</code>&ensp;=&ensp;このユーザー用の新しいホームディレクトリは作らない</dd>
+<dd><code>-s</code>&ensp;=&ensp;&emsp;&emsp;&emsp;〃&emsp;&emsp;&emsp;のログインシェル（だれもこのアカウントにログインできない）</dd>
+<dd><code>-g</code>&ensp;=&ensp;&emsp;&emsp;&emsp;〃&emsp;&emsp;&emsp;のプライマリーグループの名前&ensp;or&ensp;ID</dd>
+<dd><code>-d</code>&ensp;=&ensp;&emsp;&emsp;&emsp;〃&emsp;&emsp;&emsp;のホームディレクトリを指定</dd>
+</dl></div>
+<h4 id="c_5_1">5.1 </h4>
+
+
+
+
+
+
+
+
+<h4 id="c_5_2">5.2 </h4>
+<br/><br/><br/><br/>
+<h5>参考になったサイト</h5>
+<a href="https://www.codeflow.site/ja/article/how-to-install-apache-tomcat-8-on-centos-7">CentOS 7にApache Tomcat 8をインストールする方法</a><br/>
+
+
+<a href="https://weblabo.oscasierra.net/installing-tomcat8-centos7-1/">Apache Tomcat 8 を CentOS 7 にインストールする手順</a><br/>
+<a href="https://qiita.com/y-araki-qiita/items/644248001de41cbb0388">CentOS7でtomcat8構築</a><br/>
+<a href="https://wa3.i-3-i.info/word11274.html">わわわIT用語辞典 > ログインシェル (login shell)</a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
 <br/><br/>
-<div>たかがここまでで四苦八苦…<br/>
+<div>たかがここまでで四苦八苦…<br/>s
 まだまだ先が長そうですが、だらだらと更新していきます<br/></div>
 <br/><button onclick="history.back()">戻る</button>
 <br/><br/><br/>
+<a href="#table_of_contents" style="position:fixed; bottom:0; left: -15px; background: mistyrose;">目次へ</a>
 </body>
 </html>
+
