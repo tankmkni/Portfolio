@@ -26,8 +26,13 @@
 </ul></li>
 <li><a href="#tomcat">５・Tomcat8のインストール</a></li>
 <li><ul>
-	<li><a href="#c_5_1">5.1 </a></li>
-	<li><a href="#c_5_2">5.2 </a></li>
+	<li><a href="#c_5_1">5.1 ユーザーの新規作成</a></li>
+	<li><a href="#c_5_2">5.2 Tomcatのダウンロード</a></li>
+	<li><a href="#c_5_3">5.3 Tomcatのインストール</a></li>
+	<li><a href="#c_5_4">5.4 権限を更新</a></li>
+	<li><a href="#c_5_5">5.5 Systemd Unitファイルのインストール</a></li>
+	<li><a href="#c_5_6">5.6 Tomcat Web管理インターフェースを構成する</a></li>
+	<li><a href="#c_5_7">5.7 Webインターフェイスにアクセスする</a></li>
 </ul></li>
 <li><a href="#"></a></li>
 </ul><hr>
@@ -209,9 +214,10 @@ CentOSにログインするのと同じユーザーパスワードでログイ�
 <br/><br/><br/>
 <h3 id="tomcat">５・Tomcat8のインストール</h3>
 <div>セキュリティ上の理由で、Tomcatは非特権ユーザー（root以外）で実行しなくてはいけないらしい<br/>
-なのでtomcatグループのtomcatユーザーを新規作成<br/>
-<code>groupadd tomcat</code>&ensp;グループの追加
-<code>getent group</code>&ensp;グループの一覧表示<br/>
+なのでtomcatグループのtomcatユーザーを新規作成する<br/>
+<h4 id="c_5_1">5.1 ユーザーの新規作成</h4>
+グループの追加&emsp;&emsp;&emsp;<code>groupadd tomcat</code><br/>
+グループの一覧表示&emsp;<code>getent group</code><br/>
 <img src="img/5/group.PNG" style="max-width:80%"><br/>
 最後に追加されている</div>
 <div>
@@ -221,8 +227,88 @@ CentOSにログインするのと同じユーザーパスワードでログイ�
 <dd><code>-s</code>&ensp;=&ensp;&emsp;&emsp;&emsp;〃&emsp;&emsp;&emsp;のログインシェル（だれもこのアカウントにログインできない）</dd>
 <dd><code>-g</code>&ensp;=&ensp;&emsp;&emsp;&emsp;〃&emsp;&emsp;&emsp;のプライマリーグループの名前&ensp;or&ensp;ID</dd>
 <dd><code>-d</code>&ensp;=&ensp;&emsp;&emsp;&emsp;〃&emsp;&emsp;&emsp;のホームディレクトリを指定</dd>
-</dl></div>
-<h4 id="c_5_1">5.1 </h4>
+</dl>
+<dl><dt>ユーザー一覧の表示<br/>
+<code>cut -d: -f1 /etc/passwd</code></dt>
+<dd><code>-d</code>&ensp;=&ensp;デリミタ【 delimiter 】で区切る（この場合「,」）</dd>
+<dd><code>-f1</code>&ensp;=&ensp;1つ目のfieldのみを指定</dd></dl>
+<img src="img/5/useradd.PNG" style="max-width:80%"><br/>
+最後に追加されている</div>
+<h4 id="c_5_2">5.2 Tomcatのダウンロード</h4>
+<a href="https://tomcat.apache.org/download-80.cgi">Tomcatのダウンロードサイト</a><br/>
+<div>上記から&ensp;<code>8.5.60&ensp;Core&ensp;tar.gz&ensp;(pgp, sha512)</code>&ensp;をWindowsへダウンロード<br/>
+TeraTermでVirtualboxのCentOSへ転送する<br/>
+<img src="img/5/download.PNG">
+</div>
+<h4 id="c_5_3">5.3 Tomcatのインストール</h4>
+<div>Tomcatを展開する場所を作成<br/>
+<code>mkdir /opt/tomcat</code><br/>
+<img src="img/5/mkdir_opt_tomcat.PNG"><br/>
+<code>root</code>&ensp;と並列の&ensp;<code>opt</code>&ensp;内に作成された</div>
+<div>作成したディレクトリにTomcatを展開<br/>
+<code>tar xvf apache-tomcat-8.5.60.tar.gz -C /opt/tomcat --strip-components=1</code><br/>
+<img src="img/5/tar.PNG"><br/>
+<code>opt/tomcat</code>&ensp;内に展開された</div>
+<h4 id="c_5_4">5.4 権限を更新</h4>
+<div>新規作成したtomcatユーザーには、Tomcatインストールへの適切なアクセス権が必要なので設定する</div>
+<div>Tomcatインストールパスへ移動<br/>
+<code>cd /opt/tomcat</code></div>
+<div>tomcatグループに、インストールディレクトリ全体の所有権を付与<br/>
+<code>chgrp -R tomcat /opt/tomcat</code><br/>
+<img src="img/5/chgrp.PNG"><br/>
+所有権の変更が確認できる</div>
+<div>tomcatグループに、confディレクトリとその全てのコンテンツへの読み取りアクセス権を付与し、ディレクトリ自体へのアクセスを実行<br/>
+<code>chmod -R g+r conf; chmod g+x conf</code><br/>
+<img src="img/5/chmod.PNG"><br/>
+confディレクトリへの読み取り実行権限が変更された</div>
+<div>tomcatユーザーを、<code>webapps&ensp;work&ensp;temp&ensp;logs</code>&ensp;ディレクトリの所有者にする<br/>
+<code>chown -R tomcat webapps/ work/ temp/ logs/</code><br/>
+<img src="img/5/chown.PNG"><br/>
+各ディレクトリの所有者が変更された</div>
+
+<h4 id="c_5_5">5.5 Systemd Unitファイルのインストール</h4>
+<div>Tomcatをサービスとして実行できるようにするため、Tomcat Systemdユニットファイルを設定</div>
+<div>次のコマンドを実行して、ユニットファイルを作成してテキストエディタを開く<br/>
+<code>vi /etc/systemd/tomcat.service</code></div>
+<div>下記のスクリプトを記入し、<code>ESCキー</code>&ensp;→&ensp;<code>:wq</code>&ensp;→&ensp;<code>Enterキー</code>&ensp;で保存する<br/>
+<hr/><pre><code># Systemd unit file for tomcat
+[Unit]
+Description=Apache Tomcat Web Application Container
+After=syslog.target network.target
+
+[Service]
+Type=forking
+
+Environment=JAVA_HOME=/usr/lib/jvm/jre
+Environment=CATALINA_PID=/opt/tomcat/temp/tomcat.pid
+Environment=CATALINA_HOME=/opt/tomcat
+Environment=CATALINA_BASE=/opt/tomcat
+Environment='CATALINA_OPTS=-Xms -Xmx -server -XX:+UseParallelGC'
+Environment='JAVA_OPTS=-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom'
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/bin/kill -15 $MAINPID
+
+User=tomcat
+Group=tomcat
+UMask=0007
+RestartSec=10
+Restart=always
+
+[Install]
+WantedBy=multi-user.target</code></pre><hr/>
+今回はTeraTermでコピペさせて貰った&emsp;便利！<br/>
+<img src="img/5/tomcat_service.PNG"><br/>
+tomcat.serviceファイルが作成された</div>
+
+
+
+
+
+
+
+<h4 id="c_5_6">5.6 Tomcat Web管理インターフェースを構成する</h4>
+<h4 id="c_5_7">5.7 Webインターフェイスにアクセスする</h4>
 
 
 
@@ -231,7 +317,13 @@ CentOSにログインするのと同じユーザーパスワードでログイ�
 
 
 
-<h4 id="c_5_2">5.2 </h4>
+
+
+
+
+
+
+
 <br/><br/><br/><br/>
 <h5>参考になったサイト</h5>
 <a href="https://www.codeflow.site/ja/article/how-to-install-apache-tomcat-8-on-centos-7">CentOS 7にApache Tomcat 8をインストールする方法</a><br/>
@@ -248,7 +340,7 @@ CentOSにログインするのと同じユーザーパスワードでログイ�
 まだまだ先が長そうですが、だらだらと更新していきます<br/></div>
 <br/><button onclick="history.back()">戻る</button>
 <br/><br/><br/>
-<a href="#table_of_contents" style="position:fixed; bottom:0; left: -15px; background: mistyrose;">目次へ</a>
+<a href="#table_of_contents" style="position:fixed; bottom:10px; left: 80vw; background: mistyrose;">目次へ</a>
 </body>
 </html>
 
