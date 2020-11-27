@@ -164,11 +164,11 @@ Windowsにダウンロードしたファイルを転送して渡す方法をト�
 <div>※Program Filesの変更権限がない場合、保存場所を権限のある範囲の場所に指定しないとインストールできない<br/>
 <img src="img/4/TeraTerm_access_denied.png" style="max-width:80%"></div>
 <div><dl><dt>CentOSのネット接続設定を変更する</dt><br/>
-<dd>割り当てを&ensp;<code>NAT</code>&ensp;にして、&ensp;<code>高度</code>&ensp;の&ensp;<code>ポートフォワーディング</code>&ensp;をクリック</dd>
+<dd>Virtualboxのネットワークの割り当てを&ensp;<code>NAT</code>&ensp;にして、&ensp;<code>高度</code>&ensp;の&ensp;<code>ポートフォワーディング</code>&ensp;をクリック</dd>
 <img src="img/4/net_setting.PNG"><br/><br/>
 <dd>右上のプラスボタンで新しいルールを作成する<br/>
 名前はなんでも良く、プロトコルはそのまま、ホストポートも空いていれば自由<br/>
-ゲストポートは詳細はわからないが今回は&ensp;<code>22</code>&ensp;を使用</dd>
+ゲストポートは&ensp;<code>22</code>&ensp;を使用</dd>
 <img src="img/4/port_forwarding.PNG"><br/><br/>
 <dd>一応、再起動する</dd>
 </dl></div><br/>
@@ -269,8 +269,9 @@ confディレクトリへの読み取り実行権限が変更された</div>
 <h4 id="c_5_5">5.5 Systemd Unitファイルのインストール</h4>
 <div>Tomcatをサービスとして実行できるようにするため、Tomcat Systemdユニットファイルを設定</div>
 <div>次のコマンドを実行して、ユニットファイルを作成してテキストエディタを開く<br/>
-<code>vi /etc/systemd/tomcat.service</code></div>
+<code>vi /etc/systemd/system/tomcat.service</code></div>
 <div>下記のスクリプトを記入し、<code>ESCキー</code>&ensp;→&ensp;<code>:wq</code>&ensp;→&ensp;<code>Enterキー</code>&ensp;で保存する<br/>
+このスクリプトは、設定を指定して、tomcatユーザーとしてTomcatサービスを実行するようサーバーに指示する、らしい（汗）<br/>
 <hr/><pre><code># Systemd unit file for tomcat
 [Unit]
 Description=Apache Tomcat Web Application Container
@@ -297,10 +298,16 @@ Restart=always
 
 [Install]
 WantedBy=multi-user.target</code></pre><hr/>
-今回はTeraTermでコピペさせて貰った&emsp;便利！<br/>
+今回はTeraTermでコピペさせて貰った&emsp;便利！<br/><br/>
+<code>ls -al /etc/systemd/system</code><br/>
 <img src="img/5/tomcat_service.PNG"><br/>
 tomcat.serviceファイルが作成された</div>
-
+<div>Systemdをリロードして、Tomcatユニットファイルをロードする<br/>
+<code>systemctl daemon-reload</code><br/>
+これで、このsystemctlコマンドを使用してTomcatサービスを開始できる<br/>
+<code>systemctl start tomcat</code><br/>
+<img src="img/5/start.PNG"><br/>
+ん？&emsp;failed？</div>
 
 
 
@@ -343,8 +350,8 @@ tomcat.serviceファイルが作成された</div>
 <button onclick="location.href='#table_of_contents'"
 	style="
 		position:fixed;
-		bottom: 10px;
-		left: 80vw; 
+		bottom: 1vmin;
+		right: 1vmin; 
 		width: 16vmin;
 		height: 8vmin;
 		background: mistyrose;
