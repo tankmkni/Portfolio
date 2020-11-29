@@ -153,6 +153,7 @@ Virtualboxに新規で仮想マシンを作成し、
 Windowsにダウンロードしたファイルを転送して渡す方法をトライしてみよう</div><br/>
 <h5>参考になったサイト</h5>
 <a href="https://qiita.com/hidekuro/items/6bcf88ec7e233fb9cf79">wget/curlでOracleJDKをダウンロード</a><br/>
+<a href="https://www.sejuku.net/blog/85358">Ubuntu18.04にJavaを導入する方法（JREやJDKの違いについても解説）</a><br/>
 
 <br/><br/><br/>
 <h3 id="TeraTerm_install">４・TeraTermを使ってみる</h3>
@@ -195,7 +196,7 @@ CentOSにログインするのと同じユーザーパスワードでログイ�
 <img src="img/4/send_2.PNG"></div>
 <div>ちゃんと追加されている！<br/>
 <img src="img/4/in_jdk.PNG"></div>
-<div>java のがまだインストールされていないことを確認<br/>
+<div>java がまだインストールされていないことを確認<br/>
 <code>java -version</code><br/>
 <img src="img/4/java_not.PNG"></div>
 <div>rpmでインストール<br/>
@@ -204,12 +205,27 @@ CentOSにログインするのと同じユーザーパスワードでログイ�
 いいぞ！</div>
 <div>インストールされていることを確認<br/>
 <code>java -version</code><br/>
-<img src="img/4/install_ok.PNG"><br/>
+<img src="img/4/install_ok.PNG" style="max-width:80%"><br/>
 できてる！</div>
-<br/>
-<h5>参考になったサイト</h5>
-<a href="https://weblabo.oscasierra.net/installing-tomcat9-centos7-1/">わわわIT用語辞典 > Tera Term</a><br/>
+<div>day.javaファイルを用意して実行してみる<br/>
 
+<pre><code>import java.util.Calendar;
+
+class day {
+    public static void main(String[] args) {
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH) + 1;
+        System.out.println(year + " 年 " + month + " 月");
+    }
+}</code></pre>
+<img src="img/4/java.PNG" style="max-width:80%"><br/>
+無事に実行できた！</div>
+
+
+<br/><h5>参考になったサイト</h5>
+<a href="https://weblabo.oscasierra.net/installing-tomcat9-centos7-1/">わわわIT用語辞典 > Tera Term</a><br/>
+<a href="https://qiita.com/Esfahan/items/60cf425514c66553bd42">CentOS7にJava OpenJDK8のインストール</a><br/>
 
 <br/><br/><br/>
 <h3 id="tomcat">５・Tomcat8のインストール</h3>
@@ -238,16 +254,16 @@ CentOSにログインするのと同じユーザーパスワードでログイ�
 <a href="https://tomcat.apache.org/download-80.cgi">Tomcatのダウンロードサイト</a><br/>
 <div>上記から&ensp;<code>8.5.60&ensp;Core&ensp;tar.gz&ensp;(pgp, sha512)</code>&ensp;をWindowsへダウンロード<br/>
 TeraTermでVirtualboxのCentOSへ転送する<br/>
-<img src="img/5/download.PNG">
+<img src="img/5/download.PNG" style="max-width:80%">
 </div>
 <h4 id="c_5_3">5.3 Tomcatのインストール</h4>
 <div>Tomcatを展開する場所を作成<br/>
 <code>mkdir /opt/tomcat</code><br/>
-<img src="img/5/mkdir_opt_tomcat.PNG"><br/>
+<img src="img/5/mkdir_opt_tomcat.PNG" style="max-width:80%"><br/>
 <code>root</code>&ensp;と並列の&ensp;<code>opt</code>&ensp;内に作成された</div>
 <div>作成したディレクトリにTomcatを展開<br/>
 <code>tar xvf apache-tomcat-8.5.60.tar.gz -C /opt/tomcat --strip-components=1</code><br/>
-<img src="img/5/tar.PNG"><br/>
+<img src="img/5/tar.PNG" style="max-width:80%"><br/>
 <code>opt/tomcat</code>&ensp;内に展開された</div>
 <h4 id="c_5_4">5.4 権限を更新</h4>
 <div>新規作成したtomcatユーザーには、Tomcatインストールへの適切なアクセス権が必要なので設定する</div>
@@ -255,15 +271,15 @@ TeraTermでVirtualboxのCentOSへ転送する<br/>
 <code>cd /opt/tomcat</code></div>
 <div>tomcatグループに、インストールディレクトリ全体の所有権を付与<br/>
 <code>chgrp -R tomcat /opt/tomcat</code><br/>
-<img src="img/5/chgrp.PNG"><br/>
+<img src="img/5/chgrp.PNG" style="max-width:80%"><br/>
 所有権の変更が確認できる</div>
 <div>tomcatグループに、confディレクトリとその全てのコンテンツへの読み取りアクセス権を付与し、ディレクトリ自体へのアクセスを実行<br/>
 <code>chmod -R g+r conf; chmod g+x conf</code><br/>
-<img src="img/5/chmod.PNG"><br/>
+<img src="img/5/chmod.PNG" style="max-width:80%"><br/>
 confディレクトリへの読み取り実行権限が変更された</div>
 <div>tomcatユーザーを、<code>webapps&ensp;work&ensp;temp&ensp;logs</code>&ensp;ディレクトリの所有者にする<br/>
 <code>chown -R tomcat webapps/ work/ temp/ logs/</code><br/>
-<img src="img/5/chown.PNG"><br/>
+<img src="img/5/chown.PNG" style="max-width:80%"><br/>
 各ディレクトリの所有者が変更された</div>
 
 <h4 id="c_5_5">5.5 Systemd Unitファイルのインストール</h4>
@@ -271,6 +287,7 @@ confディレクトリへの読み取り実行権限が変更された</div>
 <div>次のコマンドを実行して、ユニットファイルを作成してテキストエディタを開く<br/>
 <code>vi /etc/systemd/system/tomcat.service</code></div>
 <div>下記のスクリプトを記入し、<code>ESCキー</code>&ensp;→&ensp;<code>:wq</code>&ensp;→&ensp;<code>Enterキー</code>&ensp;で保存する<br/>
+(保存しないで閉じる場合は、<code>ESCキー</code>&ensp;→&ensp;<code>:q!</code>&ensp;→&ensp;<code>Enterキー</code>&ensp;）<br/>
 このスクリプトは、設定を指定して、tomcatユーザーとしてTomcatサービスを実行するようサーバーに指示する、らしい（汗）<br/>
 <hr/><pre><code># Systemd unit file for tomcat
 [Unit]
@@ -300,17 +317,30 @@ Restart=always
 WantedBy=multi-user.target</code></pre><hr/>
 今回はTeraTermでコピペさせて貰った&emsp;便利！<br/><br/>
 <code>ls -al /etc/systemd/system</code><br/>
-<img src="img/5/tomcat_service.PNG"><br/>
+<img src="img/5/tomcat_service.PNG" style="max-width:80%"><br/>
 tomcat.serviceファイルが作成された</div>
 <div>Systemdをリロードして、Tomcatユニットファイルをロードする<br/>
 <code>systemctl daemon-reload</code><br/>
 これで、このsystemctlコマンドを使用してTomcatサービスを開始できる<br/>
 <code>systemctl start tomcat</code><br/>
-<img src="img/5/start.PNG"><br/>
+<img src="img/5/start.PNG" style="max-width:80%"><br/>
 ん？&emsp;failed？</div>
+<div>ファイアウォール設定で、8080ポートを開放してみる<br/>
+<code>vi /etc/sysconfig/iptables</code>&ensp;で<br/>
+<code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT</code><br/>
+と追加したら&ensp;<code>start</code>&ensp;ではエラーは出なくなったが、<br/>
+<code>systemctl status tomcat</code><br/>
+<img src="img/5/status.PNG" style="max-width:80%"><br/>
+やっぱりfailed...</div>
+<div>サービスは有効になっているようだ<br/>
+<code>systemctl list-unit-files tomcat.service</code><br/>
+<img src="img/5/list_unit_files.PNG" style="max-width:80%"><br/></div>
 
 
-
+<!--
+<div><code>journalctl -xe</code></div>
+<div><code>/usr/java/jdk1.8.0_271-amd64</code></div>
+-->
 
 
 
@@ -334,11 +364,22 @@ tomcat.serviceファイルが作成された</div>
 <br/><br/><br/><br/>
 <h5>参考になったサイト</h5>
 <a href="https://www.codeflow.site/ja/article/how-to-install-apache-tomcat-8-on-centos-7">CentOS 7にApache Tomcat 8をインストールする方法</a><br/>
-
-
 <a href="https://weblabo.oscasierra.net/installing-tomcat8-centos7-1/">Apache Tomcat 8 を CentOS 7 にインストールする手順</a><br/>
 <a href="https://qiita.com/y-araki-qiita/items/644248001de41cbb0388">CentOS7でtomcat8構築</a><br/>
 <a href="https://wa3.i-3-i.info/word11274.html">わわわIT用語辞典 > ログインシェル (login shell)</a><br/>
+<a href="https://qiita.com/yukihigasi/items/f477e021cd909bfcde3e">CentOSにTomcatをインストールする</a><br/>
+<a href="https://wa3.i-3-i.info/word11000.html">わわわIT用語辞典 > デーモン (daemon)</a><br/>
+<a href="http://www.lesstep.jp/step_on_board/tomcat/1385/">CentOS 7にTomcatをインストールして起動したらエラーになる時の対処方法</a><br/>
+<a href="https://qiita.com/brighton0725/items/532a4d1f6a647e7f85cf">備忘録 CentOS7, Tomcat8.5.11をsystemctlコマンドで起動/停止したい</a><br/>
+<a href="https://www.it-swarm-ja.tech/ja/rhel/systemctl%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%81%AB%E3%83%99%E3%83%B3%E3%83%80%E3%83%BC%E3%83%97%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%EF%BC%9A%E7%84%A1%E5%8A%B9/962739090/">systemctlステータスにベンダープリセットが表示されます：無効</a><br/>
+<a href="https://pasomaki.com/tomcat-check-running/">[Tomcat] 正常に起動しているか確認する</a><br/>
+<a href="https://dstrage.net/study/1835/">CentOS7(Virtualbox) ホストＯＳのブラウザで ゲストＯＳ上のサイトを開く</a><br/>
+<a href=""></a><br/>
+<a href=""></a><br/>
+<a href=""></a><br/>
+<a href=""></a><br/>
+<a href=""></a><br/>
+<a href=""></a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
