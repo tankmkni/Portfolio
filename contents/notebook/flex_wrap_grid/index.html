@@ -38,8 +38,9 @@ ul{ list-style-type: disc}
 <li>最後の行も他の行とズレない</li>
 <li>画面サイズが変更されても上記を満たす(レスポンシブ)</li>
 </ul>
-<div>基になるコード(base.html) の実行</div>
-<iframe src="base.html" style="height:550px;"></iframe><br/>
+<div>基になるコード(base.html) の実行<br/>
+	(画面幅を変えると挙動が確認できる)</div>
+<iframe src="base.html" style="height:580px;"></iframe><br/>
 <div>基になるコード：base.html</div>
 <iframe id="exe" src="base.txt" style="height:500px;" onload="setHeight(this)"></iframe><br/>
 
@@ -60,8 +61,9 @@ ul{ list-style-type: disc}
 <h4>JavaScriptを使えば上記の②ができそうなのでトライ</h4>
 <div>実行するコード：test.html</div>
 <iframe id="exe" src="test.txt" style="height:500px;" onload="setHeight(this)"></iframe><br/>
-<div>test.html の実行</div>
-<iframe src="test.html" style="height:500px;"></iframe><br/>
+<div>test.html の実行<br/>
+	(画面幅を動かしていくと、段階的に&ensp;<code>area</code>&ensp;の幅が変わる)</div>
+<iframe src="test.html" style="height:510px;"></iframe><br/>
 <div class="button"><a href="test.html" target="_blank">test.html&ensp;の実行結果を別画面で表示</a></div>
 <div>とりあえずやりたい事は満たしているが、<br/>
 	CSSだけのやり方があるかもしれないので継続課題としたい</div><hr/>
