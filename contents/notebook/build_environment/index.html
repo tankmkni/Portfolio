@@ -24,7 +24,7 @@
 	<li><a href="#c_4_1">4.1 インストールからCentOSへの接続まで</a></li>
 	<li><a href="#c_4_2">4.2 WindowsにダウンロードしたJDK8を転送してインストールさせる</a></li>
 </ul></li>
-<li><a href="#tomcat">５・Tomcat8のインストール</a></li>
+<li><a href="#tomcat">５・Tomcat8のインストール（１回目）</a></li>
 <li><ul>
 	<li><a href="#c_5_1">5.1 ユーザーの新規作成</a></li>
 	<li><a href="#c_5_2">5.2 Tomcatのダウンロード</a></li>
@@ -33,6 +33,16 @@
 	<li><a href="#c_5_5">5.5 Systemd Unitファイルのインストール</a></li>
 	<li><a href="#c_5_6">5.6 Tomcat Web管理インターフェースを構成する</a></li>
 	<li><a href="#c_5_7">5.7 Webインターフェイスにアクセスする</a></li>
+</ul></li>
+<li><a href="#tomcat_2">６・Tomcat8のインストール（２回目）</a></li>
+<li><ul>
+	<li><a href="#c_6_1">6.1 </a></li>
+	<li><a href="#c_6_2">6.2 </a></li>
+	<li><a href="#c_6_3">6.3 </a></li>
+	<li><a href="#c_6_4">6.4 </a></li>
+	<li><a href="#c_6_5">6.5 </a></li>
+	<li><a href="#c_6_6">6.6 </a></li>
+	<li><a href="#c_6_7">6.7 </a></li>
 </ul></li>
 <li><a href="#"></a></li>
 </ul><hr>
@@ -334,18 +344,120 @@ tomcat.serviceファイルが作成された</div>
 やっぱりfailed...</div>
 <div>サービスは有効になっているようだ<br/>
 <code>systemctl list-unit-files tomcat.service</code><br/>
-<img src="img/5/list_unit_files.PNG" style="max-width:80%"><br/></div>
-
-
-<!--
-<div><code>journalctl -xe</code></div>
-<div><code>/usr/java/jdk1.8.0_271-amd64</code></div>
--->
-
-
-
+<img src="img/5/list_unit_files.PNG" style="max-width:80%"></div>
+<div><code>journalctl -xe</code>&ensp;でログを読んで、<br/>
+意味がわからないが赤字の部分を調べてみよう<br/>
+<img src="img/5/kernel.PNG" style="max-width:80%"></div>
+<div><code>systemctl status kdump.service</code>&ensp;を見ると、これもfiled<br/>
+<img src="img/5/kdump_status.PNG" style="max-width:80%"><br/>
+<code>dmesg | grep Reserving</code>&ensp;ダンプキャプチャカーネル用に確保されたメモリ量の確認は反応すらしない<br/>
+<code>cat /sys/kernel/kexec_crash_loaded</code>&ensp;の出力が１じゃないのは、ダンプキャプチャカーネルが読み込まれていないということらしい<br/>
+</div>
+<div>これが立ち上がらないからダメなの？（保留）</div>
 <h4 id="c_5_6">5.6 Tomcat Web管理インターフェースを構成する</h4>
+<div>未実施</div>
 <h4 id="c_5_7">5.7 Webインターフェイスにアクセスする</h4>
+<div>未実施</div>
+<h5>参考になったサイト</h5>
+<a href="https://www.codeflow.site/ja/article/how-to-install-apache-tomcat-8-on-centos-7">CentOS 7にApache Tomcat 8をインストールする方法</a><br/>
+<a href="https://weblabo.oscasierra.net/installing-tomcat8-centos7-1/">Apache Tomcat 8 を CentOS 7 にインストールする手順</a><br/>
+<a href="https://qiita.com/y-araki-qiita/items/644248001de41cbb0388">CentOS7でtomcat8構築</a><br/>
+<a href="https://wa3.i-3-i.info/word11274.html">わわわIT用語辞典 > ログインシェル (login shell)</a><br/>
+<a href="https://qiita.com/yukihigasi/items/f477e021cd909bfcde3e">CentOSにTomcatをインストールする</a><br/>
+<a href="https://wa3.i-3-i.info/word11000.html">わわわIT用語辞典 > デーモン (daemon)</a><br/>
+<a href="http://www.lesstep.jp/step_on_board/tomcat/1385/">CentOS 7にTomcatをインストールして起動したらエラーになる時の対処方法</a><br/>
+<a href="https://qiita.com/brighton0725/items/532a4d1f6a647e7f85cf">備忘録 CentOS7, Tomcat8.5.11をsystemctlコマンドで起動/停止したい</a><br/>
+<a href="https://www.it-swarm-ja.tech/ja/rhel/systemctl%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%81%AB%E3%83%99%E3%83%B3%E3%83%80%E3%83%BC%E3%83%97%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%EF%BC%9A%E7%84%A1%E5%8A%B9/962739090/">systemctlステータスにベンダープリセットが表示されます：無効</a><br/>
+<a href="https://pasomaki.com/tomcat-check-running/">[Tomcat] 正常に起動しているか確認する</a><br/>
+<a href="https://dstrage.net/study/1835/">CentOS7(Virtualbox) ホストＯＳのブラウザで ゲストＯＳ上のサイトを開く</a><br/>
+<a href="https://qiita.com/Kernel_OGSun/items/d9e18eaaf84990455ae0">カーネルクラッシュダンプ (Kdump) の概要と設定方法</a><br/>
+
+
+<br/><br/><br/>
+<h3 id="tomcat_2">６・Tomcat8のインストール（２回目）</h3>
+<h4 id="c_6_1">6.1 yum でインストール</h4>
+<div>Tomcatがインストールされているか確認<br/>
+<code>yum list installed | grep tomcat</code><br/>
+結果が何も返ってこないので、インストールされていない</div>
+
+<div><code>yum -y install tomcat</code><br/>
+<img src="img/6/yum.PNG" style="max-width:80%"><br/>
+「<code>Complete!</code>」と表示され、<br/>
+<code>yum list installed | grep tomcat</code>&ensp;も反応がある</div>
+<div>しかし、failedは健在</div>
+
+<div>設定ファイルの記入内容をいじってみるか<br/>
+いくつかのサイトの記述を見比べてみる
+<hr/><pre><code>[Unit]
+Description=Apache Tomcat 9
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/libexec/tomcat9/bin/startup.sh
+ExecStop=/usr/libexec/tomcat9/bin/shutdown.sh
+RemainAfterExit=yes
+User=tomcat
+Group=tomcat
+
+[Install]
+WantedBy=multi-user.target</code></pre><hr/>
+<pre><code>[Unit]
+Description=Apache Tomcat 8.5.11
+After=network.target remote-fs.target nss-lookup.target
+
+[Service]
+User=tomcat
+Group=tomcat
+Type=oneshot
+
+ExecStart=/usr/local/apache-tomcat-8.5.11/bin/startup.sh
+ExecStop=/usr/local/apache-tomcat-8.5.11/bin/shutdown.sh
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target</code></pre><hr/>
+<pre><code>[Unit]
+Description=Apache Tomcat 8
+After=network.target
+
+[Service]
+User=tomcat
+Group=tomcat
+Type=oneshot
+PIDFile=/opt/apache-tomcat-8.0.50/tomcat.pid
+RemainAfterExit=yes
+
+ExecStart=/opt/apache-tomcat-8.0.50/bin/startup.sh
+ExecStop=/opt/apache-tomcat-8.0.50/bin/shutdown.sh
+ExecReStart=/opt/apache-tomcat-8.0.50/bin/shutdown.sh;/opt/apache-tomcat-8.0.50/bin/startup.sh
+
+[Install]
+WantedBy=multi-user.target</code></pre><hr/></div>
+
+<div>参考にして、下記にしてみる
+<hr/><pre><code>[Unit]
+Description=Apache Tomcat 8
+After=network.target
+
+[Service]
+User=tomcat
+Group=tomcat
+Type=oneshot
+
+ExecStart=/opt/tomcat/bin/startup.sh
+ExecStop=/opt/tomcat/bin/shutdown.sh
+
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target</code></pre><hr/></div>
+<div><code>systemctl daemon-reload</code>&ensp;して、<br/>
+<code>systemctl start tomcat</code><br/>
+<code>systemctl status tomcat</code><br/>
+<img src="img/6/status.PNG" style="max-width:80%"><br/>
+failedが無い！</div>
+<div>が、ブラウザで接続できない...</div>
 
 
 
@@ -362,20 +474,17 @@ tomcat.serviceファイルが作成された</div>
 
 
 <br/><br/><br/><br/>
+<div>サンプルページ用のファイルを追加<br/>
+<code>yum -y install tomcat-webapps</code><br/>
+「<code>Complete!</code>」</div>
+
+
+
+
+<br/><br/><br/><br/>
 <h5>参考になったサイト</h5>
-<a href="https://www.codeflow.site/ja/article/how-to-install-apache-tomcat-8-on-centos-7">CentOS 7にApache Tomcat 8をインストールする方法</a><br/>
-<a href="https://weblabo.oscasierra.net/installing-tomcat8-centos7-1/">Apache Tomcat 8 を CentOS 7 にインストールする手順</a><br/>
-<a href="https://qiita.com/y-araki-qiita/items/644248001de41cbb0388">CentOS7でtomcat8構築</a><br/>
-<a href="https://wa3.i-3-i.info/word11274.html">わわわIT用語辞典 > ログインシェル (login shell)</a><br/>
-<a href="https://qiita.com/yukihigasi/items/f477e021cd909bfcde3e">CentOSにTomcatをインストールする</a><br/>
-<a href="https://wa3.i-3-i.info/word11000.html">わわわIT用語辞典 > デーモン (daemon)</a><br/>
-<a href="http://www.lesstep.jp/step_on_board/tomcat/1385/">CentOS 7にTomcatをインストールして起動したらエラーになる時の対処方法</a><br/>
-<a href="https://qiita.com/brighton0725/items/532a4d1f6a647e7f85cf">備忘録 CentOS7, Tomcat8.5.11をsystemctlコマンドで起動/停止したい</a><br/>
-<a href="https://www.it-swarm-ja.tech/ja/rhel/systemctl%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%81%AB%E3%83%99%E3%83%B3%E3%83%80%E3%83%BC%E3%83%97%E3%83%AA%E3%82%BB%E3%83%83%E3%83%88%E3%81%8C%E8%A1%A8%E7%A4%BA%E3%81%95%E3%82%8C%E3%81%BE%E3%81%99%EF%BC%9A%E7%84%A1%E5%8A%B9/962739090/">systemctlステータスにベンダープリセットが表示されます：無効</a><br/>
-<a href="https://pasomaki.com/tomcat-check-running/">[Tomcat] 正常に起動しているか確認する</a><br/>
-<a href="https://dstrage.net/study/1835/">CentOS7(Virtualbox) ホストＯＳのブラウザで ゲストＯＳ上のサイトを開く</a><br/>
-<a href=""></a><br/>
-<a href=""></a><br/>
+<a href="https://qiita.com/keb/items/58f7f2db287d78e53163">VirtualBoxのcentosにTomcatをインストールしてサンプルアプリを動かしてみた</a><br/>
+<a href="https://www.wantanblog.com/entry/2019/09/08/175314">【Linux】Linux（CentOS7）@VirtualBoxにTomcat9をインストールする</a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
