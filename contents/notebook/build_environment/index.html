@@ -39,10 +39,16 @@
 	<li><a href="#c_6_1">6.1 yum でインストール</a></li>
 	<li><a href="#c_6_2">6.2 設定ファイルの記入内容をいじってみる</a></li>
 	<li><a href="#c_6_3">6.3 ポートフォワーディングのルール追加</a></li>
-	<li><a href="#c_6_4">6.4 </a></li>
-	<li><a href="#c_6_5">6.5 </a></li>
-	<li><a href="#c_6_6">6.6 </a></li>
-	<li><a href="#c_6_7">6.7 </a></li>
+</ul></li>
+<li><a href="#">７・</a></li>
+<li><ul>
+	<li><a href="#c_7_1">7.1 </a></li>
+	<li><a href="#c_7_2">7.2 </a></li>
+	<li><a href="#c_7_3">7.3 </a></li>
+	<li><a href="#c_7_4">7.4 </a></li>
+	<li><a href="#c_7_5">7.5 </a></li>
+	<li><a href="#c_7_6">7.6 </a></li>
+	<li><a href="#c_7_7">7.7 </a></li>
 </ul></li>
 <li><a href="#"></a></li>
 </ul><hr>
@@ -452,7 +458,8 @@ ExecStop=/opt/tomcat/bin/shutdown.sh
 RemainAfterExit=yes
 
 [Install]
-WantedBy=multi-user.target</code></pre><hr/>
+WantedBy=multi-user.target</code></pre>
+ExecStart/ExecStopの、実際にファイルが存在するパスを指定<hr/>
 <code>systemctl daemon-reload</code>&ensp;して、<br/>
 <code>systemctl start tomcat</code><br/>
 <code>systemctl status tomcat</code><br/>
@@ -470,10 +477,17 @@ failedが無い！</div>
 <div>ホストのブラウザからゲストのTomcatへアクセス<br/>
 <code>http://localhost:1300</code>(新しく設定したホストポートの番号)<br/>
 <img src="img/6/tomcat.PNG" style="max-width:80%"><br/>
-表示された！！</div>
+やった、表示された！！<br/>
+Congratulations!&ensp;って(泣)</div>
+<br/>
+<h5>参考になったサイト</h5>
+<a href="https://qiita.com/keb/items/58f7f2db287d78e53163">VirtualBoxのcentosにTomcatをインストールしてサンプルアプリを動かしてみた</a><br/>
+<a href="https://www.wantanblog.com/entry/2019/09/08/175314">【Linux】Linux（CentOS7）@VirtualBoxにTomcat9をインストールする</a><br/>
+<a href="https://www.sebegginer.com/article/450345390.html">VirtualBoxにTomcatをインストールした後ブラウザでサンプルページが表示できない事象</a><br/>
 
-
-
+<br/><br/><br/>
+<h3 id="">７・</h3>
+<h4 id="c_7_1">7.1 </h4>
 
 
 
@@ -494,9 +508,6 @@ failedが無い！</div>
 
 <br/><br/><br/><br/>
 <h5>参考になったサイト</h5>
-<a href="https://qiita.com/keb/items/58f7f2db287d78e53163">VirtualBoxのcentosにTomcatをインストールしてサンプルアプリを動かしてみた</a><br/>
-<a href="https://www.wantanblog.com/entry/2019/09/08/175314">【Linux】Linux（CentOS7）@VirtualBoxにTomcat9をインストールする</a><br/>
-<a href="https://www.sebegginer.com/article/450345390.html">VirtualBoxにTomcatをインストールした後ブラウザでサンプルページが表示できない事象</a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
 <a href=""></a><br/>
