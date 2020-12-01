@@ -40,17 +40,12 @@
 	<li><a href="#c_6_2">6.2 設定ファイルの記入内容をいじってみる</a></li>
 	<li><a href="#c_6_3">6.3 ポートフォワーディングのルール追加</a></li>
 </ul></li>
-<li><a href="#">７・</a></li>
+<li><a href="#exeApp">７・Tomcatでアプリケーションを実行する</a></li>
 <li><ul>
-	<li><a href="#c_7_1">7.1 </a></li>
-	<li><a href="#c_7_2">7.2 </a></li>
-	<li><a href="#c_7_3">7.3 </a></li>
-	<li><a href="#c_7_4">7.4 </a></li>
-	<li><a href="#c_7_5">7.5 </a></li>
-	<li><a href="#c_7_6">7.6 </a></li>
-	<li><a href="#c_7_7">7.7 </a></li>
+	<li><a href="#c_7_1">7.1 サンプルアプリの実行</a></li>
+	<li><a href="#c_7_2">7.2 自作アプリを実行</a></li>
 </ul></li>
-<li><a href="#"></a></li>
+<li><a href="#summary">８・まとめ</a></li>
 </ul><hr>
 <h3 id="virtualbox_install">１・Virtualboxのインストール</h3>
 <a href="https://www.virtualbox.org/">Oracle VirtualBox</a>
@@ -473,7 +468,9 @@ failedが無い！</div>
 ゲストポート&ensp;8080<br/>
 を設定</div>
 <div>CentOSのファイアウォールを無効化<br/>
-<code>systemctl stop firewalld</code></div>
+<code>systemctl stop firewalld</code><br/>
+<img src="img/6/firewalld.PNG" style="max-width:80%"><br/>
+ファイアウォールが&ensp;<code>inactive</code>&ensp;になった</div>
 <div>ホストのブラウザからゲストのTomcatへアクセス<br/>
 <code>http://localhost:1300</code>(新しく設定したホストポートの番号)<br/>
 <img src="img/6/tomcat.PNG" style="max-width:80%"><br/>
@@ -486,37 +483,56 @@ Congratulations!&ensp;って(泣)</div>
 <a href="https://www.sebegginer.com/article/450345390.html">VirtualBoxにTomcatをインストールした後ブラウザでサンプルページが表示できない事象</a><br/>
 
 <br/><br/><br/>
-<h3 id="">７・</h3>
-<h4 id="c_7_1">7.1 </h4>
-
-
-
-
-
-
-
-
-
-
-<br/><br/><br/><br/>
+<h3 id="exeApp">７・Tomcatでアプリケーションを実行する</h3>
+<h4 id="c_7_1">7.1 サンプルアプリの実行</h4>
 <div>サンプルページ用のファイルを追加<br/>
 <code>yum -y install tomcat-webapps</code><br/>
-「<code>Complete!</code>」</div>
+「<code>Complete!</code>」<br/>
+中を覗く&ensp;<code>ls -al /opt/tomcat</code><br/>
+<img src="img/7/tomcat.PNG" style="max-width:80%"><br/>
+<code>ls -al /opt/tomcat/webapps</code><br/>
+<img src="img/7/webapps.PNG" style="max-width:80%"><br/>
+<code>ls -al /opt/tomcat/webapps/examples</code><br/>
+<img src="img/7/examples.PNG" style="max-width:80%"><br/></div>
+<div>index.htmlを実行してみる<br/>
+<code>http://localhost:1300/examples/index.html</code><br/>
+<img src="img/7/index.PNG" style="max-width:80%"><br/></div>
+<h4 id="c_7_2">7.2 自作アプリを実行</h4>
+<div>clock.zipを転送<br/>
+<img src="img/7/zip.PNG" style="max-width:80%"></div>
+<div>zipファイルを解凍するには&ensp;<code>unzip</code>&ensp;コマンドを使うようだが、<br/>
+<code>yum list installed | grep unzip</code>&ensp;で確認したところ、無い</div>
+<div>unzipコマンドがインストールできるかを確認<br/>
+<code>yum --enablerepo=epel,remi,rpmforge info unzip</code><br/>
+<img src="img/7/info.PNG" style="max-width:80%"><br/>
+ある、ってことらしい</div>
+<div>unzipコマンドをインストール<br/>
+<code>yum install unzip</code><br/>
+<img src="img/7/install.PNG" style="max-width:80%"><br/>
+確認してくるので、もちろん&ensp;<code>y</code>&ensp;→&ensp;<code>ENTER</code><br/>
+<img src="img/7/installed.PNG" style="max-width:80%"><br/>
+サクサクっと完了</div>
+<div>clock.zipを解凍&emsp;-dオプションで解凍先を指定<br/>
+(webアプリは&ensp;<code>webapps</code>&ensp;に配置するものらしい)<br/>
+<code>unzip clock.zip -d /opt/tomcat/webapps</code><br/>
+<img src="img/7/unzip.PNG" style="max-width:80%"></div>
+<div>確認<br/>
+<code>ls -al /opt/tomcat/webapps<br/>ls -al /opt/tomcat/webapps/clock</code><br/>
+<img src="img/7/clock.PNG" style="max-width:80%"></div>
+<div>index.htmlを実行してみる<br/>
+<code>http://localhost:1300/clock/index.html</code><br/>
+<img src="img/7/clocks.PNG" style="max-width:80%"><br/>
+自作のアプリも実行できた！</div>
 
-
-
-
-<br/><br/><br/><br/>
 <h5>参考になったサイト</h5>
-<a href=""></a><br/>
-<a href=""></a><br/>
-<a href=""></a><br/>
-<a href=""></a><br/>
-<a href=""></a><br/>
-<a href=""></a><br/>
-<br/><br/>
+<a href="https://thinkit.co.jp/free/article/0708/2/6">TomcatにWebアプリケーションを配備する</a><br/>
+<a href="https://shinomiya.hatenablog.com/entry/2017/02/07/101953">CentOS7にzipが入っていなかった件</a><br/>
+
+<br/><br/><br/>
+<h3 id="summary">８・まとめ</h3>
 <div>たかがここまでで四苦八苦…<br/>
-まだまだ先が長そうですが、だらだらと更新していきます<br/></div>
+基本的にはインストールしてダウンロードをするだけだが、<br/>
+linuxコマンドの使い方や、ネット接続の方法などの細かい設定が勉強になった。</div>
 <br/><button onclick="history.back()">戻る</button>
 <br/><br/><br/>
 <button onclick="location.href='#table_of_contents'"
