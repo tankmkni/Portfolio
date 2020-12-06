@@ -62,7 +62,7 @@ a:active{ transform: scale(1.0);}
 /*コンテンツ
 ---------------------------------------------------------------------------*/
 dl{
-	margin: 5vmin;
+	margin: 4vmin;
 }
 dt{
 	padding-top: 100px;	/* ナビゲーションバーと重ならないように */
@@ -89,7 +89,7 @@ dd{
 	width: 400px;
 	height: 480px;
 	max-width: 90vw;
-	margin: 5px;
+	margin: 2px;
 }
 legend{ font-size: 18px;}
 #exhibit_eight_queen{}
@@ -139,7 +139,11 @@ legend{ font-size: 18px;}
 #empty{
 	height: 50vh;
 }
-
+#manualIframe{
+	width: 98%;
+	height: 98%;
+	margin: 0;
+}
 
 
 /*** マウスストーカー ***/
