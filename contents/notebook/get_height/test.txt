@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>centering</title></head>
+
+<body>
+	<button onclick="getHeight()">bodyタグの高さ取得</button><br/>
+	<button onclick="getMargin()">bodyタグの余白の値</button>
+</body>
+
+<style type="text/css">
+	body,button{
+	      margin:  5px;
+	      padding: 5px;}
+	body{ border:  2px solid cyan;}
+	button{ height: 50px;}
+</style>
+
+<script type="text/javascript">
+
+	const BODY_TAG = window.document.body;
+
+	function getHeight(){
+
+		alert( "clientHeight = " + BODY_TAG.clientHeight + "\n"
+		     + "scrollHeight = " + BODY_TAG.scrollHeight + "\n"
+		     + "offsetHeight = " + BODY_TAG.offsetHeight );
+	}
+
+	function getMargin(){
+
+		const BODY_STYLE = window.getComputedStyle( BODY_TAG );
+		
+		alert( "margin  = " + BODY_STYLE.margin  + "\n"
+		     + "border  = " + BODY_STYLE.border  + "\n"
+		     + "padding = " + BODY_STYLE.padding + "\n"
+		     + "※単位などvalueの全てが返されるので、利用にはpraseInt()などの加工が必要");
+	}
+
+</script>
+</html>

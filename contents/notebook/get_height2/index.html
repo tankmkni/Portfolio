@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+	<link rel="stylesheet" href="../css/basic.css">
+	<script type="text/javascript" src="../js/common.js"></script>
+	<title>高さ取得</title>
+</head>
+<body>
+<h1>メモ：高さの取得</h1>
+<div>以前に<a href="../scrollHeight/index.html" style="margin: 0 10px;">
+     <code>scrollHeight</code>で高さを取得してiframeタグの高さを自動調整する方法</a>を調べたが、<br/>
+     ファイルによってスクロールバーが表示されたりされなかったりしてしまう<br/>
+     どうやら取得している値が実際の要素の高さとは違うようなので、<br/>
+     実際に取得している値と、他のプロパティを調べたのでメモ</div>
+
+<h3>エレメントの高さを取得するプロパティ</h3>
+<div><code>.clientHeight</code>&emsp;paddingを含んだ高さ</br>
+     <code>.scrollHeight</code>&emsp;paddingと画面上に未表示のコンテンツを含む高さ</br>
+     <code>.offsetHeight</code>&emsp;border、padding、スクロールバーを含んだ高さ</div>
+<div>scrollHeightでは、marginとborderの値は含まれないので、<br/>
+     iframeの高さ指定に利用した時に、スクロールバーが出たり出なかったりしていたのだろう</div>
+<h3>test.htmlで確認</h3>
+<div>test.htmlのコード</div>
+<iframe id="exe" type="text/css" src="test.txt" onload="setHeight(this)"></iframe><br/>
+<div>実行（ボタンをクリックで、実際の値を表記）</div>
+<iframe id="exe" src="test.html" onload="setHeight(this)"></iframe><br/>
+<div style="margin: 0;">デベロッパーツールでbodyタグの実際のサイズを確認
+<div style="display:flex; margin: 5px 0;">
+<img src="size_img/body.png" style="width: 500px;">
+<ul style="padding-left:20px;"><li>margin</li><li>border</li><li>padding</li><li>body</li><li>&ensp;</li><li>合計</li></ul>
+<ul style="text-align: right; padding-left:15px;"><li>5px</li><li>2px</li><li>5px</li><li>120px</li><li>&ensp;</li><li>144px</li></ul>
+<ul style="padding-left:10px;"><li>×２</li><li>×２</li><li>×２</li></ul></div>
+bodyタグ全体（box）の高さは144pxということになる</div>
+<div>offsetHeightの値にmarginの値を加えれば、bodyのboxの値が取得できる</div>
+
+<h4>テキストファイルだと、まだスクロールバーが表示されてしまう</h4>
+<div>htmlファイルならドンピシャでサイズが合わせられるようになったが、<br/>
+     テキストファイルだとそうならない<br/>
+     htmlファイルではないから、marginとかpaddingなんて関係ないのだろう<br/><br/>
+     他にも高さを取得するプロパティあるようなので、次はそれらを調べてみよう<br/><br/>
+     また、今回知ったbox-sizingというのも面白そうなのでいつか調べたみたい</div>
+<p>参考になったサイト</p>
+<a href="https://qiita.com/ypyp/items/c4b76e85f32b1f0cd577">jQuery・JavaScript　高さ、横幅取得方法</a><br/>
+<a href="https://qiita.com/dokkoisho/items/2bfe259ec87c00e4bd98">Javascript で高さ幅とか</a><br/>
+<a href="https://javascript.programmer-reference.com/js-page-width-height/">[JavaScript] ページの横幅、高さ、スクロール量を取得する</a><br/>
+<a href="https://baccholog.com/archives/641">[JavaScript]幅と高さを取得 / 設定する方法</a><br/>
+<a href="https://blog.codecamp.jp/margin_padding">marginとpaddingとは？基礎から解説！ゼロから始めるHTML/CSS講座Vol08</a><br/>
+<a href="http://creator.aainc.co.jp/archives/5952">margin？padding？ボックスモデルを理解しよう！あとbox-sizingが便利だよ、って話</a><br/>
+<br/>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>

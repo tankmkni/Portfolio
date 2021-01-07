@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>centering</title>
+</head>
+<body>
+	<div>1</div>
+	<div>2</div>
+</body>
+<style type="text/css">
+	body,div{ margin: 5px; padding: 5px; border: solid 2px;}
+	body{ border-color: cyan;}
+	div{
+		border-color: aquamarine;
+		height: 50px;
+		width: 150px;
+	}
+</style>
+<script type="text/javascript">
+const bodyTag = window.document.body;
+let h = bodyTag.height;
+let sh = bodyTag.scrollHeight;
+let oh = bodyTag.offsetHeight;
+let ch = bodyTag.clientHeight;
+let mr = window.getComputedStyle( bodyTag ).margin;
+let pd = window.getComputedStyle( bodyTag ).padding;
+let bd = window.getComputedStyle( bodyTag ).border;
+alert("height = " + h + "\n"
+    + "scrollHeight = " + sh + "\n"
+    + "offsetHeight = " + oh + "\n"
+    + "clientHeight = " + ch + "\n"
+    + "margin  = " + mr + "\n"
+    + "padding = " + pd + "\n"
+    + "border  = " + bd);
+alert("document.documentElement.clientHeight = " + 
+       document.documentElement.clientHeight + "\n" +
+       "document.body.clientHeight = " +
+       document.body.clientHeight + "\n" +
+       "window.innerHeight = " + window.innerHeight + "\n" +
+       "window.outerHeight = " + window.outerHeight + "\n" +
+       "window.parent.screen.height = " + window.parent.screen.height);
+</script>
+</html>

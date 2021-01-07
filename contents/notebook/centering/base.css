@@ -1,0 +1,11 @@
+body,.parlent,.child{ padding: 10px; border: solid 2px;}
+body{ border-color: yellow;}
+.parlent {
+	border-color: orange;
+	height:200px;
+}
+.child {
+	border-color: aquamarine;
+	height: 50px;
+	width: 150px;
+}
