@@ -3,50 +3,62 @@
 <head><meta charset="utf-8"/>
 	<link rel="stylesheet" href="../css/basic.css">
 	<script type="text/javascript" src="../js/common.js"></script>
-	<title>高さ取得</title>
+	<title>iframe高さ自動調整</title>
 </head>
+<style>img{width:90vw;}</style>
 <body>
-<h1>メモ：高さの取得</h1>
-<div>以前に<a href="../scrollHeight/index.html" style="margin: 0 10px;">
-     <code>scrollHeight</code>で高さを取得してiframeタグの高さを自動調整する方法</a>を調べたが、<br/>
-     ファイルによってスクロールバーが表示されたりされなかったりしてしまう<br/>
-     どうやら取得している値が実際の要素の高さとは違うようなので、<br/>
-     実際に取得している値と、他のプロパティを調べたのでメモ</div>
+<h1>メモ：iframeで高さの自動調整</h1>
+<div>テキストファイルを内包させる時に高さが微妙に合わない理由を継続調査<br/>
+<a href="../get_height/index.html">以前の調査へ</a></div>
+<h3>Chromeデベロッパーツールで確認していく</h3>
 
-<h3>エレメントの高さを取得するプロパティ</h3>
-<div><code>.clientHeight</code>&emsp;paddingを含んだ高さ</br>
-     <code>.scrollHeight</code>&emsp;paddingと画面上に未表示のコンテンツを含む高さ</br>
-     <code>.offsetHeight</code>&emsp;border、padding、スクロールバーを含んだ高さ</div>
-<div>scrollHeightでは、marginとborderの値は含まれないので、<br/>
-     iframeの高さ指定に利用した時に、スクロールバーが出たり出なかったりしていたのだろう</div>
-<h3>test.htmlで確認</h3>
-<div>test.htmlのコード</div>
-<iframe id="exe" type="text/css" src="test.txt" onload="setHeight(this)"></iframe><br/>
-<div>実行（ボタンをクリックで、実際の値を表記）</div>
-<iframe id="exe" src="test.html" onload="setHeight(this)"></iframe><br/>
-<div style="margin: 0;">デベロッパーツールでbodyタグの実際のサイズを確認
-<div style="display:flex; margin: 5px 0;">
-<img src="size_img/body.png" style="width: 500px;">
-<ul style="padding-left:20px;"><li>margin</li><li>border</li><li>padding</li><li>body</li><li>&ensp;</li><li>合計</li></ul>
-<ul style="text-align: right; padding-left:15px;"><li>5px</li><li>2px</li><li>5px</li><li>120px</li><li>&ensp;</li><li>144px</li></ul>
-<ul style="padding-left:10px;"><li>×２</li><li>×２</li><li>×２</li></ul></div>
-bodyタグ全体（box）の高さは144pxということになる</div>
-<div>offsetHeightの値にmarginの値を加えれば、bodyのboxの値が取得できる</div>
+<p>sample.txt を用意</p>
+<img src="img/sample.PNG" style="width:300px;">
+<p>test.html のコード</p>
+<iframe src="test.txt" onload="setHeight(this)"></iframe>
+<h4>実行</h4>
+<p>デベロッパーツールで確認すると、<br/>
+   iframe タグの高さは 56 + 2 + 2 = 60 だとわかる</p>
+<img src="img/iframe.PNG">
+<p>iframe の src は .txt ファイルなのに、中の document は html 形式に変換されている<br/>
+   直下の html タグの高さは 66 なので、iframeタグの 60 より大きい<br/>
+   だからスクロールバーが表示されてしまうのだろう</p>
+<img src="img/html.PNG">
+<p>body タグの高さは 40 + 8 + 8 = 56 なので、iframe タグの height と同じ値<br/>
+   (test.html の setSize() でセットしているのはこの値)</p>
+<img src="img/body.PNG">
+<p>テキストファイルの内容が pre タグ内に表記されている<br/>
+   pre タグの高さが、40 + 13 + 13 = 66 なので、<br/>
+   html タグ全体の高さが 66 になってしまっていたのだと判明</p>
+<img src="img/pre.PNG"><br/><br/>
 
-<h4>テキストファイルだと、まだスクロールバーが表示されてしまう</h4>
-<div>htmlファイルならドンピシャでサイズが合わせられるようになったが、<br/>
-     テキストファイルだとそうならない<br/>
-     htmlファイルではないから、marginとかpaddingなんて関係ないのだろう<br/><br/>
-     他にも高さを取得するプロパティあるようなので、次はそれらを調べてみよう<br/><br/>
-     また、今回知ったbox-sizingというのも面白そうなのでいつか調べたみたい</div>
+<h3>pre タグの margin を 0 にする</h3>
+<div><code>Element.children</code>&ensp;が使えそう</div>
+<div>Elementオブジェクトのchildrenプロパティは、<br/>
+     その要素の全ての子要素を含むHTMLCollection(≠配列)を返す</div>
+<p>test2.html を作成</p>
+<iframe src="test2.txt" onload="setHeight(this)"></iframe>
+<h4>実行</h4>
+<p>iframe タグの height が 66 になり、内包要素のサイズと一致した<br/>
+   しかし src で指定するファイルの種類が違ったら同じコードでは対応できないだろうから、<br/>
+   src の拡張子を取得 ⇒ 分岐とさせるコードなどの対応が必要になりそう</p>
+<img src="img/test2.PNG">
+
+<h3>もしかして...</h3>
+<div>ダイレクトに html タグの高さを取得できれば、その方がいいな</div>
+<p>test3.html を作成</p>
+<iframe src="test3.txt" onload="setHeight(this)"></iframe>
+<h4>実行</h4>
+<p>できるじゃん！<br/>
+   これなら、html ファイルでも txt ファイルでも分岐させなくて済むし、<br/>
+   コードもスッキリして気持ちいい</p>
+<img src="img/test3.PNG">
+
+<div>これでファイルの種類に関係なく iframe の高さを合わせられるようになった</div>
+<br/><br/>
 <p>参考になったサイト</p>
-<a href="https://qiita.com/ypyp/items/c4b76e85f32b1f0cd577">jQuery・JavaScript　高さ、横幅取得方法</a><br/>
-<a href="https://qiita.com/dokkoisho/items/2bfe259ec87c00e4bd98">Javascript で高さ幅とか</a><br/>
-<a href="https://javascript.programmer-reference.com/js-page-width-height/">[JavaScript] ページの横幅、高さ、スクロール量を取得する</a><br/>
-<a href="https://baccholog.com/archives/641">[JavaScript]幅と高さを取得 / 設定する方法</a><br/>
-<a href="https://blog.codecamp.jp/margin_padding">marginとpaddingとは？基礎から解説！ゼロから始めるHTML/CSS講座Vol08</a><br/>
-<a href="http://creator.aainc.co.jp/archives/5952">margin？padding？ボックスモデルを理解しよう！あとbox-sizingが便利だよ、って話</a><br/>
-<br/>
+<a href="https://syncer.jp/javascript-reference/element/children">Element.children- 全ての子要素を取得する</a>
+<br/><br/>
 <button onclick="history.back()">戻る</button>
 <br/><br/><br/>
 </body>

@@ -1,17 +1,9 @@
 /* 引数「tag」の内包要素の高さを取得し、「tag」の高さに指定する */
 /* 2021.1.6 border/margin/padding幅も含めるように変更*/
+/* 2021.1.8 ダイレクトにhtmlタグの高さを取得するように変更 */
 function setHeight( tag ){
-	// 引数「tag」内の要素のbodyタグを取得
-	let bodyTag = tag.contentWindow.document.body;
-	
-	// bodyタグのborder/paddingを含む高さを取得
-	let bodyHeight = bodyTag.offsetHeight;
-	
-	// bodyタグのマージンの値を取得して追加（上下にあるので×２）
-	bodyHeight += parseInt( getComputedStyle( bodyTag ).margin ) * 2;
-	
-	// 引数「tag」の高さをセット
-	tag.style.height = bodyHeight + "px";
+	let innerH = tag.contentWindow.document.children[0].offsetHeight;
+	tag.style.height = innerH + "px"
 }
 
 

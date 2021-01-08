@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<title>test3</title></head>
+<body>
+	<div>iframe3</div>
+	<iframe src="sample.txt" onload="setSize(this)"></iframe>
+</body>
+
+<script type="text/javascript">
+
+	function setSize( tag ){
+	
+		let innerH = tag.contentWindow.document.children[0].offsetHeight;
+		tag.style.height = innerH + "px";
+	}
+</script>
+</html>

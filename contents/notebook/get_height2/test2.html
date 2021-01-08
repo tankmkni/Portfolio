@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html><head><meta charset="utf-8"/>
-<title>test</title></head>
+<title>test2</title></head>
 <body>
-	<div>iframe</div>
+	<div>iframe2</div>
 	<iframe src="sample.txt" onload="setSize(this)"></iframe>
 </body>
 
@@ -11,7 +11,13 @@
 	function setSize( tag ){
 		let innerTag = tag.contentWindow.document.body;
 		let innerHeight = innerTag.offsetHeight;
-		innerHeight += parseInt( getComputedStyle( innerTag ).margin ) * 2;
+
+		// 追加するコード
+		let childElement = innerTag.children[0];
+		
+		// margin を取得するエレメントを変更
+		innerHeight += parseInt( getComputedStyle( childElement ).margin ) * 2;
+
 		tag.style.height = innerHeight + "px";
 	}
 </script>

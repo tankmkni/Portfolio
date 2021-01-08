@@ -33,12 +33,24 @@
 <ul style="padding-left:10px;"><li>×２</li><li>×２</li><li>×２</li></ul></div>
 bodyタグ全体（box）の高さは144pxということになる</div>
 <div>offsetHeightの値にmarginの値を加えれば、bodyのboxの値が取得できる</div>
-<h4>テキストファイルだと、まだスクロールバーが表示されてしまう</h4>
+<h5>テキストファイルだと、まだスクロールバーが表示されてしまう</h5>
 <div>htmlファイルならドンピシャでサイズが合わせられるようになったが、<br/>
      テキストファイルだとそうならない<br/>
-     htmlファイルではないから、marginとかpaddingなんて関係ないのだろう<br/><br/>
-     他にも高さを取得するプロパティあるようなので、次はそれらを調べてみよう<br/><br/>
-     また、今回知ったbox-sizingというのも面白そうなのでいつか調べたい</div>
+     htmlファイルではないから、marginとかpaddingなんて関係ないのだろう</div>
+<h3>他の高さを取得するプロパティ</div>
+<h6>ウィンドウ（ブラウザ）の高さを取得するプロパティ</h6>
+<div><code>window.innerHeight</code>&emsp;スクロールバーを含んだブラウザウィンドウの高さ<br/>
+     <code>window.outerHeight</code>&emsp;タブやブックマークバーなどを含んだブラウザウインドウ外側の高さ</div>
+<h6>画面の高さを取得するプロパティ</h6><div>
+     <code>window.parent.screen.height</code>&emsp;(PC・スマホなどの)画面の高さ<br/>
+     <code>window.screen.height</code>&emsp;(PC・スマホなどの)画面の高さ<br/>
+     <code>screen.height</code>&emsp;(PC・スマホなどの)画面の高さ<br/>
+     <code>screen.avaliHeight</code>&emsp;モニターの利用可能な領域の高さ</div>
+<div>３つの&ensp;<code>screen.height</code>&ensp;は、ほぼ同じらしい</div>
+<h3>継続調査</h3>
+<div>上記のプロパティでも、iframeでテキストファイルの高さがぴたりと合わせられないので継続調査する<br/>
+<a href="../get_height2/index.html">解決編へ</a></div>
+<div>また、今回知ったbox-sizingというのも面白そうなのでいつか調べたい</div>
 <p>参考になったサイト</p>
 <a href="https://qiita.com/ypyp/items/c4b76e85f32b1f0cd577">jQuery・JavaScript　高さ、横幅取得方法</a><br/>
 <a href="https://qiita.com/dokkoisho/items/2bfe259ec87c00e4bd98">Javascript で高さ幅とか</a><br/>
