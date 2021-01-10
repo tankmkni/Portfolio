@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../../base.css"/>
+<title>margin</title>
+</head>
+<style>
+
+.flex{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.withSize{ width: 100px; height: 30px;}
+
+</style>
+<body>
+	<div>① flex を .parlentにのみ指定</div>
+	<div class="parlent flex">
+		<div class="child"><p>①</p></div>
+	</div>
+	<div>② ① + .child に flex を指定</div>
+	<div class="parlent flex">
+		<div class="child flex"><p>②</p></div>
+	</div>
+	<div>③ ② + pタグにサイズを指定</div>
+	<div class="parlent flex">
+		<div class="child flex"><p class="withSize">③</p></div>
+	</div>
+	<div>④ ③ + pタグにも flex を指定</div>
+	<div class="parlent flex">
+		<div class="child flex"><p class="withSize flex">④</p></div>
+	</div>
+	<div>⑤ flex を .parlent と pタグに指定</div>
+	<div class="parlent flex">
+		<div class="child"><p class="flex">⑤</p></div>
+	</div>
+</body>
+</html>

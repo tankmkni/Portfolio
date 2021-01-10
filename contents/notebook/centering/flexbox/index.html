@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+	<link rel="stylesheet" href="../../css/basic.css">
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<title>flexbox</title>
+</head>
+<body>
+<h1>メモ：flexboxでのセンター寄せ</h1>
+<div>いろいろなことが出来そうなflexboxだが、今回は中央寄せだけを調べる</div>
+<div>中央寄せしたい要素の親要素に下記を指定
+<pre><code>ParlentElement{
+  display:          flex;    /* flexboxの指定 */
+  justify-content:  center;  /* 子要素の横方向の配置 */
+  align-items:      center;  /* 子要素の縦方向の配置 */
+}</code></pre></div>
+<span>test1.html</span><br/>
+<iframe src="txt/test1.txt" onload="setHeight(this)"></iframe>
+<iframe src="html/test1.html" onload="setHeight(this)"></iframe><br/>
+<span>① 子要素が上下左右中央に配置されている<br>
+      ② pタグが中央配置になったが、サイズが親要素依存から内容依存に変わっている<br>
+      ③ サイズ指定は特に問題ない<br>
+      ④ 要素内のテキストにも flex が適用されている<br>
+      ⑤ pタグにサイズ指定していなくても、内容には flex が適用されている</span>
+
+
+
+<br/><br/><p>参考になったサイト</p>
+<a href="https://www.webcreatorbox.com/tech/css-flexbox-cheat-sheet">日本語対応！CSS Flexboxのチートシートを作ったので配布します</a><br/>
+<a href=""></a><br/>
+<br/>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>
