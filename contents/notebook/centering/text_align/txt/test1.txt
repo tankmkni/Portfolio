@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../../base.css"/>
+<title>text-align</title>
+</head>
+<body>
+	<div>pタグで検証</div>
+	<div class="parlent">
+		<div class="child">
+			<p>指定無し</p>
+		</div>
+	</div>
+	<div class="parlent">
+		<div class="child">
+			<p style="text-align: center;">pタグに指定</p>
+		</div>
+	</div>
+	<div class="parlent">
+		<div class="child" style="text-align: center;">
+			<p>.childに指定</p>
+		</div>
+	</div>
+	<div class="parlent" style="text-align: center;">
+		<div class="child">
+			<p>.parlentに指定</p>
+		</div>
+	</div>
+</body>
+</html>

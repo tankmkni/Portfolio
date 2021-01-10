@@ -86,5 +86,6 @@ li{ list-style: none;}        /* リストの不用なスタイルを削除 */
 }
 #items a{
 	width: 130px;
+	height: 48px;
 	padding: 10px;
 }

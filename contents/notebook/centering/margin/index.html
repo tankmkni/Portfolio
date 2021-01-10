@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+	<link rel="stylesheet" href="../../css/basic.css">
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<title>margin</title>
+</head>
+<body>
+<h1>メモ：margin: auto;でのセンター寄せ</h1>
+<div>inline要素には使えない</div>
+<h4>中央に寄せたい block要素自身に指定する</h4>
+<span>test1.html</span><br/>
+<iframe src="txt/test1.txt" onload="setHeight(this)"></iframe>
+<iframe src="html/test1.html" onload="setHeight(this)"></iframe><br/>
+<span>① pタグに width を指定しないと効果がない<br/>
+      ② width と height が指定された .child だと、横方向だけは中央に寄った<br/>
+      ③ positionプロパティと組み合わせると上下も中央に寄る</span>
+<ul><li>絶対配置（position: absolute;）してい要素を中央に寄せる条件</li>
+	<li><br/></li>
+	<li><ul>横方向の場合
+		<li>&emsp;left、width、right の値が、「auto以外」</li>
+		<li>&emsp;margin-left、margin-right の値が 「auto」</li>
+		</ul></li>
+	<li><br/></li>
+	<li><ul>縦方向の場合
+		<li>&emsp;top、height、bottom の値が、「auto以外」</li>
+		<li>&emsp;margin-top、margin-bottom の値が、「auto」</li>
+		</ul></li>
+	<li><br/></li>
+	<li>以上の条件がそろうと、左右、上下それぞれの margin が等しくなるように計算される仕様なのだそう</li>
+	<li><br/></li>
+	<li>「top:0; bottom:0; left:0; right:0;」は、値を「auto以外」にするために指定する</li>
+</ul>
+
+
+
+<br/><br/><p>参考になったサイト</p>
+<a href="https://developer.mozilla.org/ja/docs/Web/CSS/margin">CSS: カスケーディングスタイルシート margin</a><br/>
+<a href=""></a><br/>
+<br/>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>

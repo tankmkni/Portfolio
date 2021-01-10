@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../../base.css"/>
+<title>margin</title>
+</head>
+<style>
+
+.target{ margin: auto;}
+.position{ position: relative;}
+.position .child{
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+}
+</style>
+<body>
+	<div>① pタグに指定</div>
+	<div class="parlent">
+		<div class="child"><p class="target">①</p></div>
+	</div>
+	<div>② .childに指定</div>
+	<div class="parlent">
+		<div class="child target"><p>②</p></div>
+	</div>
+	<div>③ positionプロパティを②に追加</div>
+	<div class="parlent position">
+		<div class="child target"><p>③</p></div>
+	</div>
+</body>
+</html>

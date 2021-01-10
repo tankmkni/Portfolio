@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="base.css"/>
+<title>inline-block</title>
+</head>
+<style>
+
+.inline-block{ display: inline-block;}
+
+</style>
+<body>
+	<div>pタグでの検証</div>
+	<div>① inline-block指定の有無で、挙動を確認</div>
+	<div class="parlent">
+		<div class="child">
+			<p>指定無し(block)</p>
+			<p class="inline-block">inline-block</p>
+		</div>
+	</div>
+	<div>② pタグにtext-align: center;を指定</div>
+	<div class="parlent">
+		<div class="child">
+			<p style="text-align: center;">block</p>
+			<p class="inline-block" style="text-align: center;">
+				inline-block</p>
+		</div>
+	</div>
+	<div>③ .childにtext-align: center;を指定</div>
+	<div class="parlent">
+		<div class="child" style="text-align: center;">
+			<p>block</p>
+			<p class="inline-block">inline-block</p>
+		</div>
+	</div>
+	<div>④ .perlentにtext-align: center;を指定</div>
+	<div class="parlent" style="text-align: center;">
+		<div class="child">
+			<p>block</p>
+			<p class="inline-block">inline-block</p>
+		</div>
+	</div>
+	<div>⑤ inline-blockのpタグにサイズを指定</div>
+	<div class="parlent">
+		<div class="child">
+			<p class="inline-block"
+			   style="height: 60px; width: 150px;">
+				サイズを指定</p>
+		</div>
+	</div>
+	<div>⑥ text-align: center;を⑤の.childに指定</div>
+	<div class="parlent">
+		<div class="child" style="text-align: center;">
+			<p class="inline-block"
+			   style="height: 60px; width: 150px;">
+				サイズを指定</p>
+		</div>
+	</div>
+</body>
+</html>

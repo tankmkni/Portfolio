@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+	<link rel="stylesheet" href="../../css/basic.css">
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<title>text-align</title>
+</head>
+<body>
+<h1>メモ：text-align</h1>
+<h3>文章とインライン要素の左右中央寄せに使用</h3>
+<h4>文章の左右中央寄せ</h4>
+<span>test1.html</span><br/>
+<iframe src="txt/test1.txt" onload="setHeight(this)"></iframe>
+<iframe src="html/test1.html" onload="setHeight(this)"></iframe><br/>
+<span>"文章"の左右中央寄せは、対象の文章のタグ自身または上位要素に指定<br/>
+     下位の全階層の全要素に適用されるので、 body タグに指定すればページ内全てに指定<br/>
+     ※pタグ自体はブロック要素&emsp;中の文章が中央配置になっている</span><br/><br/>
+<h4>インライン要素の左右中央寄せ</h4>
+<span>test2.html</span><br/>
+<iframe src="txt/test2.txt" onload="setHeight(this)"></iframe>
+<iframe src="html/test2.html" onload="setHeight(this)"></iframe><br/>
+<span>インライン要素自体に指定しても適用されない</span><br/>
+<h4>imgタグの場合</h4>
+<span>test3.html</span><br/>
+<iframe src="txt/test3.txt" onload="setHeight(this)"></iframe>
+<iframe src="html/test3.html" onload="setHeight(this)"></iframe><br/>
+<span>インライン同士だから当然 span と同じ挙動なことが確認できた</span><br/><br/>
+
+<p>参考になったサイト</p>
+<a href="https://developer.mozilla.org/ja/docs/Web/CSS/text-align">CSS: カスケーディングスタイルシート
+ text-align</a><br/>
+<br/>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>

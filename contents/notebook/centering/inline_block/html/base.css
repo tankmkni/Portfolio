@@ -8,12 +8,12 @@ body{
 }
 .parlent {
 	border-color: cyan;
-	height:100px;
+	height:120px;
 }
 .child {
 	border-color: tomato;
-	height: 60px;
-	width: 200px;
+	height: 100px;
+	width: 250px;
 }
 img{
 	width: 50px;
