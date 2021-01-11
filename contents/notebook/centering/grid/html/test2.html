@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="base.css"/>
+<title>margin</title>
+</head>
+<style>
+
+.grid *{ display: grid;}
+.flex *{ display: flex;}
+.place *{ place-items: center;}
+
+</style>
+<body>
+	<div class="grid place">① 全ての要素に、grid + place
+		<div class="parlent">
+			<div class="child"><p>①</p></div>
+		</div></div>
+	<div class="flex place">② 全ての要素に、flex + place
+		<div class="parlent">
+			<div class="child"><p>②</p></div>
+		</div></div>
+	<div>③ 指定なし
+		<div class="parlent">
+			<div class="child"><p>③</p></div>
+		</div></div>
+</body>
+</html>

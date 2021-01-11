@@ -1,0 +1,18 @@
+body,.parlent,.child,p,span{
+	margin: 4px;
+	padding: 4px;
+	border: solid 2px;
+}
+body{
+	border-color: orange;
+}
+.parlent {
+	border-color: cyan;
+	height:120px;
+}
+.child {
+	border-color: tomato;
+	height: 80px;
+	width: 200px;
+}
+p{ width: 100px; height: 40px;}

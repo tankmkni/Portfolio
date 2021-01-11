@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"/>
+<link rel="stylesheet" href="base.css"/>
+<title>margin</title>
+</head>
+<style>
+
+.parlent{ display: grid;}
+.justify{ justify-content: center;}
+.align{ align-items: center;}
+
+</style>
+<body>
+	<div>① justify-content: center; のみ指定</div>
+	<div class="parlent justify">
+		<div class="child"><p>①</p></div>
+	</div>
+	<div>② align-items: center; のみ指定</div>
+	<div class="parlent align">
+		<div class="child"><p>②</p></div>
+	</div>
+	<div>③ 両方を指定</div>
+	<div class="parlent justify align">
+		<div class="child"><p>③</p></div>
+	</div>
+</body>
+</html>

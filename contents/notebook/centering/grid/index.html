@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+	<link rel="stylesheet" href="../../css/basic.css">
+	<script type="text/javascript" src="../../js/common.js"></script>
+	<title>grid</title>
+</head>
+<body>
+<h1>メモ：gridでのセンター寄せ</h1>
+<div>gridレイアウトでもいろいろできそうだが、今回は中央寄せだけを調べる</div>
+<div>中央寄せしたい要素の親要素に下記を指定
+<pre><code>ParlentElement{
+  display:          grid;    /* gridレイアウトの指定 */
+  justify-content:  center;  /* 子要素の横方向の配置 */
+  align-items:      center;  /* 子要素の縦方向の配置 */
+}</code></pre></div>
+<span>test1.html</span><br/>
+<iframe src="txt/test1.txt" onload="setHeight(this)"></iframe>
+<iframe src="html/test1.html" onload="setHeight(this)"></iframe><br/>
+<span>① 子要素が左右センターに配置されている<br>
+      ② 子要素が上下センターに配置されている<br>
+      ③ 子要素が上下左右センターに配置されている
+</span>
+<div><code>place-items: center;</code>&ensp;なら、１行で上下左右の配置を指定できる</div>
+<span>test2.html</span><br/>
+<iframe src="txt/test2.txt" onload="setHeight(this)"></iframe>
+<iframe src="html/test2.html" onload="setHeight(this)"></iframe><br/>
+<span>① 子要素が上下左右センターに配置されている(pタグ内のテキストにも適用)<br>
+      ② しかし、flexboxだと上下にしか適用されていない<br/>
+      ③ 何も指定しなければ、左上に配置
+</span>
+
+
+<br/><br/><p>参考になったサイト</p>
+<a href="https://developer.mozilla.org/ja/docs/Web/CSS/place-items">CSS: カスケーディングスタイルシート place-items</a><br/>
+<a href="https://note.com/ebifry/n/n481fcb7ca520">最短2行！CSSで縦横中央揃えをする最新の方法</a><br/>
+<a href="https://www.ameamelog.com/center/">使い分けできてる？CSSで要素を上下左右中央寄せにする4つの方法</a><br/>
+<a href="https://2001y.me/blog/web/css-place/">[CSS]上下左右中央は2行で済ませる！</a><br/>
+<a href=""></a><br/>
+<br/>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>
