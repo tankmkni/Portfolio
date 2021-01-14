@@ -5,29 +5,31 @@
 :root {
 /*** 色指定変数 ***/
   --color: white;
-  --background: lavender;
+  --background: black;
   --innerBackground: black;
   --c1: red;
-  --c2: orange;
-  --c3: yellow;
+  --c2: yellow;
+  --c3: lime;
   --c4: cyan;
 
 /*** サイズ指定変数 ***/
-  --outerWidth: 80vw;
-  --outerHeight: 25vw;
-  --borderWidth: 1vw;
+  --outerWidth: 60vw;
+  --outerHeight: 30vw;
+  --borderWidth: 0.2vw;
   --outerRadius: 5vw;
-  --circleSize: 10vw;
   --fontSize: 9vw;
+  --outerCircleSize: 10vw;
+  --innerCircleSize: calc( var(--outerCircleSize) - var(--borderWidth) * 2 );
 
 /*** 位置指定変数 ***/
-  --cercleCenter: calc( var(--circleSize) / 2 );
-  --circleTop: calc( (var(--outerHeight) - var(--circleSize)) / 2 );
+  --circleTop: calc( (var(--outerHeight) - var(--outerCircleSize)) / 2 );
+  --partsSidePosition: calc( var(--outerCircleSize) / -2 );
 }
  
 body { 
   background: var(--background);
   color: var(--color);
+  padding: 5vw;
 }
 
 h1{
@@ -72,17 +74,17 @@ h1{
   display: block;
   position: absolute;
   top: var(--circleTop);
-  width: var(--circleSize);
-  height: var(--circleSize);
+  width: var(--outerCircleSize);
+  height: var(--outerCircleSize);
   border-radius: 50%;
   z-index: 2;
 }
 .outer:before {
-  left: calc( var(--cercleCenter) * -1 );
+  left: var(--partsSidePosition);
   background: var(--c1);
 }
 .outer:after {
-  right: calc( var(--cercleCenter) * -1 );
+  right: var(--partsSidePosition);
   background: var(--c4);
 }
 
@@ -93,24 +95,24 @@ h1{
   display: block;
   position: absolute;
   top: var(--circleTop);
-  width: calc( var(--circleSize) - var(--borderWidth) * 2);
-  height: calc( var(--circleSize) - var(--borderWidth) * 2);
+  width: var(--innerCircleSize);
+  height: var(--innerCircleSize);
   border-radius: 50%;
   background: var(--background);
   z-index: 3;
 }
-.inner:before { left: calc( var(--cercleCenter) * -1 );}
-.inner:after { right: calc( var(--cercleCenter) * -1 );}
+.inner:before { left: var(--partsSidePosition);}
+.inner:after { right: var(--partsSidePosition);}
 
 
 /*** はみ出したサークルのカバー ***/
 .left, .right {
   position: absolute;
   top: var(--circleTop);
-  width: calc( var(--circleSize) / 2 );
-  height: var(--circleSize);
+  width: calc( var(--outerCircleSize) / 2 );
+  height: var(--outerCircleSize);
   background: var(--background);
   z-index: 4;
 }
-.left { left: calc( var(--circleSize) / -2 );}
-.right{  right: calc( var(--circleSize) / -2 );}
+.left { left: var(--partsSidePosition);}
+.right { right: var(--partsSidePosition);}
