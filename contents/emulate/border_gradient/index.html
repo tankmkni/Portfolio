@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+	<link rel="stylesheet" href="../css/basic.css">
+	<script type="text/javascript" src="../js/common.js"></script>
+	<title>Border Gradient</title>
+</head>
+<body>
+<h1>メモ：CSS ボーダーのグラデーション</h1>
+<div><a href="https://coliss.com/articles/build-websites/operation/css/gradient-borders-with-curves-and-3d-movement-in-css.html">
+CSSのスゴ技！美しいグラデーションのボーダー、角丸や半円のテクニックを使用したチケットを実装する方法</a></div>
+<div>上記サイトの内容をやってみた</div>
+<iframe src="test.html" onload="setHeight(this)"></iframe>
+<iframe src="test.txt" onload="setHeight(this)"></iframe>
+<iframe src="test.css" onload="setHeight(this)"></iframe>
+<iframe src="test.js" onload="setHeight(this)"></iframe>
+
+<div>borderに直にグラデーションを指定することはできないようで、<br/>
+親要素の背景をグラデーションにして、paddingで子要素を押し込んでボーダーのように見せる<br/><br/>
+おまけのように、マウスの動きに連動するアニメーションのスクリプトも実装できる<br/><br/>
+本題とは逸れるが、CSSでの変数の使用とcalc()も初めて使ってみた<br/>
+ものすごく便利なので今後使い倒すことになるだろう</div>
+
+<p>参考になったサイト</p><div>
+<a href="https://norando.net/border-gradient/">CSSでボーダーにグラデーションをかける方法3つ</a><br/>
+<a href="https://www.infocrest.co.jp/blog/category/tips/442/">CSSでボーダーにグラデーションをかけてオシャレなboxを作ろう</a><br/>
+</div>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+<br/><br/><br/>
+</body>
+</html>

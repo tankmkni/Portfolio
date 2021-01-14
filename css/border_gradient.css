@@ -1,0 +1,122 @@
+/*************************
+ *  border_gradient.css  *
+ *************************/
+
+:root {
+/*** 色指定変数 ***/
+  --color: white;
+  --background: white;
+  --innerBackground: black;
+  --c1: red;
+  --c2: orange;
+  --c3: yellow;
+  --c4: cyan;
+
+/*** サイズ指定変数 ***/
+  --outerWidth: 230px;
+  --outerHeight: 65px;
+  --outerRadius: 10px;
+  --borderWidth: 4px;
+  --circleSize: 22px;
+  --fontSize: 23px;
+
+/*** 位置指定変数 ***/
+  --cercleCenter: calc( var(--circleSize) / 2 );
+  --circleTop: calc( (var(--outerHeight) - var(--circleSize)) / 2 );
+}
+ 
+#borderGradient { 
+  background: var(--background);
+  width:  var(--outerWidth);
+  height: var(--outerHeight);
+}
+
+#borderGradient a{
+  display: inline-block;
+  text-align: center;
+  width:  var(--outerWidth);
+  height: var(--outerHeight);
+  color: var(--color);
+  font-size: var(--fontSize);
+  line-height: 1;
+  padding:0;
+}
+
+#borderGradient * { box-sizing: border-box;}
+
+
+/*** ボーダーになる要素 ***/
+#borderGradient .outer {
+  width: var(--outerWidth);
+  height: var(--outerHeight);
+  margin:0;
+  padding: var(--borderWidth);
+  position: relative;
+  transition: all 300ms cubic-bezier(0.03, 0.98, 0.53, 0.99) 0s;
+  background: linear-gradient(
+    to right,var(--c1),var(--c2),var(--c3),var(--c4) );
+  border-radius: var(--outerRadius);
+}
+
+
+/*** 内側の要素 ***/
+#borderGradient .inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--innerBackground);
+  width: 100%;
+  height: 100%;
+  border-radius: calc( var(--outerRadius) - var(--borderWidth) );
+  position: relative;
+}
+
+
+/*** 外側のサークル ***/
+.outer:before, .outer:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: var(--circleTop);
+  width: var(--circleSize);
+  height: var(--circleSize);
+  border-radius: 50%;
+  z-index: 2;
+}
+.outer:before {
+  left: calc( var(--cercleCenter) * -1 );
+  background: var(--c1);
+}
+.outer:after {
+  right: calc( var(--cercleCenter) * -1 );
+  background: var(--c4);
+}
+
+
+/*** 内側のサークル ***/
+.inner:before, .inner:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: var(--circleTop);
+  width: calc( var(--circleSize) - var(--borderWidth) * 2);
+  height: calc( var(--circleSize) - var(--borderWidth) * 2);
+  border-radius: 50%;
+  background: var(--background);
+  z-index: 3;
+}
+.inner:before { left: calc( var(--cercleCenter) * -1 );}
+.inner:after { right: calc( var(--cercleCenter) * -1 );}
+
+
+/*** はみ出したサークルのカバー ***/
+.left, .right {
+  position: absolute;
+  top: var(--circleTop);
+  width: calc( var(--circleSize) / 2 );
+  height: var(--circleSize);
+  background: var(--background);
+  z-index: 4;
+}
+.left { left: calc( var(--circleSize) / -2 );}
+.right{  right: calc( var(--circleSize) / -2 );}

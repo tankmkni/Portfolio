@@ -1,0 +1,37 @@
+html{ scroll-behavior:smooth;}
+body{
+	padding: 20px;
+	font-size: 16px;
+	background: ivory;
+}
+object,iframe{ 
+	width: 100%;
+	max-width: 800px;
+	border: solid 1px gray;
+	background: white;
+}
+fieldset{
+	margin-bottom: 5px;
+	border: 1px dashed gray;
+}
+legend{ font-size: 20px;}
+h1{ margin: 0;}
+h2,h3,h4,h5,h6{ margin: 20px 10px;}
+ul{ list-style: none;}
+ul li a{ text-decoration: none;}
+div{ margin: 20px 30px;}
+a{ font-size: 16px; margin-left:0;}
+code{
+	color:blue;
+	font-size: 15px;
+}
+button{
+	width: 80px;
+	height: 50px;
+	font-size: 20px;
+	color: chocolate;
+	background: lemonchiffon;
+	border: groove 1px gold;
+}
+button:hover{ transform: scale(1.03);}
+button:active{ transform: scale(1.0);}
