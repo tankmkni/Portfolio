@@ -9,21 +9,20 @@
 <h1>メモ：CSS ボーダーのグラデーション</h1>
 <div><a href="https://coliss.com/articles/build-websites/operation/css/gradient-borders-with-curves-and-3d-movement-in-css.html">
 CSSのスゴ技！美しいグラデーションのボーダー、角丸や半円のテクニックを使用したチケットを実装する方法</a></div>
-<div>上記サイトの内容をやってみた<br/>
-マウスの動きに合わせたアニメーション機能までついていて愉快</div>
+<div>上記サイトの内容が面白そうなのでやってみた<br/>
+</div>
 <h4>test.htmlの実行</h4>
 <iframe src="test.html" onload="setHeight(this)"></iframe>
 <div>borderに直にグラデーションを指定することはできないようで、<br/>
 親要素の背景をグラデーションにして、paddingで子要素を押し込んでボーダーのように見せる<br/><br/>
 半円の切りかけの表現もコロンブスの卵的で面白い<br/><br/>
-マウスの動きに連動するアニメーションのスクリプトもある<br/><br/>
 本題とは逸れるがCSSでの変数も初めて使った<br/><br/>
 独自に、サイズ設定もcalc()関数（これも初使用）と組み合わせて変数で盛り込んで、本体の高さやボーダーの太さ変更時に半円の切り欠きがズレないように自動的に計算してくれるようにした</div>
 <span>test.html</span><br/>
 <iframe src="test.txt" onload="setHeight(this)"></iframe><br/>
 <span>test.css</span><br/>
 <iframe src="test.css" onload="setHeight(this)"></iframe><br/>
-<span>test.js</span><br/>
+<span>test.js&emsp;（マウスの動きに合わせてカードが動くスクリプト）</span><br/>
 <iframe src="test.js" onload="setHeight(this)"></iframe>
 
 <h4>きらめき感を出すためにボーダーの色をアニメーションさせてみる</h4>
