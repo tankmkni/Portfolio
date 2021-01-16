@@ -1,0 +1,26 @@
+/***************
+ *  test2.css  *
+ ***************/
+
+:root {
+/*** 変数 ***/
+  --backSize: 115;
+  --animationTime: 2;
+}
+
+/*** アニメーションを追加 ***/
+.outer {
+  background-size: calc( var(--backSize) * 1% );
+  animation:test calc( var(--animationTime) * 1s ) ease infinite;
+}
+@keyframes test{
+  0%{background-position:0% 100%;}
+  50%{background-position:100% 0%;}
+  100%{background-position:0% 100%;}
+}
+
+/*** マウスオン時の背景の色と文字の色 ***/
+.inner:hover{
+  background: inherit;
+  color: black;
+}
