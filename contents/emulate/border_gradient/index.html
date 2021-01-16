@@ -16,9 +16,9 @@ CSSのスゴ技！美しいグラデーションのボーダー、角丸や半�
 <div>borderに直にグラデーションを指定することはできないようで、<br/>
 親要素の背景をグラデーションにして、paddingで子要素を押し込んでボーダーのように見せる<br/><br/>
 半円の切りかけの表現もコロンブスの卵的で面白い<br/><br/>
-マウスの動きに連動するアニメーションのスクリプトもあった<br/><br/>
-本題とは逸れるがCSSでの変数も初めて使った<br/>
-サイズの設定もcalc()関数（これも初使用）と組み合わせて盛り込んだので、サイズ変更時に半円の切り欠きがズレないように自動的に計算してくれる</div>
+マウスの動きに連動するアニメーションのスクリプトもある<br/><br/>
+本題とは逸れるがCSSでの変数も初めて使った<br/><br/>
+独自に、サイズ設定もcalc()関数（これも初使用）と組み合わせて変数で盛り込んで、本体の高さやボーダーの太さ変更時に半円の切り欠きがズレないように自動的に計算してくれるようにした</div>
 <span>test.html</span><br/>
 <iframe src="test.txt" onload="setHeight(this)"></iframe><br/>
 <span>test.css</span><br/>
@@ -30,7 +30,7 @@ CSSのスゴ技！美しいグラデーションのボーダー、角丸や半�
 <span>マウスオーバーさせると、背景色を.outerと同じにするようにも記述</span><br/>
 <iframe src="test2.html" onload="setHeight(this)"></iframe><br/>
 <span>下記のCSSを追加する</span><br/>
-<iframe src="test2.css" onload="setHeight(this)"></iframe><br/>
+<iframe src="test2.css" onload="setHeight(this)"></iframe><br/><br/><br/>
 
 
 <div>変数とcalc()は、ものすごく便利なので今後使い倒すことになりそう</div>

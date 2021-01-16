@@ -72,8 +72,8 @@ li{ list-style: none;}        /* リストの不用なスタイルを削除 */
 	margin: 5px;
 	border: 1px solid silver;
 }
-#emulate,#items{ justify-content: left;	/*左揃え*/}
-#emulate a{
+.emulate,#items{ justify-content: left;	/*左揃え*/}
+.emulate a{
 	width: 220px;
 	height: 50px;
 	padding: 5px;
