@@ -1,0 +1,6 @@
+body{
+  display:          flex;    /* flexboxの指定 */
+  justify-content:  center;  /* 子要素の横方向の配置 */
+  align-items:      center;  /* 子要素の縦方向の配置 */
+  height: 150px;
+}
