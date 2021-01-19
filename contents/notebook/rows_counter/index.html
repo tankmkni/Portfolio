@@ -6,18 +6,26 @@
 	<title>Rows Counter</title>
 </head>
 <style>
-img,table{width: 75vw;}
+img,table{ 
+	width: 100%;
+	max-width: 800px;
+}
 img{border: 1px solid silver;}
 table table{width: 100%;}
-table table th{width: 20%;}
+table table th{width: 160px;
+}
 </style>
 <body>
 <h1>メモ：cmd ファイルの行を取得する</h1>
-<div>コマンドプロンプトで、フォルダ内（サブフォルダを含む）の指定した拡張子の全ファイルの行数の合計を求めるバッチファイルを作成したのでその覚え書き</div>
+<h3>コマンドプロンプト / バッチファイル</h3>
+<div>作成したプログラムのファイル数と行数を調べる機会があり、<br/>
+     手動では大変なので、バッチファイルを試してみた<br/>
+     フォルダ内（サブフォルダを含む）の指定した拡張子の全ファイルの、<br/>
+     ファイル数と行数の合計を求めるバッチファイルを作成したのでその覚え書き</div>
 <h4>test.txt</h4>
 <iframe src="test.txt" onload="setHeight(this)"></iframe>
 <h5>作成方法</h5>
-<div>コマンドテキストを作成し、拡張子を「.bat」にして保存すればバッチファイルになる<br/>
+<div>コマンドのテキストを作成し、拡張子を「.bat」にして保存すればバッチファイルになる<br/>
      今回は上記テキストを test.bat として保存</div>
 <h5>実行方法</h5>
 <div>コマンドプロンプトで、カレントディレクトリに対象のバッチファイルがあれば、<br/>
@@ -41,7 +49,7 @@ table table th{width: 20%;}
 <tr><th><code>rem</code></th><td>コメントアウト</td></tr>
 <tr><th><code>set</code></th>
 <td>環境変数の参照/設定/削除<table border="1">
-<tr><th>書式</th><td><code>SET [変数名=[文字列]]</code></td></tr>
+<tr><th>書式</th><td><code>set 変数名=値</code></td></tr>
 <tr><th><code>%変数名%</code></th><td>変数の参照は、「%」 で挟む</td></tr>
 <tr><th><code>/a</code></th><td>計算時のオプション</td></tr>
 </table></td></tr>
@@ -52,51 +60,47 @@ table table th{width: 20%;}
 <tr><th><code>/f</code></th><td>ファイル内容を1行ずつ読み込むオプション</td></tr>
 <tr><th><code>%%変数</code></th><td>バッチファイルに記載する時は<br/>変数は記載・参照共に "%%" は２つ</td></tr>
 <tr><th><code>%変数</code></th><td>コマンドプロンプトに直に記載する時は<br/>変数は記載・参照共に "%" は１つ</td></tr>
-<tr><th><code>('…')</code></th><td>条件式にコマンドを使う場合は<br/>「 ' 」 (クォーテーション)で挟む</td></tr>
-<tr><th><code>do ( … )</code></th><td>do の後に()をつけると<br/>コマンドを複数行に分けて記述できる</td></tr>
-<tr><th><code>('…^|…')</code></th>
-<td>条件式のコマンドに「|」を使う場合<br/>
-    「^」を付ける必要がある</td>
+<tr><th><code>(' コマンド ')</code></th><td>条件式にコマンドを使う場合は<br/>「 ' 」 (クォーテーション)で挟む</td></tr>
+<tr><th><code>do ( コマンド<br/>コマンド )</code></th><td>do の後に()をつけると<br/>コマンドを複数行に分けて記述できる</td></tr>
+<tr><th><code>('… ^| …')</code></th>
+<td>条件式のコマンドに「|」を使う場合<br/>「^」を付ける必要がある</td>
 </table></td></tr>
-<tr><th><code>dir</code></th><td>フォルダの表示<table border="1">
-<tr><th>書式</th><td></td></tr>
-<tr><th><code>/a-d</code></th><td></td></tr>
-<tr><th><code>/b</code></th><td></td></tr>
-<tr><th><code>/s</code></th><td></td></tr>
+<tr><th><code>dir</code></th><td>ファイルやフォルダの一覧を出力<table border="1">
+<tr><th><code>/a-d</code></th><td>ディレクトリを除いて出力</td></tr>
+<tr><th><code>/b</code></th><td>見出/要約を除く、ファイルパスだけを出力</td></tr>
+<tr><th><code>/s</code></th><td>サブディレクトリも含めて検索</td></tr>
 </table></td></tr>
-<tr><th><code>find</code></th><td>ファイル内の検索<table border="1">
-<tr><th>書式</th><td></td></tr>
-<tr><th><code>/c</code></th><td></td></tr>
-<tr><th><code>/v</code></th><td></td></tr>
-<tr><th></th><td></td></tr>
+<tr><th><code>find</code></th><td>ファイル内の文字列検索<table border="1">
+<tr><th>書式</th><td><code>find 'オプション' "検索条件" 検索対象のパス</code></td></tr>
+<tr><th><code>/c</code></th><td>マッチする行数を出力</td></tr>
+<tr><th><code>/v</code></th><td>マッチしない行数を出力</td></tr>
+<tr><th><code>/c /v</code></th><td>総行数を出力</td></tr>
+<tr><th><code>""</code></th><td>検索条件（ "" は空文字列を指定）</td></tr>
 </table></td></tr></td></tr>
-<tr><th><code>echo</code></th><td>表示<table border="1">
-<tr><th></th><td></td></tr>
-<tr><th></th><td></td></tr>
-<tr><th></th><td></td></tr>
-<tr><th></th><td></td></tr>
+<tr><th><code>echo</code></th><td>文字列の出力<table border="1">
+<tr><th>書式</th><td><code>echo 出力内容</code></td></tr>
+<tr><th><code>内容 > file.txt</code></th><td>ファイル新規作成 or 上書き</td></tr>
+<tr><th><code>内容 >> file.txt</code></th><td>ファイル新規作成 or 追記</td></tr>
 </table></td></tr></td></tr>
-<tr><th><code>type</code></th><td>ファイルの一覧表示<table border="1">
-<tr><th>書式</th><td></td></tr>
-<tr><th></th><td></td></tr>
-<tr><th></th><td></td></tr>
-<tr><th></th><td></td></tr>
+<tr><th><code>type</code></th><td>ファイルの内容を出力<table border="1">
+<tr><th>書式</th><td><code>type ファイルパス</code></td></tr>
 </table></td></tr></td></tr>
 <tr><th><code>pause</code></th><td>何かキーが押されるまで待機</td></tr>
 <tr><th><code>exit</code></th><td>終了<table border="1">
-<tr><th></th><td></td></tr>
-<tr><th><code>/b</code></th><td></td></tr>
-<tr><th><code>0</code></th><td></td></tr>
-<tr><th></th><td></td></tr>
+<tr><th>書式</th><td><code>exit "オプション" "エラーコード"</code></td></tr>
+<tr><th><code>/b</code></th><td>バッチプログラムのみの終了</td></tr>
+<tr><th><code>0</code></th><td>エラーなし</td></tr>
 </table></td></tr></td>
 <tr><th><code>|</code></th><td>パイプ コマンドの出力を別のコマンドの入力として渡す</td>
 <tr><th><code>^</code></th>
 <td>ハット記号(サーカムフレックス; カレットとも)<br/>
     エスケープ コマンド途中での改行などに使える</td>
 </tr>
-
 </table>
-
+<div>Linuxコマンドより扱いが難しいかも<br/>
+     バッチファイルとコマンドプロンプトへの記載で微妙に記載法が違ったり、<br/>
+     変数へのコマンド出力の代入にfor文を使わなくてはならないなど、<br/>
+     作法に少し戸惑う</div>
 
 
 
@@ -112,8 +116,11 @@ table table th{width: 20%;}
 <a href="https://qiita.com/RagWork/items/d8c404cba9d204a719c3">【Windowsバッチ】コマンド実行結果を環境変数に代入する方法</a><br/>
 <a href="https://www.javadrive.jp/command/command/index4.html">環境変数の値の参照と設定(SET)</a><br/>
 <a href="https://www.javadrive.jp/command/bat/index9.html">バッチファイルで繰り返し処理を使う(FOR)</a><br/>
-<a href=""></a><br/>
-<a href=""></a><br/>
+<a href="https://www.relief.jp/docs/002615.html">ファイル名だけを一覧にしたい−DIR /B /A-D</a><br/>
+<a href="https://www.k-tanaka.net/cmd/find.php">ファイルの中からテキスト文字列を検索する</a><br/>
+<a href="https://jj-blues.com/cms/command-echo/">echo（文字列の出力）</a><br/>
+<a href="https://www.k-tanaka.net/cmd/type.php">type ファイルの内容を表示する</a><br/>
+<a href="https://www.pg-fl.jp/program/dos/doscmd/exit.htm">DOS コマンド一覧 Exit</a><br/>
 </div>
 <button onclick="history.back()">戻る</button>
 <br/><br/><br/>

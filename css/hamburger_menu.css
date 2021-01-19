@@ -43,7 +43,7 @@
 	right: -300px;	/*メニューをスライドして表示させるため画面外へ*/
 	margin-top: 8vmin;
 	transition: all 0.3s;
-	z-index: 3;
+	z-index: 99;
 }
 .ham_menu ul{
 	display: block;
