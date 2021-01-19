@@ -10,9 +10,9 @@
 <style>
     .elm {
         position: relative;
-        width: 30vw;
-        height: 30vh;
-        background: cyan;
+        width: 70vw;
+        height: 80vh;
+        background: lime;
         overflow: hidden;  /* 要素からはみ出したら非表示 */
     }
     .elm::before {
@@ -23,12 +23,12 @@
         top: var(--y);
         width:  var(--size);
         height: var(--size);
-        background: radial-gradient(circle closest-side, yellow, transparent);
+        background: radial-gradient(circle closest-side, cyan, transparent);
         transform: translate(-50%, -50%);
         transition: width .5s ease, height .5s ease;
     }
     .elm:hover::before {
-        --size: 90vw;      /* 変数の変更 */
+        --size: 150vw;      /* 変数の変更 */
     }
 </style>
 
