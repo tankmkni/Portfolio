@@ -5,7 +5,7 @@
 	width: 40px;
 	height: 40px;
 	cursor: pointer;	/*カーソルを指定*/
-	z-index: 4;			/*最前面に指定*/
+	z-index: 99;			/*最前面に指定*/
 }
 .ham_line {
 	position: absolute;	/*親要素がstatic以外なら位置を指定できる*/

@@ -9,9 +9,9 @@ body {
 	width: 100vw;
 	position: relative;
 }
-button:hover{ transform: scale(1.03);}
-button:active{ transform: scale(1.0);}
+button:hover,
 a:hover{ transform: scale(1.05);}
+button:active,
 a:active{ transform: scale(1.0);}
 
 /*コンテナー（ホームページを囲む一番外側のブロック）
