@@ -12,7 +12,7 @@
         position: relative;
         width: 70vw;
         height: 80vh;
-        background: lime;
+        background: cyan;
         overflow: hidden;  /* 要素からはみ出したら非表示 */
     }
     .elm::before {
@@ -23,17 +23,18 @@
         top: var(--y);
         width:  var(--size);
         height: var(--size);
-        background: radial-gradient(circle closest-side, cyan, transparent);
+        background: radial-gradient(circle closest-side, yellow, transparent);
         transform: translate(-50%, -50%);
         transition: width .5s ease, height .5s ease;
+        opacity: 0.7;
     }
     .elm:hover::before {
-        --size: 150vw;      /* 変数の変更 */
+        --size: 100vw;      /* 変数の変更 */
     }
 </style>
 
 <script>
-    document.querySelector('.elm').onmousemove = (e) => {
+    document.querySelector('.elm').onmousemove = ( e ) => {
       const x = e.pageX - e.target.offsetLeft
       const y = e.pageY - e.target.offsetTop
       e.target.style.setProperty('--x', `${ x }px`)
