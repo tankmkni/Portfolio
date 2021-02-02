@@ -1,91 +1,60 @@
-/*************************
- *  border_gradient.css  *
- *************************/
+/**************
+ *  border.css  *
+ **************/
 
 :root {
 /*** 色指定変数 ***/
   --color: white;
-  --background: white;
+  --background: black;
   --innerBackground: black;
   --c1: red;
   --c2: yellow;
   --c3: cyan;
 
 /*** サイズ指定変数 ***/
-  --outerWidth: 230px;
-  --outerHeight: 65px;
-  --outerRadius: 10px;
-  --borderWidth: 4px;
-  --fontSize: 23px;
-  --outerCircleSize: 22px;
+  --outerWidth: 60vw;
+  --outerHeight: 30vw;
+  --borderWidth: 0.2vw;
+  --outerRadius: 5vw;
+  --fontSize: 9vw;
+  --outerCircleSize: 10vw;
   --innerCircleSize: calc( var(--outerCircleSize) - var(--borderWidth) * 2 );
 
 /*** 位置指定変数 ***/
   --circleTop: calc( (var(--outerHeight) - var(--outerCircleSize)) / 2 );
   --partsSidePosition: calc( var(--outerCircleSize) / -2 );
-  
-/*** アニメーション用変数 ***/
-  --backSize: 115;
-  --animationTime: 10;
 }
  
-#borderGradient { 
+body { 
   background: var(--background);
-  width:  var(--outerWidth);
-  height: var(--outerHeight);
-}
-
-#borderGradient a{
-  display: inline-block;
-  text-align: center;
-  width:  var(--outerWidth);
-  height: var(--outerHeight);
   color: var(--color);
-  font-size: var(--fontSize);
-  padding:0;
+  padding: 5vw;
 }
 
-#borderGradient * { box-sizing: border-box;}
+.inner{
+  text-align: center;
+  font-size: var(--fontSize);
+  line-height: 1;
+}
+
+* { box-sizing: border-box;}
 
 
 /*** ボーダーになる要素 ***/
-#borderGradient .outer {
+.border {
   width: var(--outerWidth);
   height: var(--outerHeight);
-  margin:0;
+  margin: auto;
   padding: var(--borderWidth);
   position: relative;
   transition: all 300ms cubic-bezier(0.03, 0.98, 0.53, 0.99) 0s;
   background: linear-gradient(
     to right,var(--c1),var(--c2),var(--c3) );
   border-radius: var(--outerRadius);
-  background-size: calc( var(--backSize) * 1% );
-  animation:test calc( var(--animationTime) * 1s ) ease infinite;
 }
-@keyframes test{
-  0%{background-position:0% 100%;}
-  50%{background-position:100% 0%;}
-  100%{background-position:0% 100%;}
-}
-
-
-/*** 内側の要素 ***/
-#borderGradient .inner {
-  /*display: flex;
-  justify-content: center;
-  align-items: center;
-  background: var(--innerBackground);
-  border-radius: calc( var(--outerRadius) - var(--borderWidth) );
-  */
-  width: 100%;
-  height: 100%;
-  position: relative;
-
-}
-
 
 /*** 外側のサークル ***/
-.outer:before, .outer:after {
+.border:before, .border:after {
   content: "";
   display: block;
   position: absolute;
@@ -95,18 +64,25 @@
   border-radius: 50%;
   z-index: 2;
 }
-.outer:before {
+.border:before {
   left: var(--partsSidePosition);
   background: var(--c1);
 }
-.outer:after {
+.border:after {
   right: var(--partsSidePosition);
   background: var(--c3);
 }
 
 
+/*** 内側の要素 ***/
+.notch {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
 /*** 内側のサークル ***/
-.inner:before, .inner:after {
+.notch:before, .notch:after {
   content: "";
   display: block;
   position: absolute;
@@ -117,8 +93,8 @@
   background: var(--background);
   z-index: 3;
 }
-.inner:before { left: var(--partsSidePosition);}
-.inner:after { right: var(--partsSidePosition);}
+.notch:before { left: var(--partsSidePosition);}
+.notch:after { right: var(--partsSidePosition);}
 
 
 /*** はみ出したサークルのカバー ***/
@@ -131,12 +107,4 @@
   z-index: 4;
 }
 .left { left: var(--partsSidePosition);}
-.right{  right:  var(--partsSidePosition);}
-
-/*** マウスオン時の背景の色と文字の色 ***/
-#borderGradient a:hover{ background: white;}
-#borderGradient a:hover .inner{
-/*
-  background: inherit;
-  color: black;
-*/}
+.right { right: var(--partsSidePosition);}

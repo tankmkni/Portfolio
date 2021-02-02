@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+	<link rel="stylesheet" href="../css/basic.css">
+	<script type="text/javascript" src="../js/common.js"></script>
+	<title>Gradient Effect</title>
+</head>
+<body>
+<h1>メモ：JavaScript マウスイベントの実装</h1>
+<div></div>
+<div><a href="../../notebook/border_gradient/index.html">Border Gradinet</a> で作成したカードに、<br/>
+     <a href="../../notebook/gradient_effect/index.html">Gradient Effect</a> を追加しようしたところで問題発生</div>
+<div>エフェクトがカーソルと少しズレている<br/>
+</div>
+<span>test.html</span><br/>
+<iframe src="./txt/test.txt" onload="setHeight(this)"></iframe>
+<div>共通のコード<br/>
+<a href="./html/view.html?file=../css/border.css">border.css</a><span>&emsp;</span>
+<a href="./html/view.html?file=../css/effect.css">effect.css</a><span>&emsp;</span>
+<a href="./html/view.html?file=../js/cardMove.js">cardMove.js</a><span>&emsp;</span>
+<a href="./html/view.html?file=../js/selectJs.js">selectJs.js</a>
+</div>
+
+<h4>test.htmlの実行</h4>
+<span>test.html?jsSelecter=test1</span><br/>
+<iframe src="./html/test.html?jsSelecter=test1" onload="setHeight(this)"></iframe><br/>
+<spna>&emsp;カーソルとエフェクトがズレている</span><br/>
+<span>test1.js（マウスの動きに合わせてエフェクトを動かすスクリプト）</span><br/>
+<iframe src="./js/test1.js" onload="setHeight(this)"></iframe><br/>
+
+<h4>検証(verificat)</h4>
+<span>verificat.js（各要素の値を表示させるスクリプトを用意）</span><br/>
+<iframe src="./js/verificat.js" onload="setHeight(this)"></iframe><br/>
+<span>test.html?jsSelecter=verificat（マウスオーバーで値を表示）</span><br/>
+<iframe src="./html/test.html?jsSelecter=verificat" onload="setHeight(this)"></iframe><br/>
+<span>
+<code>pageX Y</code> は、マウスイベント発火時のドキュメント全体からの相対位置を取得する<br/>
+イベントオブジェクトの <code>target</code> は、<code>id=inner</code> のタグを取得しているが、<br/>
+<code>offsetLeft Top</code>の基準点が”親要素”になってしまっているようで、<br/>
+補正する値が "0" になってしまっている<br/>
+おそらく、<code>id=border</code> のタグと同じ値を取得できればズレはなくなる<br/>
+基準点の違いがズレとして表われていることがわかった
+</span>
+<div>なぜズレるか？<br/>
+<code>positon</code> の値が原因かと仮定して検証してみたが、原因ではなかった</div>
+<div>原因特定は別な機会に…</div>
+
+<h4>修正(fix)</h4>
+<span>test.html?jsSelecter=fix</span><br/>
+<iframe src="./html/test.html?jsSelecter=fix" onload="setHeight(this)"></iframe><br/>
+<span>fix.js&emsp;（カーソルと位置を合わせる）</span><br/>
+<iframe src="./js/fix.js" onload="setHeight(this)"></iframe><br/>
+<div><code>.getBoundingClientRect()</code> を使うと画面基準の位置を取得できるので、<br/>
+エフェクトをカーソルの位置と合わせて表示できるようになった</div>
+<div>※しかし、この Portfolio のトップページに上記を実装しようとしたが、<br/>
+なぜかマウスイベントが発火せず、実装できなかった…<br/>
+後日調査して実装したい</div>
+<p>参考になったサイト</p><div>
+<a href="https://developer.mozilla.org/ja/docs/Web/API/Element/getBoundingClientRect">Element.getBoundingClientRect()</a><br/>
+</div>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+<br/><br/><br/>
+</body>
+</html>
