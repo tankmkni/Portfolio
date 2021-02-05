@@ -13,13 +13,13 @@
     left:0;
     width: 100%;
     height: 100%;
-    overflow: hidden;  /* 要素からはみ出したら非表示 */
+    overflow: hidden;   /* 要素からはみ出したら非表示 */
 }
 .inner::before {
-    --size: 0;         /* エフェクトのサイズを指定する変数 初期値は「0」*/
+    --size: 0;          /* エフェクトのサイズを指定する変数 初期値は「0」*/
     content: '';
     position: absolute;
-    left:   var(--x); /* 位置はスクリプトで指定される */
+    left:   var(--x);   /* 位置はスクリプトで指定される */
     top:    var(--y);
     width:  var(--size);
     height: var(--size);
