@@ -14,7 +14,7 @@ for i in range(100):print(i%3//2*"Fizz"+i%5//4*"Buzz"or-~i)
 
 # for i in range(100): → 0～99まで繰り返す
 
-# 「%」剰余（割った余り）
+# 「%」剰余算（割った余り）
 # i%3 → 0 か 1 か 2           を返す
 # i%5 → 0 か 1 か 2 か 3 か 4 を返す
 
@@ -31,9 +31,19 @@ for i in range(100):print(i%3//2*"Fizz"+i%5//4*"Buzz"or-~i)
 #test
 # for i in range(100):print(i%3//2+i%5//4)                  #→ 0 か 1 か 2 を表記
 # for i in range(100):print(i%3//2*"Fizz"+i%5//4*"Buzz")    #→ "FizzBuzz" か "Fizz" か "Buzz" か "" を表記
+#
+# i%3//2+i%5//4 が "2" の時に "FizzBuzz"
+#                  "1" の時に "Fizz" か "Buzz"
+#                  "0" の時に ""
+#                      になる
+
 
 # stringに0を掛けると… → "" これって null? → 文字数が「0」のstringと認識？
-# 0 = false ってことのよう
+#     "FizzBuzz" = true
+#     "Fizz"     = true
+#     "Buzz"     = true
+#
+#     ""         = false ってことは間違いないけど
 
 
 
@@ -47,19 +57,17 @@ for i in range(100):print(i%3//2*"Fizz"+i%5//4*"Buzz"or-~i)
 #
 # print("「 -~i 」の場合")
 # for i in range(10):
-#     print( \
-#         "i ="        , i        , sepa , \
-#         "-~i ="      , -~i      , sepa , \
-#         "bin(i) ="   , bin(i)   , sepa , \
-#         "bin(-~i) =" , bin(-~i) )
+#     print( "i ="        ,  i        ,  sepa \
+#          , "-~i ="      ,  -~i      ,  sepa \
+#          , "bin(i) ="   ,  bin(i)   ,  sepa \
+#          , "bin(-~i) =" ,  bin(-~i) )
 #
 # print("\n「 ~i 」の場合")
 # for i in range(10):
-#     print( \
-#         "i ="       , i       , sepa , \
-#         "~i ="      , ~i      , sepa , \
-#         "bin(i) ="  , bin(i)  , sepa , \
-#         "bin(~i) =" , bin(~i) )
+#     print( "i ="       ,  i       ,  sepa \
+#          , "~i ="      ,  ~i      ,  sepa \
+#          , "bin(i) ="  ,  bin(i)  ,  sepa \
+#          , "bin(~i) =" ,  bin(~i) )
 
 # 上記の出力
 # bin() → 引数に指定した整数を、2進数表現の文字列に変換
@@ -94,10 +102,11 @@ for i in range(100):print(i%3//2*"Fizz"+i%5//4*"Buzz"or-~i)
 # 一番右の桁が0だったらその桁を1にする
 # 一番右の桁が1だったら桁上がりをしてからその桁を0にする
 # つまり、１を足してプラスマイナスを反転させて出力されているよう
+# 「 ~xは-(x+1)となる値を返す 」ことを確認できた
 
 # 単純に「 i+1 」じゃダメなのかな？
 # やってみたら、「 or 」との間にスペースが必要だった
-# その分長くなるからかな？
+# その分長くなるから使わないのか？
 
 
 
