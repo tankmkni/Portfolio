@@ -18,7 +18,7 @@ for i in range(100):print(i%3//2*"Fizz"+i%5//4*"Buzz"or-~i)
 # i%3 → 0 か 1 か 2           を返す
 # i%5 → 0 か 1 か 2 か 3 か 4 を返す
 
-// ここまでは初心者でもわかる
+# ここまでは初心者でもわかる
 
 
 
@@ -60,20 +60,20 @@ for i in range(100):print(i%3//2*"Fizz"+i%5//4*"Buzz"or-~i)
 
 # 挙動確認コード
 #
-# saparate = "  :  "
+# sapa = "  :  "
 #
 # print("「 -~i 」の場合")
 # for i in range(10):
-#     print(  "i ="         ,   i         ,  saparate \
-#          ,  "-~i ="       ,   -~i       ,  saparate \
-#          ,  "bin(i) ="    ,   bin(i)    ,  saparate \
+#     print(  "i ="         ,   i         ,  sapa \
+#          ,  "-~i ="       ,   -~i       ,  sapa \
+#          ,  "bin(i) ="    ,   bin(i)    ,  sapa \
 #          ,  "bin(-~i) ="  ,   bin(-~i)  )
 #
 # print("\n「 ~i 」の場合")
 # for i in range(10):
-#     print(  "i ="        ,   i        ,  saparate \
-#          ,  "~i ="       ,   ~i       ,  saparate \
-#          ,  "bin(i) ="   ,   bin(i)   ,  saparate \
+#     print(  "i ="        ,   i        ,  sapa \
+#          ,  "~i ="       ,   ~i       ,  sapa \
+#          ,  "bin(i) ="   ,   bin(i)   ,  sapa \
 #          ,  "bin(~i) ="  ,   bin(~i)  )
 
 # 上記の出力
