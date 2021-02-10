@@ -64,17 +64,17 @@ for i in range(100):print(i%3//2*"Fizz"+i%5//4*"Buzz"or-~i)
 #
 # print("「 -~i 」の場合")
 # for i in range(10):
-#     print(  "i ="         ,   i         ,  sapa \
-#          ,  "-~i ="       ,   -~i       ,  sapa \
-#          ,  "bin(i) ="    ,   bin(i)    ,  sapa \
-#          ,  "bin(-~i) ="  ,   bin(-~i)  )
+#   print( "i ="        , i        , sapa \
+#        , "-~i ="      , -~i      , sapa \
+#        , "bin(i) ="   , bin(i)   , sapa \
+#        , "bin(-~i) =" , bin(-~i)  )
 #
 # print("\n「 ~i 」の場合")
 # for i in range(10):
-#     print(  "i ="        ,   i        ,  sapa \
-#          ,  "~i ="       ,   ~i       ,  sapa \
-#          ,  "bin(i) ="   ,   bin(i)   ,  sapa \
-#          ,  "bin(~i) ="  ,   bin(~i)  )
+#   print( "i ="       , i       , sapa \
+#        , "~i ="      , ~i      , sapa \
+#        , "bin(i) ="  , bin(i)  , sapa \
+#        , "bin(~i) =" , bin(~i)  )
 
 # 上記の出力
 #
