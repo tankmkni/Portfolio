@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../css/basic.css">
+<script type="text/javascript" src="../js/common.js"></script>
+<title>prefix postscript</title>
+
+</head>
+<body>
+<h1>メモ：インクリメント/デクリメントの前置と後置</h1>
+<div>インクリメントとデクリメントの、<br/>
+前置（prefix）と、後置（postscript）での挙動の違いを忘れがちなのでメモ</div>
+<div>なんでもいいんだけど、C言語でテスト<br/>
+     デクリメントでも結果は同じなので、テストはインクリメントのみ</div>
+<span>test.c</span><br/>
+<iframe src="test.txt" onload="setHeight(this)"></iframe><br/><br/>
+<span>test.c の実行結果</span><br/>
+<img src="result.png">
+<div>前置 → インクリメントしてから処理（この場合は代入）<br/>
+     後置 → 処理（この場合は代入）してからインクリメント</div>
+<div>単独で行うなら、前置きでも後置きでも結果は一緒<br/>
+他の処理と組み合わせた時に注意が必要になる</div>
+<div>例えば、下記のようにfor文で条件式に使うと結果が変わる</div>
+<span>test2.c</span><br/>
+<iframe src="test2.txt" onload="setHeight(this)"></iframe><br/><br/>
+<span>test2.c の実行結果</span><br/>
+<img src="result2.png">
+<div>前置 → インクリメントしてから条件式の判定をしているので、ループは １ 回<br/>
+     後置 → 条件式の判定をしてからインクリメントしているので、ループは ２ 回</div>
+<div>特殊な場合以外には影響がなさそうだが、だからこそどこかで足を掬われることになるかもしれないので覚えておきたい</div>
+<p>参考になったサイト</p>
+<a href="https://www.javadrive.jp/cstart/ope/index4.html">前置きと後置き</a><br/>
+<br/><br/>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>

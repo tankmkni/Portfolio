@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+void main() {
+
+	int i = 0;
+	int j = 0;
+
+	// 前置
+	for ( ; ++i < 2; ) {
+		printf("i = %d\n",i);
+	}
+
+	// 後置
+	for ( ; j++ < 2; ) {
+		printf("j = %d\n", j);
+	}
+}
