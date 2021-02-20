@@ -2,15 +2,16 @@
 
 void main() {
 
+	// 変数の用意
 	int i = 0;
 	int j = 0;
 
-	// 前置
+	// 前置の場合
 	for ( ; ++i < 2; ) {
 		printf("i = %d\n",i);
 	}
 
-	// 後置
+	// 後置の場合
 	for ( ; j++ < 2; ) {
 		printf("j = %d\n", j);
 	}

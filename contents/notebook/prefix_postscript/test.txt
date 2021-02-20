@@ -2,13 +2,16 @@
 
 void main() {
 
-	// 前置
+	// 変数の用意
 	int a1 = 0;
-	int a2 = ++a1;
+	int b1 = 0;
+	int a2, b2;
+
+	// 前置の場合
+	a2 = ++a1;
 	printf("a1 = %d：a2 = %d\n", a1, a2);
 
-	// 後置
-	int b1 = 0;
-	int b2 = b1++;
+	// 後置の場合
+	b2 = b1++;
 	printf("b1 = %d：b2 = %d\n", b1, b2);
 }
