@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+void main() {
+
+	// 変数とポインタの用意
+	int a = 10;
+	int* p1 = &a;
+	int* p2 = p1;
+
+	printf("① 変数のアドレスとポインタの値を確認\n");
+	printf("&a = %p\n" , &a );
+	printf("p1 = %p\n" , p1 );
+	printf("p2 = %p\n" , p2 );
+
+	printf("\n② 変数の値とポインタの示すアドレス先の値を確認\n");
+	printf(" a  = %d\n" ,  a  );
+	printf("*p1 = %d\n" , *p1 );
+	printf("*p2 = %d\n" , *p2 );
+
+	printf("\n③ *p2 += 5; を実行する\n");
+	*p2 += 5;
+	printf("*p2 = %d\n" , *p2 );
+	printf(" a  = %d\n" ,  a  );
+
+	printf("\n④ ポインタ自身のアドレスを確認\n");
+	printf("&p1 = %p\n" , &p1 );
+	printf("&p2 = %p\n" , &p2 );
+}

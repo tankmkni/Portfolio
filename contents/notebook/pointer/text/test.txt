@@ -1,0 +1,11 @@
+#inclu#include <stdio.h>
+
+void main() {
+	int a[10];  // 要素10の配列を用意
+	int i;      // for文用の変数
+
+	// 配列要素のアドレスを一つずつ表示させる
+	for (i = 0; i < 10; i++) {
+		printf("&a[%d] = %p\n", i, &a[i]);
+	}
+}

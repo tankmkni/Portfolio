@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../css/basic.css">
+<script type="text/javascript" src="../js/common.js"></script>
+<title>pointer</title>
+<style>
+	h4{ margin-top: 40px; margin-bottom: 5px;}
+	img{ width: 800px;}
+	table{ background-color: white;}
+	th{ color: white; background-color: blue;}
+	td{ width: 250px; text-align: center;}
+</style>
+
+</head>
+<body>
+<h1>メモ：C/C++ ポインタと参照渡し</h1>
+<div>ポインタと参照渡しの違いが良くわからないので、テストコードで復習</div>
+
+<h4>配列のメモリ領域</h4>
+<span>test.c</span><br/>
+<iframe src="text/test.txt" onload="setHeight(this)"></iframe><br/>
+<span>test.c の実行結果</span><br/>
+<img src="img/result.png"><br/>
+<span>４バイト分( int型の大きさ )ずつアドレスが変わっているので、<br/>
+      配列は連続してメモリを確保していることが確認できる<br/>
+      (C言語において配列は，メモリの連続した区間を使うという約束になっている)</span><br/>
+
+<h4>ポインタに代入されるもの</h4>
+<span>test2.c</span><br/>
+<iframe src="text/test2.txt" onload="setHeight(this)"></iframe><br/>
+<span>test2.c の実行結果</span><br/>
+<img src="img/result2.png"><br/>
+<span>①ポインタの「値」は、変数の「アドレス」<br/>
+      ②ポインタの示すアドレス先の値を取得できる<br/>
+      ③ポインタで、アドレス先の変数の値を操作できる<br/>
+      ④ポインタ自身もアドレスを持つ</span><br/>
+
+<h4>配列とポインタ</h4>
+<span>test3.c</span><br/>
+<iframe src="text/test3.txt" onload="setHeight(this)"></iframe><br/>
+<span>test3.c の実行結果</span><br/>
+<img src="img/result3.png"><br/>
+<span>① ポインタの値（アドレス）がデータ型１つ分変化している<br/>
+      &emsp;（この場合は int なので４バイト）<br/>
+      ② バッファオーバーフローしないよう、ループは４回<br/>
+      ③ ２つ前のデータを取得
+</span><br/>
+
+<h4>ポインタと文字列</h4>
+<span>test4.c</span><br/>
+<iframe src="text/test4.txt" onload="setHeight(this)"></iframe><br/>
+<span>test4.c の実行結果</span><br/>
+<img src="img/result4.png"><br/>
+<span>① <br/>
+      ② <br/>
+      ③ 
+</span><br/>
+
+<h4>参照渡し</h4>
+<span>test5.cpp</span><br/>
+<iframe src="text/test5.txt" onload="setHeight(this)"></iframe><br/>
+<span>test5.cpp の実行結果</span><br/>
+<img src="img/result5.png"><br/>
+<span>参照先の出力と全く同じになる</span><br/>
+
+
+<br/><br/><span>違いを整理</span><br/>
+<table border="2">
+<tr><th></th><th>ポインタ変数</th><th>参照変数</th></tr>
+<tr><th>書式</th><td>int* p = &a;</td><td>int& r = a;</td></tr>
+<tr><th>アドレス</th><td>自身のアドレスを持つ</td><td>参照先と同じ</td></tr>
+<tr><th>値</th><td>参照先のアドレス</td><td>参照先の値<br/>(値を持たない、アドレスだけの変数と捉えたほうが正確か)</td></tr>
+</table>
+<div>う～ん、なんとなく違いをわかってきたが、使いわけがよくわからない<br/>
+     どちらかでなくてはならない、のはどういう状況なのだろうか？</div>
+<div>継続調査だね</div>
+<br/><br/><p>参考になったサイト</p>
+<a href="https://monozukuri-c.com/langcpp-funclist-reference/">C++ 参照【関数におけるポインタ渡しと参照渡しの違い】</a><br/>
+<a href="http://www.isc.meiji.ac.jp/~re00079/EX2.2011/20110518.html">第3回：アドレスとポインタ変数　(5/18)</a><br/>
+<a href="https://ja.wikipedia.org/wiki/%E3%83%9D%E3%82%A4%E3%83%B3%E3%82%BF_(%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0)">ポインタ (プログラミング) - Wikipedia</a><br/>
+<a href="https://qiita.com/lon9/items/e70e3b453cb485858062">値渡し、ポインタ渡し、参照渡しの違い</a><br/>
+<br/><br/>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>

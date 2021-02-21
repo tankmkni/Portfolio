@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+void main() {
+
+	// 変数とポインタの用意
+	int a[] = {10,20,30,40,50};  // 要素数 5 の配列
+	int* p = &a[0];              // ポインタに一つ目の要素のアドレスを指定
+	int i;                       // for文用の変数
+
+	printf("① ポインタをfor文でインクリメントしていく\n");
+	for (i = 0; i < 4; i++) {
+		printf("p = %p ： *p = %d\n", p, *p);
+		p++;
+	}
+
+	printf("\n② for文終了後のポインタの値\n");
+	printf("p = %p ： *p = %d\n", p, *p);
+
+
+	printf("\n③ *(p-2)の値\n");
+	printf("*(p-2) = %d\n", *(p - 2));
+}

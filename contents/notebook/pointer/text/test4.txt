@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+void main() {
+
+	// 文字列を定義
+	char a[] = "ABCDE";  // 配列
+	char* p =  "FGHIJ";  // ポインタ
+	int i;               // for文用
+
+	printf("① 一括で出力\n");
+	printf("a = %s ： p = %s\n", a , p );
+
+	printf("\n② 配列を一つずつ出力\n");
+	for (i = 0; i < 5; i++ ) {
+		printf( "a[%d] = %c\n", i, a[i] );
+	}
+
+	printf("\n③ ポインタで一つずつ出力\n");
+	for (i = 0; i < 5; i++) {
+		printf("*(p + %d) = %c\n", i, *(p + i) );
+	}
+}
