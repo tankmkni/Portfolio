@@ -1,0 +1,40 @@
+// フィボナッチ数列を求める
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void main() {
+
+	int range;         // 求める範囲を指定
+	int size = 2;      // 動的配列のサイズ
+	int i = size - 1;  // 配列操作時の添え字指定用(for文でも使用)
+
+	// 動的ポインタ配列をsizeで指定した要素数で用意
+	int* p = (int*)malloc(size * sizeof(int));
+
+	// 配列に数列の最初の数値を代入
+	p[0] = 1;  p[1] = 1;
+
+	// 求める範囲を指定
+	printf("範囲を入力：");
+	scanf_s("%d",&range);
+
+	// rangeの値を超すまで計算を繰り返す
+	while (p[i] <= range) {
+
+		// 動的配列の要素数を１つ増やす
+		p = (int*)realloc(p, ++size * sizeof(int));
+
+		// 増やした要素に直前２つの要素の値の和を代入
+		p[++i] = p[i - 2] + p[i -1];
+	}
+
+	// 動的配列の中身を表示
+	for (i = 0; p[i] <= range; i++) {
+		printf("%d,", p[i]);
+	}
+	printf("\n");
+
+	// メモリの解放
+	free(p);
+}

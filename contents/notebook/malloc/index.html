@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../css/basic.css">
+<script type="text/javascript" src="../js/common.js"></script>
+<title>pointer</title>
+<style>
+	h4{ margin-top: 40px; margin-bottom: 5px;}
+	img{ width: 800px;}
+	table{ background-color: white;}
+	th{ width: 10vw; color: white; background-color: tomato;}
+	td{ width: 70vw; text-align: left;}
+</style>
+
+</head>
+<body>
+<h1>メモ：C 動的配列</h1>
+<div>C言語で動的に配列を扱うことができないかと調べてみたら、
+<code>malloc</code>を使うのだとわかった</div>
+
+<h4>使ってみる</h4>
+<div><a href="https://www.studyplus.jp/445">フィボナッチ数列</a>を題材にテストコードを作成</div>
+<span>test.c</span><br/>
+<iframe src="text/test.txt" onload="setHeight(this)"></iframe><br/>
+<span>test.c の実行結果</span><br/>
+<img src="img/result_50.png"><br/>
+<img src="img/result_1597.png"><br/>
+<img src="img/result_100000.png"><br/>
+<span>幾何学的に桁が増えてく様が魅惑的</span><br/>
+
+<div>変数を共用させたり、インクリメントの前置を利用したり、スッキリしたコードが書けたのでは⁉</div>
+
+<h4>ついでに</h4>
+<div><a href="https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A3%E3%83%9C%E3%83%8A%E3%83%83%E3%83%81%E6%95%B0#%E9%A1%9E%E4%BC%BC%E3%81%AE%E6%95%B0%E5%88%97">トリボナッチ数列</a>にしてみる<br/>
+     </div>
+<span>test2.c</span><br/>
+<span>&emsp;３ヶ所の修正でできた</span><br/>
+<iframe src="text/test2.txt" onload="setHeight(this)"></iframe><br/>
+<span>test2.c の実行結果</span><br/>
+<img src="img/result_1000.png"><br/>
+<img src="img/result_300000.png"><br/><br/>
+
+<span>メモ</span><br/>
+<table border="2">
+<tr><th>①</th><td><code>malloc</code> では <code>sizeof()</code> で全てのサイズは取得できない</td></tr>
+<tr><th>②</th><td><code>malloc</code> や <code>realloc</code> で増やしたりした領域のサイズを知りたければ、別途変数を用意して管理するしかない</td></tr>
+<tr><th>③</th><td><code>realloc</code> で頻繁に領域を変更すると、メモリが散らかってくるのであまりやらないほうが良いよう</td></tr>
+<tr><th>④</th><td>最近のパソコンは性能が良いので、事前に極端に大きなサイズの配列を用意するやり方でも良いよう</td></tr>
+</table>
+
+
+<br/><br/><p>参考になったサイト</p>
+<a href="https://9cguide.appspot.com/19-01.html">配列を自由自在に作る</a><br/>
+<a href="https://teratail.com/questions/119123">mallocで確保した領域のサイズを得たい</a><br/>
+<a href="https://corgi-lab.com/programming/c-lang/sizeof/">sizeofで変数のサイズを取得するときの注意点</a><br/>
+<br/><br/>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>
