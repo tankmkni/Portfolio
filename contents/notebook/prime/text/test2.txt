@@ -23,22 +23,22 @@ void main() {
 			for (exp = 0; n % j == 0; exp++) {
 				n = n / j;
 			}
-			// 表示
+			// べき乗で表示する関数の呼び出し
 			c = print(c, exp, j);
 		}
 		printf("\n");
 	}
 }
 
-// 指数が0以外の時に底を表示
+// 指数(i)によって表示を変える関数
 char print(char c, int i, int j) {
-	if (i >= 2) {  // 指数が2以上なら指数も表示
+	if (i >= 2) {       // 指数が2以上なら指数も表示
 		printf("%c  %d^%d  ", c, j, i);
 		c = '*';
 	}
 	else if (i == 1) {  // 指数が1なら底のみ表示
 		printf("%c  %d  ", c, j);
 		c = '*';
-	}
+	}                   // 指数が0なら何もしない
 	return c;
 }
