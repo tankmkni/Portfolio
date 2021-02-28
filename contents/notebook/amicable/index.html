@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"/>
+<link rel="stylesheet" href="../css/basic.css">
+<script type="text/javascript" src="../js/common.js"></script>
+<title>amicable</title>
+<style>
+	h4{ margin-top: 40px; margin-bottom: 5px;}
+	img{ width: 800px;}
+</style>
+
+</head>
+<body>
+<h1>メモ：C アルゴリズム 友愛数</h1>
+<div><a href="https://ja.wikipedia.org/wiki/%E5%8F%8B%E6%84%9B%E6%95%B0">友愛数 </a>を求めるという課題があったが、自分のコードと回答例を比較してアルゴリズムスキル向上のために記録として残す</div>
+
+<h4>自分のコード</h4>
+<div><a href="https://www.studyplus.jp/445">フィボナッチ数列</a>を題材にテストコードを作成</div>
+<span>test.c</span><br/>
+<iframe src="text/test.txt" onload="setHeight(this)"></iframe><br/>
+<span>test.c の実行結果</span><br/>
+<img src="img/result.png"><br/>
+<div>友愛数はペアなので、何もしないと（220:284 284:220）のように重複したペアも表示してしまう。<br/>
+     なので配列を作ってチェックさせてみたが、回答例を見たらそんなことをしなくても簡単にクリアできる事だった…</div>
+
+<span>test.c&emsp;回答例を基に修正</span><br/>
+<iframe src="text/test2.txt" onload="setHeight(this)"></iframe><br/>
+<div>表示する時のif文の条件式に、<code>i < sum</code> を加えればすむ話だった</br>
+     これなら、完全数を除く部分のコードもいらないのでスッキリする<br/>
+     求められる条件をなるべく単純に考える習慣がまだついていないな…</div>
+
+<span>まだ意味のわからない部分</span><br/>
+<iframe src="text/memo.txt" onload="setHeight(this)"></iframe><br/>
+<div>条件式がやや複雑な気がするけど、なんでこうしなくてはいけないのかがわからない<br/>
+     あとで検証しよう</div>
+
+<br/><br/><p>参考になったサイト</p>
+<a href="https://www.nli-research.co.jp/report/detail/id=61623?site=nli#:~:text=%E5%8F%8B%E6%84%9B%E6%95%B0%E3%81%A8%E3%81%AF,%E3%80%8C%E8%A6%AA%E5%92%8C%E6%95%B0%E3%80%8D%E3%81%A8%E3%82%82%E5%91%BC%E3%81%B0%E3%82%8C%E3%82%8B%E3%80%82">友愛数や婚約数や社交数って知っていますか－数学の世界にも洒落た名称の概念があるんです－</a><br/>
+<a href=""></a><br/>
+<a href=""></a><br/>
+<br/><br/>
+<button onclick="history.back()">戻る</button>
+<br/><br/><br/>
+</body>
+</html>
