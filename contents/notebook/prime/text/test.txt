@@ -1,0 +1,53 @@
+#include <stdio.h>
+
+// プロトタイプ宣言
+int checkPrimeNumber(int);
+int division(int,int);
+
+void main() {
+
+	// 使用する配列と変数
+	int num = 100;
+	int i, div, tmp;
+
+	// 2～numまでの数値の素因数分解をする
+	for (i = 2; i <= num; i++) {
+
+		//　基の数を表示
+		printf("%d = ", i);
+
+		// 変数のリセット
+		tmp = i, div = 1;
+
+		// tmp が素数になるまでループ
+		while(checkPrimeNumber(tmp) == 0){
+
+			// 割った数を割った回数表示
+			tmp = division(tmp, ++div);
+		}
+
+		//最後の素数を表示
+		printf("%d\n", tmp);
+	}
+}
+
+// 素数かどうかを判定(judgが 1 なら素数)
+int checkPrimeNumber(int n) {
+	int i, judg = 1;
+	for (i = 2; i < n; i++) {
+		if (n % i == 0) {
+			judg = 0;
+			break;
+		}
+	}
+	return judg;
+}
+
+// 割りきれなくなるまで割って表示
+int division(int n1, int n2) {
+	while (n1 % n2 == 0 && n1 / n2 != 1) {
+		n1 /= n2;
+		printf("%d × ", n2);
+	}
+	return n1;
+}

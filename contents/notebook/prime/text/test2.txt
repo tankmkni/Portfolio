@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+// プロトタイプ宣言
+char print(char,int,int);
+
+void main() {
+
+	// 使用する配列と変数
+	int range = 100;
+	int i, j, n, exp;
+	char c;
+
+	// 2～range までの数値の素因数分解をする
+	for (i = 2; i <= range; i++) {
+
+		// 基になる数 i を表示
+		printf("%d   =", i);
+
+		// i を素因数分解して表示		
+		for (j = 2, n = i, c = ' '; n != 1; j++) {
+
+			// べき乗の指数を取得
+			for (exp = 0; n % j == 0; exp++) {
+				n = n / j;
+			}
+			// 表示
+			c = print(c, exp, j);
+		}
+		printf("\n");
+	}
+}
+
+// 指数が0以外の時に底を表示
+char print(char c, int i, int j) {
+	if (i >= 2) {  // 指数が2以上なら指数も表示
+		printf("%c  %d^%d  ", c, j, i);
+		c = '*';
+	}
+	else if (i == 1) {  // 指数が1なら底のみ表示
+		printf("%c  %d  ", c, j);
+		c = '*';
+	}
+	return c;
+}
