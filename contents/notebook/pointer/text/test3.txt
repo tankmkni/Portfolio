@@ -13,10 +13,10 @@ void main() {
 		p++;
 	}
 
-	printf("\n② for文終了後のポインタの値は？\n");
+	printf("\n② for文終了後のポインタの値\n");
 	printf("p = %p ： *p = %d\n", p, *p);
 
 
-	printf("\n③ *(p-2)の値\n");
+	printf("\n③ *(p-2)の値は？\n");
 	printf("*(p-2) = %d\n", *(p - 2));
 }
