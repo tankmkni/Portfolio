@@ -3,18 +3,15 @@ using namespace std;
 
 int main() {
 
-	int a = 0;
-	int b = 0;
-
-	// 前置
-	while ( ++a < 10 ) {
+	int a = 0;  // 出力する値
+	while ( ++a < 10 ) {  // 前置
 		cout << " "<< ++a;
 	}
 	cout << endl;
 
-	// 後置
-	while ( b++ < 10 ) {
-		cout << " " << b++;
+	a = 0;  // 値をリセット
+	while ( a++ < 10 ) {  // 後置
+		cout << " " << a++;
 	}
 	cout << endl;
 
