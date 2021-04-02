@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int a = 0;
+	int b = 0;
+
+	// 前置
+	while ( ++a < 10 ) {
+		cout << " "<< ++a;
+	}
+	cout << endl;
+
+	// 後置
+	while ( b++ < 10 ) {
+		cout << " " << b++;
+	}
+	cout << endl;
+
+	return 0;
+}
