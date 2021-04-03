@@ -1,19 +1,24 @@
-#include <iostream>
-using namespace std;
+using System;
 
-int main() {
+namespace test3
+{
+    class Test3
+    {
+        static void Main(string[] args)
+        {
+            int a = 0;
+            while ( ++a < 10)
+            {
+                Console.Write(" {0}", ++a);
+            }
+            Console.WriteLine();
 
-	int a = 0;  // 出力する値
-	while ( ++a < 10 ) {  // 前置
-		cout << " "<< ++a;
-	}
-	cout << endl;
-
-	a = 0;  // 値をリセット
-	while ( a++ < 10 ) {  // 後置
-		cout << " " << a++;
-	}
-	cout << endl;
-
-	return 0;
+            a = 0;
+            while ( a++ < 10 )
+            {
+                Console.Write(" {0}", a++);
+            }
+            Console.WriteLine();
+        }
+    }
 }
